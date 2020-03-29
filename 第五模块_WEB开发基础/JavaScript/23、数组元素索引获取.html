@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组元素索引获取</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var a = [1,5,8,12,3,25,6];
+        console.log(a.indexOf(25));
+        console.log(a.indexOf(5,2));//第二个参数代表从数组的那个索引值开始向后面找，找不到就报-1
+        console.log(a.lastIndexOf(8,2)); //第二个参数代表从数组第一个元素开始到数组索引值为2的元素，中开始查找，
+                                         // 查找时查找的是倒数第一个符合条件的元素，找不到报-1
+    </script>
+</body>
+</html>

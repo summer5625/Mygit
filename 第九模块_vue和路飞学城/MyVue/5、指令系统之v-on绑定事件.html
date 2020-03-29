@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on绑定事件</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css">
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: #52D20C;
+        }
+        .box1{
+            width: 300px;
+            height: 200px;
+            background-color: #1b6d85;
+        }
+        .active{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+
+        <!--使用v-if来绑定事件-->
+        <!--<div class="box" v-on:click="isShow=false" v-if="isShow">{{count}}</div>-->
+        <button v-on:click="showHandler">{{btnText}}</button>
+        <div class="box" v-if="isShow">{{count}}</div>
+
+        <!--使用v-bind来绑定事件-->
+        <button v-on:click="showRed">{{btnText}}</button>
+        <div class="box1" v-bind:class="{active:isRed}">{{count}}</div>
+    </div>
+
+    <script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+
+       //使用v-on绑定事件步骤： 锁定事件源 绑定事件  事件驱动程序
+
+        new Vue({
+            el:'#app',
+            template:``,
+            //data在vue实例化中可以是一个对象，也可以是一个函数，但是在组件中，data必须是一个函数，函数内容一定return一个对象
+            data:function () {
+                return{
+                    count:0,
+                    isShow:true,
+                    btnText:'隐藏',
+                    isRed:false
+                }
+            },
+            //在vue中所有的事件都要声明methods
+            methods:{
+                showHandler(){
+                     console.log(this);
+
+                    if(this.isShow){
+                        this.isShow=false;
+                        this.btnText='显示';
+                    }else {
+                        this.isShow=true;
+                        this.btnText='隐藏';
+                    }
+
+                },
+
+                showRed(){
+                    this.isRed = !this.isRed
+                }
+
+            }
+        })
+
+
+
+    </script>
+</body>
+</html>

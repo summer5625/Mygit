@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery操作DOM</title>
+    <style type="text/css">
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: #ff6700;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">淑媛</div>
+    <div id="box1">站站</div>
+    <div>芳华</div>
+
+    <script type="text/javascript" src="jQuery3.4.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //同js事件步骤相同：事件源、事件、事件驱动程序
+
+            //jQuery标签选择器
+            console.log($('div'));
+            //js中onclick事件，选中的标签如果有多个会自己遍历每个标签，然后添加上事件
+            $('div').click(function () {
+
+                //this是js对象
+                console.log(this.innerText);//获取标签内的文本内容
+                console.log($(this).text());
+                $(this).hide(1000);//隐藏盒子
+            });
+
+
+            //类选择器
+            console.log($('.box'));
+
+            //id选择器
+            console.log($('#box1'));
+        })
+    </script>
+</body>
+</html>

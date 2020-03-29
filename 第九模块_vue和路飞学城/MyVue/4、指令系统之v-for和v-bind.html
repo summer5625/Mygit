@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for和v-bind</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css">
+        .wrap{
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+        .active{
+            background-color: #1b6d85;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" class="wrap" v-bind:class="{active:isY}">
+
+    </div>
+
+    <script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+
+        new Vue({
+            el:'#app',
+            template:`
+                <div>
+                    <ul>
+                        <li v-for="(item, index) in menuList">
+                            <h3>{{index}}菜名:{{item.name}}</h3>
+                            <p>价格:{{item.price}}</p>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li v-for="(value,key) in object">
+                            {{key}}----{{value}}
+                        </li>
+                    </ul>
+                    <div class="wrap" v-bind:class="{active:isY}"></div>
+                    <a v-bind:href="href">百度</a>
+
+                </div>
+            `,
+            data:{
+                menuList:[
+                    {id:1, name:'虎皮青椒', price:20},
+                    {id:2, name:'四喜丸子', price:30},
+                    {id:3, name:'宫保鸡丁', price:35}
+                ],
+                object:{
+                    name:'alex',
+                    age:18,
+                    fav:'啪啪'
+                },
+                isY:true,
+                href:'https://www.baidu.com/'
+            }
+        })
+
+        //v-bind进行属性绑定，所有的属性都可以绑定，注意只要使用了v-bind，后面的字符串一定要是数据属性里面的值
+    </script>
+</body>
+</html>

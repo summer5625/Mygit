@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单控件事件</title>
+    <style type="text/css">
+        .text{
+            color: red;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <p class="name">
+            <label for="username">用户名:</label>
+            <input type="text" name="user" id="username">
+        </p>
+        <p class="pwd">
+            <label for="pwd">密码:</label>
+            <input type="password" name="pwd" id="pwd">
+        </p>
+        <input type="submit" name="">
+    </form>
+
+    <script type="text/javascript">
+        var user = document.getElementById('username');
+        var newNode = document.createElement('span');
+
+        //鼠标在输入框
+        user.onfocus = function () {
+            newNode.innerHTML = '输入用户名';//获得焦点
+            newNode.setAttribute('class','text');
+            user.parentNode.appendChild(newNode);
+        };
+
+        //鼠标离开输入框
+        user.onblur = function () {
+            newNode.innerHTML = '用户错误';
+            newNode.setAttribute('class','text');
+            user.parentNode.appendChild(newNode);
+        };
+
+        var pwd = document.getElementById('pwd');
+        var newPwd = document.createElement('span');
+
+        pwd.onfocus = function () {
+            newPwd.innerHTML = '请输入密码';
+            newPwd.setAttribute('class','text');
+            pwd.parentNode.appendChild(newPwd);
+        };
+
+        pwd.onblur = function () {
+            newPwd.innerHTML = '密码错误';
+            newPwd.setAttribute('class','text');
+            pwd.parentNode.appendChild(newPwd);
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+.top_top{
+    height: 40px;
+    width: 100%;
+    background-color: #333333;
+}
+.top{
+    background-color: #333333;
+    width: 1226px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.top_clear::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.cent{
+
+    height: 100%;
+    float: left;
+}
+.top a{
+    display: inline-block;
+    height: 100%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 13px;
+    color: #808080;
+}
+.top span{
+    color: #434740;
+}
+
+.top a:hover{
+    color: #FFFFFF;
+}
+#shopping:hover{
+    background-color: orange;
+}
+.user{
+    float: right;
+    width: 142px;
+    text-align: center;
+}
+.car{
+    height: 100%;
+    width: 120px;
+    float: right;
+    margin-left: 15px;
+    text-align: center;
+}
+.top_under{
+    height: 100px;
+    width: 100%;
+}
+.under{
+    height: 100%;
+    width: 1226px;
+    margin: 0 auto;
+}
+.under_logo a{
+    display: block;
+    width: 56px;
+    height: 56px;
+}
+.top_under .under_logo{
+    float: left;
+    margin-top: 25px;
+}
+.under .under_list{
+    float: left;
+    width: 820px;
+    height: 88px;
+    padding: 12px 0 0 30px ;
+}
+
+.under_clear::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.top_under li{
+    float: left;
+}
+.top_under li a{
+    display: block;
+    color: #333333;
+    padding: 28px 10px 38px;
+}
+.under_search{
+    float: right;
+    margin-top: 25px;
+    width: 296px;
+}
+.under_search form{
+    position: relative;
+    width: 296px;
+    height: 50px;
+}
+.under_search form input.under_content{
+    width: 223px;
+    height: 48px;
+    border: 1px solid #333333;
+    padding: 0 10px;
+    float: left;
+}
+.under_search form input.under_button{
+    width: 49px;
+    height: 50px;
+    border: 1px solid #333333;
+    float: left;
+    font-size: 25px;
+    margin-left: -1px;
+    padding: 0 10px;
+}
+.under_list a:hover{
+    color: #ff6700;
+}
+.under_content:hover{
+    border: 1px solid orange;
+}
+.under_button:hover{
+    background-color: #ff6700;
+}
+.search_word{
+    position: absolute;
+    font-size: 14px;
+    top: 18px;
+    right: 60px ;
+}
+.search_word a{
+    background-color: #eee;
+    padding: 0 5px;
+    color: #757575;
+}
+.search_word a:hover{
+    cursor: pointer;/*使鼠标悬浮时变小手*/
+    background-color: #ff6700;
+    color: #fff;
+}

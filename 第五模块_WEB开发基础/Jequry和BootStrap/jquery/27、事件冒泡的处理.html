@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件冒泡的处理</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css">
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: #ff6700;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button class="btu">按钮</button>
+        <a href="http://baidu.com">百度</a>
+    </div>
+
+    <script type="text/javascript" src="jQuery3.4.1.js"></script>
+    <script type="text/javascript">
+        //jquery中事件没有捕获阶段
+
+        $(function () {
+
+
+            //如果没有组织冒泡事件时，当点击子级的事件触犯按钮，紧接着父级div的事件也会随后被触发，这是我们不想看到的
+            /*$('.btu').click(function () {
+                alert('按钮被点击了');
+            });
+
+            $('div').click(function () {
+                alert('父亲被点击了');
+            });*/
+
+
+
+            //阻止事件冒泡
+            //在给所有事件回调函数中都会又默认的事件对象，这个默认的对象时原生的js对象
+            $('.btu').click(function (event) {
+                //原生js对象
+                console.log(event);
+                alert('按钮被点击了');
+                event.stopPropagation();//阻止事件冒泡
+            });
+
+            $('div').click(function (event) {
+                alert('父亲被点击了');
+                event.stopPropagation();//阻止事件冒泡
+            });
+
+            $('a').click(function (event) {
+                //event.preventDefault();//阻止默认事件跳转，即阻止点击a标签是跳转到相应网页
+                //event.stopPropagation();//阻止冒泡事件
+                alert('a标签点击了');
+
+                return false;//return false既可以阻止默认事件也可以阻止冒泡
+            });
+
+            $('body').click(function (e) {
+                alert('body被点击了');
+            });
+        })
+    </script>
+</body>
+</html>

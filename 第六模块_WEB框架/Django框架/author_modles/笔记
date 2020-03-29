@@ -1,0 +1,6 @@
+用户认证组件：
+    1、功能：用session记录登录验证状态
+
+    2、前提：用户表使用django自带的auth_user表
+
+    3、向用户表中添加超级用户的命令：python manage.py createsuperuser

@@ -1,0 +1,193 @@
+使用方法：
+
+1、将rbac组件拷贝到项目中
+
+2、删除数据库迁移记录
+
+3、业务系统中用户表结构设计：
+
+    业务表结构中的用户表要和rbac中的用户表有继承关系，如：
+        rbac/models.py文件中：
+
+        class UserInfo(models.Model):
+            """
+            用户表
+            """
+            id = models.AutoField(primary_key=True)
+            name = models.CharField(verbose_name='用户名', max_length=32)
+            password = models.CharField(verbose_name='密码', max_length=64)
+            email = models.CharField(verbose_name='邮箱', max_length=32)
+            roles = models.ManyToManyField(verbose_name='拥有的所有角色', to='Role', blank=True)
+
+            def __str__(self):
+                return self.name
+
+            class Meta:
+                """
+                django以后在做数据迁移时，不再为UserInfo类创建相关的表及表结构，
+                并且此类可以当做父类，被其他model继承，继承后就有了rbac用户表中所有的字段了
+                """
+
+                abstract = True
+
+
+        项目中的models.py文件中
+
+        # 用户表
+        class Userinfo(RbacUserInfo):
+
+            phone = models.CharField(verbose_name='联系方式', max_length=32)
+            level_choices = [(1, 'T1'),(2, 'T2'), (3, 'T3')]
+            level = models.IntegerField(verbose_name='级别', choices=level_choices)
+            depart = models.ForeignKey(verbose_name='部门', to='Department', on_delete=models.CASCADE)
+
+            def __str__(self):
+
+                return self.name
+
+
+4、将业务系统中的用户表的路径写到配置文件中：
+
+    # 业务中的用户表
+    RBAC_USER_MODEL_CLASS = 'app01.models.Userinfo'
+
+    用于在rbac分配权限时读取用户表中的信息
+
+
+5、业务逻辑开发
+
+    将所有的路由都设置一个name别名，用于反向生成url和粒度控制到按钮级别的权限
+
+
+6、权限信息录入
+
+    1.在项目url中添加rbac的路由分发,注意必须设置namespace为rbac
+
+        urlpatterns = [path('rbac/', include(('rbac.urls', 'rbac')))]
+
+    2.使用rbac提供的地址进行操作，来添加用户和权限分配
+
+          http://127.0.0.1:8000/rbac/menu/list/
+          http://127.0.0.1:8000/rbac/multi/permission/
+          http://127.0.0.1:8000/rbac/distribute/permission/
+
+    3.自动发现url配置，自动发现url时需要排除的url
+
+        AUTO_DISCOVER_EXCLUDE = ['/admin/.*', '/login/', '/logout/', '/index/']
+
+
+
+7、编写用户登录逻辑，注意进行权限初始化
+    首先进行权限和菜单的在配置文件中配置：
+
+        PERMISSION_KEY = 'luffy_permission_url_list'
+        MENU_LIST_KEY = 'luffy_permission_menu_list'
+
+
+8、编写首页逻辑
+
+    相关的配置：需要登录但不需要校验的权限配置的url
+
+        # 需要登录，但不用校验的地址权限
+        NO_PERMISSION_LIST = ['/index/', '/logout/']
+
+
+9、通过中间件进行权限的校验
+
+    相关的配置：
+        1.配置中间件
+            MIDDLEWARE = [
+                    'django.middleware.security.SecurityMiddleware',
+                    'django.contrib.sessions.middleware.SessionMiddleware',
+                    'django.middleware.common.CommonMiddleware',
+                    'django.middleware.csrf.CsrfViewMiddleware',
+                    'django.contrib.auth.middleware.AuthenticationMiddleware',
+                    'django.contrib.messages.middleware.MessageMiddleware',
+                    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+                    'rbac.middlewares.rbac.RbacMiddleware',
+                ]
+        2.白名单配置，无需登录就可访问
+            WHITE_LIST = ['/login/', '/admin/.*']
+
+
+10、粒度控制到按钮级别
+
+用户表使用：
+    1、对于用户表使用一对一方式将用户表拆分到两个表中：
+        缺点：用户表数据分散
+        优点：能利用上rbac中的用户管理功能
+
+
+    2、将用户表整合到一张表中（推荐使用）
+        rbac/models.py文件中：
+
+        class UserInfo(models.Model):
+            """
+            用户表
+            """
+            id = models.AutoField(primary_key=True)
+            name = models.CharField(verbose_name='用户名', max_length=32)
+            password = models.CharField(verbose_name='密码', max_length=64)
+            email = models.CharField(verbose_name='邮箱', max_length=32)
+            roles = models.ManyToManyField(verbose_name='拥有的所有角色', to='Role', blank=True)
+
+            def __str__(self):
+                return self.name
+
+            class Meta:
+                """
+                django以后在做数据迁移时，不再为UserInfo类创建相关的表及表结构，
+                并且此类可以当做父类，被其他model继承，继承后就有了rbac用户表中所有的字段了
+                """
+
+                abstract = True
+
+
+        项目中的models.py文件中
+
+        # 用户表
+        class Userinfo(RbacUserInfo):
+
+            phone = models.CharField(verbose_name='联系方式', max_length=32)
+            level_choices = [(1, 'T1'),(2, 'T2'), (3, 'T3')]
+            level = models.IntegerField(verbose_name='级别', choices=level_choices)
+            depart = models.ForeignKey(verbose_name='部门', to='Department', on_delete=models.CASCADE)
+
+            def __str__(self):
+
+                return self.name
+
+        优点：将所有用户信息放到一直张表中（业务的用户表中）
+        缺点：在rbac中所有的关于用户表的操作，不能使用 了
+        注意：
+            相当于用户管理被删除
+            权限分配需要找方法使其操作项目中的用户表
+
+        特别注意：
+            在做数据库迁移时先将rbac/admin.py的代码删除，rbac/models.py中与用户表相关联的表
+            即： roles = models.ManyToManyField(verbose_name='拥有的所有角色', to='Role', blank=True)
+            修改成： roles = models.ManyToManyField(verbose_name='拥有的所有角色', to=Role, blank=True)
+            其他的关联表同样修改掉
+
+
+    3、对于rbac中的代码修改：
+        1.找到rbac中的urls.py将用户管理相关的url注释掉
+        2.在权限分配时，读取用户表变成通过配置文件来进行指定导入
+
+
+    4、权限初始化时，settings.py中配置要加上：
+        PERMISSION_KEY = 'luffy_permission_url_list'
+        MENU_LIST_KEY = 'luffy_permission_menu_list'
+
+
+    5、使用自动发现项目中的url时，在ettings.py中配置要加上，排除的权限列表：
+        AUTO_DISCOVER_EXCLUDE = ['/admin/.*', '/login/', '/logout/', '/index/']
+
+
+    6、用户登录验证逻辑：
+        写完用户登录逻辑，/index/，/logout/，/login/三个权限不应该，分配，要每个用户都自动拥有，需要设置用户登录后
+        默认都能访问
+
+
+
+

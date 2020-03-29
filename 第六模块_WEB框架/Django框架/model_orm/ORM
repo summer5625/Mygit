@@ -1,0 +1,40 @@
+生成表模型
+1、配置settings.py中的数据库
+
+2、在应用文件夹里的models.py文件中创建数据表
+
+3、在项目名称文件夹里找到__init__.py文件导入驱动pymysql
+
+4、设置orm打印转换sql过程，在settings.py中配置
+
+5、通过两条数据库迁移指令创建数据表
+    python manage.py makemigrations
+    python manage.py migrate
+
+
+静态文件读取时的一个坑：
+    在修改图书信息时，在点击编辑后，跳转到编辑页面时读取的bootstrap和jQuery文件失败
+    最开始时在HTML文件中导入：
+    <link rel="stylesheet" type="text/css" href="../../static/bootstrap-3.3.7/css/bootstrap.css">
+    <script type="text/javascript" src="../../static/jQuery3.4.1.js"></script>
+    <script type="text/javascript" src="../../static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+
+    在读取时网页上读取的路径却出错了查看网页上的network里面路径是：
+
+    http://127.0.0.1:8000/BMS/show/static/bootstrap-3.3.7/css/bootstrap.css
+
+    正确路径应该是：
+    http://127.0.0.1:8000/static/bootstrap-3.3.7/css/bootstrap.css
+
+    解决办法：
+        在chang_books.html文件的最上方加入下面语句：{% load staticfiles %}
+        再导入文件时按照下面格式导入：
+        <script type="text/javascript" src="{% static '/jQuery3.4.1.js' %}"></script>
+        <script type="text/javascript" src="{% static '/bootstrap-3.3.7/js/bootstrap.min.js' %}"></script>
+
+    猜想：
+        在整个图书管理系统中添加图书和修改图书都会读到上面出错的页面，但奇怪的是在添加页面读取时时没有问题的，但偏偏在修改时加载不了静态文件
+
+        两个的区别是在urls.py文件中添加的url是用path匹配，修改的是用re_path匹配,
+        添加时跳转的路径是固定的，修改时跳转的路径是变化的
+

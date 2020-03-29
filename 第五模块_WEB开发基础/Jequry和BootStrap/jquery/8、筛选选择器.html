@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>筛选选择器,重点</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css">
+        div{
+            color: pink;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <p>
+            <span class="active">love</span>
+        </p>
+        <P class="item">站站</P>
+        <P id="light">光光</P>
+        <P>淑媛</P>
+        <P>芳华</P>
+        <P>小猪</P>
+        <P>老黑</P>
+    </div>
+
+    <script type="text/javascript" src="jQuery3.4.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            //find后代选择器，查找子子孙孙
+            $('.box').find('p').css({color:'red',fontSize:'20px'});
+            $('.box').find('p>.active').css('font-weight','bold');
+
+
+            //整条语句都是jQuery对象，可以直接添加多个方法，这种叫链式编程
+            $('.box').find('.item').css({color:'red',fontSize:'10px'}).click(function () {
+                $(this).css('color','green');
+            });
+
+            //children子代选择器，只选择亲儿子
+            $('.box').children('#light').css('color','blue');
+
+            //parent父代选择器，选择亲爹
+            $('.active').parent('p').click(function () {
+                alert('亲爹啊');
+            });
+
+            //eq(index),选择index的序号的元素
+            $('.box').find('p').eq(3).css('color','pink');
+        })
+    </script>
+</body>
+</html>

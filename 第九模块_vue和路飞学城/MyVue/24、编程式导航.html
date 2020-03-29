@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+
+    <div id="app"></div>
+    <script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+    <!--1、引入vue-router对象，返回一个全局的VueRouter对象，提供两个全局的组件：outer-link  router-view-->
+    <script type="text/javascript" src="./node_modules/vue-router/dist/vue-router.js"></script>
+    <script type="text/javascript">
+
+        //2、让vue使用该VueRouter对象创建
+        Vue.use(VueRouter);
+
+        var Userp = {
+			template:`
+				<div>用户1</div>
+			`,
+            //获取路由参数
+            created(){
+			    console.log(this.$route.params);
+			    console.log(this.$router);
+            }
+		};
+		var Userq = {
+			template:`
+				<div>用户2</div>
+			`,
+            created() {
+			    console.log(this.$route.query);
+			    console.log(this.$router);
+            }
+        };
+
+        //3、创建一个路由对象
+        var router = new VueRouter({
+
+            //配置路由对象
+            routes:[
+                {
+                    //动态路由参数以 : 开头
+                    path:'/user/:userID',
+                    name:'userp',  //给路由命名，必须时候name
+                    component:Userp
+                },
+                {
+                    path:'/user',
+                    name:'userq',
+                    component:Userq
+                }
+            ]
+        });
+        //router-link默认会被渲染成a标签，to会被渲染成href属性
+        //router-view路由组件的出口，页面显示
+        var App = {
+            template:`
+                <div>
+                    <button @click="paramsHandler">用户1</button>
+                    <button @click="queryHandler">用户2</button>
+
+                    <router-view></router-view>
+                </div>
+
+            `,
+            methods:{
+                paramsHandler(){
+                    //编程式导航
+                    this.$router.push({name:'userp', params:{userTD:123}});
+                },
+                queryHandler(){
+                    this.$router.push({name:'userq', query:{userTD:123}});
+                }
+            }
+        };
+
+        new Vue({
+            el:'#app',
+            components:{
+                App
+            },
+            router,  //不加router路由对象会报错
+            template:`<App></App>`,
+        })
+
+
+
+    </script>
+</body>
+</html>
+</html>

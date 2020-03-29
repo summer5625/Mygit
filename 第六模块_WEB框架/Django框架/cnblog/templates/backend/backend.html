@@ -1,0 +1,35 @@
+{% extends 'backend/base.html' %}
+
+{% block content %}
+
+    <table class="table .table-striped">
+        <tr>
+            <th class="post-title">标题</th>
+            <th class="publish-status">发布状态</th>
+            <th>评论数</th>
+            <th>点赞数</th>
+            <th>操作</th>
+            <th>操作</th>
+        </tr>
+        {% for article in articles_list %}
+
+        <tr>
+            <td>
+                <a href="/blog/{{ article.user.username }}/articles/{{ article.aid }}">{{ article.title }}</a>
+                ({{ article.create_time|date:'Y-m-d H:i' }})
+            </td>
+            <td class="text-center">发布</td>
+            <td class="text-center">{{ article.comment_count }}</td>
+            <td class="text-center">{{ article.up_count }}</td>
+            <td class="text-center">
+                <a href="/blog/{{ article.user.username }}/change/{{ article.aid }}">编辑</a>
+            </td>
+            <td class="text-center">
+                <a href="/blog/{{ article.user.username }}/delete/{{ article.aid }}">删除</a>
+            </td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+{% endblock %}

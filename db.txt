@@ -1,0 +1,132 @@
+渗透测试攻防环境搭建
+
+
+
+一、Window7、2003、2008安装
+
+二、Kail安装
+tar -zxvf
+cd vmware-tools-distrib
+./vmware-install.pl
+/etc/network/interfaces
+
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information， see interfaces（5）。
+# The loopback network interface
+
+# 配置ip地址
+auto lo
+iface lo inet loopback
+auto eth0　　//指定eth0网卡
+iface eth0 inet static //静态地址（动态获取用dhcp）
+address 192.168.0.133 //IP地址
+netmask 255.255.255.0 //子网掩码
+gateway 192.168.0.1 //默认网关
+
+/etc/resolv.conf
+# /etc/init.d/networking restart  # 重启网络
+
+
+
+三、apache/nginx/Lighttpd/IIS7/8/6/Redis/tengine/tomcat 共22种组合环境搭建
+1、phpcms搭建
+2、bwapp
+3、webug3.0
+4、pikachu
+5、DVWA      admin  password
+6、其它导入
+
+有关IIS注意事项：win7 win2008 IIS7快速安装PHP http://phpstudy.php.cn/a.php/182.html
+
+
+四、asp+aspx+mssql sql注入环境搭建
+1、各类asp、aspx攻防程序部署
+
+ASP.NET v4.0.30319
+
+五、tomcat+Struts环境搭建
+
+六、jboss环境搭建
+1、安装jdk配置环境变量
+新建系统变量，变量名为：JAVA_HOME   变量值：C:\Program Files\Java\jdk1.6.0_45\
+变量名：Path    变量值： %JAVA_HOME%\bin;%JAVA_HOME%\jre\bin
+变量名：CLASSPATH    变量值：.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar
+
+2、下载jboss并配置运行环境变量
+新建系统变量，变量名为：JBOSS_HOME   变量值：c:\jboss
+变量名为：SystemRoot   变量值：C:\Windows
+
+新建用户变量，变量名为：Path   变量值：%SystemRoot%/system32;%SystemRoot%;%JBOSS_HOME%\bin
+
+3、环境变量配好之后，需要为JBOSS添加用户，调用dos窗口，输入命令add-user
+可参考：https://blog.csdn.net/yilisha258/article/details/80287913
+
+4、运行C:\jboss\bin\run.bat  输入http://localhost:8080/   admin admin登录
+
+5、端口及ip修改
+进入 jboss-6.1.0.Final\server\default\deploy\jbossweb.sar
+编辑 server.xml 搜索 “8080″和${jboss.bind.address}改为80及ip为：0.0.0.0
+或直接运行run.bat -b 0.0.0.0
+
+6、登录控制台找到web application(war)s--add anew resource--选择war文件上传--
+访问：http://192.168.0.86:8080/test3693/
+
+七、weblogic环境搭建
+
+下载地址：https://pan.baidu.com/s/1EW7T2osa69LRbulUBgcERw  下载密码: zm8x
+
+
+---------------------------------------------------
+导出
+#mysql -h localhost -uroot -p
+
+mysqldump -h127.0.0.1 -P3306 -uroot -proot sql>c:\sql.sql
+
+导入
+mysql -h127.0.0.1 -uroot -proot sql < sql.sql
+也可以通过source 命令导入
+source 命令导入数据库需要先登录到数库终端：
+
+mysql> create database abc;      # 创建数据库
+mysql> use abc;                  # 使用已创建的数据库
+mysql> set names utf8;           # 设置编码
+mysql> source c:/sql.sql  # 导入备份数据库
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,72 @@
+路由分发
+
+
+1、在执行path('app01', include('app01.urls'))进行路由分发是，要调用conf.py中的额include函数
+    def include(arg, namespace=None):
+        .....
+
+
+        return (urlconf_module, app_name, namespace)
+
+    该函数返回一个三个元素的元组
+
+    在使用路由分发时就有三种方式了：
+
+    1.方式一：
+        from django.contrib import admin
+        from django.urls import path, include
+
+        urlpatterns = [
+            path('admin/', admin.site.urls),
+            path('app01', include('app01.urls'))
+        ]
+
+    2.方式二：
+        利用include函数返回的是三个元素的元组，构造：
+           from django.contrib import admin
+           from app01 import urls
+            urlpatterns = [
+                path('wb/', (url, app_name, namespace))  第一个参数是urls文件对象，通过此对象可以获取urls文件对象里面分发的url
+            ]
+
+        在resolvers.py源码内部的url_patterns函数的内部，读取路由时从下面的代码可以看出，
+        如果urls文件对象里面有urlpatterns属性，那么子路由就从该路由中获取该属性
+        如果没有urlpatterns属性，那么子路由就是第一个参数
+                patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+
+
+    3.方式三：
+        urlpatterns = [
+                path('wb/', ([
+                    path('app01', views.login),
+                    path('app01', views.logout))
+                ], app_name, namespace))
+            ]
+
+        将第一个元素改成url的列表，这样就少建一个urls的文件了
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

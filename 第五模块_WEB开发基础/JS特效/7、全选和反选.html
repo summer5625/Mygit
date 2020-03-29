@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全选和反选</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #box{
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 20px;
+            width: 600px;
+            margin: 100px auto;
+        }
+        #foot{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="title">
+            <h3>酷狗音乐盒</h3>
+            <hr>
+        </div>
+        <div id="content">
+            <input type="checkbox">光辉岁月<br>
+            <input type="checkbox">海阔天空<br>
+            <input type="checkbox">再见理想<br>
+            <input type="checkbox">不再犹豫<br>
+            <input type="checkbox">岁月无声<br>
+            <input type="checkbox">真的爱你<br>
+            <input type="checkbox">午夜怨曲<br>
+            <input type="checkbox">愿我能<br>
+            <input type="checkbox">遥望<br>
+            <input type="checkbox">情人<br>
+            <input type="checkbox">我们的天空<br>
+            <input type="checkbox">大地<br>
+        </div>
+        <div id="foot">
+            <hr>
+            <button id="allSelect">全选</button>
+            <button id="cancelSelect">取消全选</button>
+            <button id="reverseSelect">反选</button>
+        </div>
+
+        <script type="text/javascript">
+            function $(id) {
+                return typeof id === 'string'?document.getElementById(id):null;
+            }
+
+            //获取所有复选框
+            var allSelect = document.getElementsByTagName('input');
+
+            //全选
+            $('allSelect').onclick = function () {
+                for(var i=0; i < allSelect.length;i++){
+                    allSelect[i].checked = true;
+                }
+            };
+
+            //取消选中
+            $('cancelSelect').onclick = function () {
+                for(var i=0; i < allSelect.length;i++){
+                    allSelect[i].checked = false;
+                }
+            };
+
+            //反选
+            $('reverseSelect').onclick = function () {
+                for(var i=0; i < allSelect.length;i++){
+                    allSelect[i].checked = !allSelect[i].checked;//取原来值得反
+                    /*if (allSelect[i].checked) {
+                        allSelect[i].checked = false;
+                    }
+                    else {
+                        allSelect[i].checked = true;
+                    }*/
+                }
+            };
+        </script>
+    </div>
+</body>
+</html>

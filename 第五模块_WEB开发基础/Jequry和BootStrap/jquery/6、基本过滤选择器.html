@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基本过滤选择器</title>
+    <style type="text/css">
+        ul{
+
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="item">淑媛</li>
+        <li>芳华</li>
+        <li>站站</li>
+        <li>光光</li>
+        <li>小猪</li>
+    </ul>
+    <script type="text/javascript" src="jQuery3.4.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            //写法$('ul li:eq()0')
+
+            //:eq(index)选择相应的序号的元素
+            $('ul li:eq(1)').css('color','red');
+
+            //:gt(index)选择序号小于index的元素
+            $('ul li:gt(0)').css('color','green');
+
+            //:lt(index)选择序号大于index的元素
+            $('ul li:lt(4)').css('color','blue');
+
+            //:odd选择序号为奇数的元素
+            $('ul li:odd').css('background','black');
+
+            //:even选择序号为偶数的元素
+            $('ul li:even').css('background','yellow')
+
+            //选择第一元素
+            $('ul li:first').css('background','pink')
+
+            //选择最后一个元素
+            $('ul li:last').css('background','purple')
+
+        })
+    </script>
+</body>
+</html>

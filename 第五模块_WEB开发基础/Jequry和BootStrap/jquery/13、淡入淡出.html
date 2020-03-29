@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>淡入淡出</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css">
+        .box{
+            width: 200px;·
+            height: 200px;
+            background-color: #ff6700;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button id="in">淡入</button>
+    <button id="out">淡出</button>
+    <button id="of">开关</button>
+    <div class="box"></div>
+
+    <script type="text/javascript" src="jQuery3.4.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            $('#in').click(function () {
+                $('.box').fadeIn(2000);
+            });
+
+
+            $('#out').click(function () {
+                $('.box').fadeOut(2000);
+            });
+
+
+            $('#of').click(function () {
+                $('.box').stop().fadeToggle(2000);
+            });
+        })
+    </script>
+</body>
+</html>

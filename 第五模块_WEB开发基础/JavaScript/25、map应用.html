@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>map应用</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //
+        var msg = [
+            {name:"淑媛",age:25},
+            {name:"王战",age:26},
+            {name:"芳华",age:23}
+        ];
+        var name = msg.map(function (item) {
+            return item.name;//合并成了一个字符串
+
+        });
+        var age = msg.map(function (item) {
+            return item.age;
+        });
+        console.log(name);
+        console.log(age);
+    </script>
+</body>
+</html>

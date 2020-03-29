@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>和风天气API</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/weather.css">
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="weather" id="now">
+            <div id="title">
+                <span id="address">宁德</span>
+                <span>
+                    <a href="#">切换</a>
+                </span>
+            </div>
+            <div id="content">
+                <div id="picture">
+                    <img src="image/100.png">
+                </div>
+                <div id="contentText">
+                    <div id="condNum">
+                        <span id="temp">30°</span>
+                        <span id="wind">东北风:5~6级</span>
+                    </div>
+                    <div id="condText">
+                        <span id="weaText">晴</span>
+                        <span id="air">能见度:高</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="weather" id="date">
+            <div class="wD" id="today">
+                <p class="days">今天</p>
+                <div class="weaP">
+                    <img src="image/100.png">
+                </div>
+                <p class="temp">21°/29°</p>
+            </div>
+            <div class="wD" id="tomorrow">
+                <p class="days">明天</p>
+                <div class="weaP">
+                    <img src="image/100.png">
+                </div>
+                <p class="temp">21°/29°</p>
+            </div>
+            <div class="wD" id="afterTomorrow">
+                <p class="days">后天</p>
+                <div class="weaP">
+                    <img src="image/100.png">
+                </div>
+                <p class="temp">21°/29°</p>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="jQuery3.4.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            function threeWeather(){
+                var result;
+                $.ajax({
+                    url:'https://free-api.heweather.net/s6/weather/forecast?location=ningde&key=a7fd8ecb61eb474fa182a7975b6fc2e5',
+                    type:'get',
+                    async: false,//修改成同步可返回值
+                    success:function (data) {
+                        result = data.HeWeather6[0].daily_forecast;
+                    },
+                    error:function (er) {
+                        console.log(er);
+                        result = null;
+                    }
+                });
+
+                return result;
+            }
+
+            function nowWeather() {
+                var result;
+                $.ajax({
+                    url:'https://free-api.heweather.net/s6/weather/now?location=xinyang&key=a7fd8ecb61eb474fa182a7975b6fc2e5',
+                    type:'get',
+                    async: false,//修改成同步可返回值
+                    success:function (data) {
+                        result = data.HeWeather6[0].now;
+                    },
+                    error:function (er) {
+                        console.log(er);
+                        result = null;
+                    }
+                });
+
+                return result;
+            }
+
+            function airRank(visNum) {
+                var rank;
+                visNum = Number(visNum);
+                if (visNum <= 2){
+                    var dis = visNum * 1000;
+                    switch (true) {
+                        case 0 <= dis < 50:
+                            rank = '大雾';
+
+                        case 50 <= dis < 200:
+                            rank = '浓雾';
+
+                        case 200 <= dis < 500:
+                            rank = '雾';
+
+                        case 500 <= dis < 1000:
+                            rank = '中雾';
+
+                        case 1000 <= dis <= 2000:
+                            rank = '轻雾';
+
+                    }
+                } else {
+                    switch (true) {
+                        case 2 <= visNum < 4:
+                            rank = '能见度:差';
+
+                        case 4 <= visNum < 10:
+                            rank = '能见度:中等';
+
+                        case 10 <= visNum < 20:
+                            console.log('能见度:良好');
+                            rank = '能见度:良好';
+
+                        case 20 <= visNum < 50:
+                            rank = '能见度:很好';
+
+                        case 50 <= visNum:
+                            rank = '能见度:极好';
+                    }
+                }
+                return rank;
+
+            }
+            //从当前天气获取：cond_code  cond_txt  tmp  wind_dir（风向）  wind_sc（风力） vis（可见度）
+            //从未来天气获取：cond_code  tmp_ma   tmp_min
+
+            //今天天气
+            var todayWeather = nowWeather();
+            $('#picture img').attr('src',`image/${todayWeather.cond_code}.png`);
+            $('#temp').text(`${todayWeather.tmp}°`);
+            $('#wind').text(`${todayWeather.wind_dir}:${todayWeather.wind_sc}级`);
+            $('#weaText').text(todayWeather.cond_txt);
+            $('#air').text(`${airRank(todayWeather.vis)}`);
+
+            var futureWeather = threeWeather();
+            var today = futureWeather[0];
+            var tomorrow = futureWeather[1];
+            var afterDay = futureWeather[2];
+
+            //今天
+            $('#today .weaP img').attr('src',`image/${today.cond_code_d}.png`);
+            $('#today .temp').text(`${today.tmp_max}°/${today.tmp_min}°`);
+
+            //明天
+            $('#tomorrow .weaP img').attr('src',`image/${tomorrow.cond_code_d}.png`);
+            $('#tomorrow .temp').text(`${tomorrow.tmp_max}°/${tomorrow.tmp_min}°`);
+
+            //后天
+            $('#afterTomorrow .weaP img').attr('src',`image/${afterDay.cond_code_d}.png`);
+            $('#afterTomorrow .temp').text(`${afterDay.tmp_max}°/${afterDay.tmp_min}°`);
+
+        })
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

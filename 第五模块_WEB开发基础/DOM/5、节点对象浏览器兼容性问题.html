@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>节点对象浏览器兼容性问题</title>
+</head>
+<body>
+     <div>上一个兄弟</div>
+     <div id="father">
+         <p>淑媛</p>
+         <p>站站</p>
+     </div>
+     <div>下一个兄弟</div>
+
+    <script type="text/javascript">
+        var getObj = document.getElementById('father');
+        console.log(getObj.childNodes);//上面的换行空格也算做一个节点对象，需要剔除
+
+        //获取子节点
+        function getNode(node) {
+            var nodes = node.childNodes;
+            var relNode = [];
+            for (var i=0;i < nodes.length;i++){
+                if (nodes[i].nodeType === 1){
+                    relNode.push(nodes[i]);
+                }
+            }
+            return relNode;
+        }
+        var a = getNode(getObj);
+        console.log(a);
+
+        //获取兄弟节点
+        console.log(getObj.nextSibling);//由于有空格，获取到的下一个兄弟节点是换行
+        function getBother(nodeObj) {
+            var botherNode = nodeObj.nextSibling;
+            while (botherNode && botherNode.nodeType !== 1){
+                botherNode = botherNode.nextSibling;
+            }
+            return botherNode;
+        }
+        var bother = getBother(getObj);
+        console.log(bother);
+
+
+        function getPrev(nodeObj) {
+            var botherNode = nodeObj.previousSibling;
+            while (botherNode && botherNode.nodeType !== 1){
+                botherNode = botherNode.previousSibling;
+            }
+            return botherNode;
+        }
+        var Prev = getPrev(getObj);
+        console.log(Prev);
+
+
+    </script>
+</body>
+</html>

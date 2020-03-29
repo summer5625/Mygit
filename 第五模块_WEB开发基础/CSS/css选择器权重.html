@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css选择器权重</title>
+    <!--权重越大优先级越高：
+        内联样式：1000
+        id选择器：100
+        类选择器：10
+        元素选择器：1
+        权重计算永不进位-->
+    <style type="text/css">
+        /*选择器权重计算先从id选择器，然后是类选择器，最后是元素选择器一共是三位数字，有多少个对应选择器就对应数字就多大*/
+        /*这个为元素选择器,共有三个元素选择器，没有id和类选择器，则权重为：003*/
+        /*html body div{
+            color: blue;
+        }*/
+        /*类选择器，权重为：010*/
+        /*.a{
+            color: violet;
+        }*/
+
+        /*id选择器，权重：100*/
+        /*#b{
+            color: red;
+        }*/
+
+        /*001*/
+        p{
+            color: gray;
+        }
+
+        /*003*/
+        div div p{
+            color: red;
+        }
+
+        /*010*/
+        .ac{
+            color: violet;
+        }
+
+        /*011*/
+        div .ac{
+            color: blue;
+        }
+
+        /*012*/
+        div div .ac{
+            color: aquamarine;
+        }
+
+        /*120*/
+        #box1 .w1 .ac{
+            color: brown;
+        }
+
+        /*201*/
+        #box1 #box2 p{
+            color: yellow;
+        }
+
+        /*这里选择器没有选中对应的标签，标签时继承父亲的选择器属性，继承来的选择器的属性权重非常低，基本上是0*/
+        #box1 #box2 #box3{
+            color: chartreuse;
+        }
+
+        /*继承来属性*/
+        .co{
+            color: chartreuse;
+            font-size: 15px;
+        }
+
+        /*选中标签*/
+        .co ul li{
+            color: black;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<!--    <div>投资</div>-->
+<!--    <div class="a" id="b">理财</div>-->
+    <div class="w1" id="box1">
+        <div class="w2" id="box2">
+            <div class="w3" id="box3">
+                <p class="ac">什么颜色</p>
+            </div>
+        </div>
+    </div>
+    <div class="co">
+        <ul>
+            <li>小米手机</li>
+        </ul>
+    </div>
+</body>
+</html>

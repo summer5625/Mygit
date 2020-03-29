@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>math数学对象</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //Math属性
+        /*console.log(Math.E);//自然常数
+        console.log(Math.PI);//圆周率*/
+
+        //求对数
+        /*console.log(Math.LN2);//返回 2 的自然对数（约等于0.693）
+        console.log(Math.LN10);//返回 10 的自然对数（约等于2.302）
+        console.log(Math.LOG2E);//返回以 2 为底的 e 的对数（约等于 1.414）
+        console.log(Math.LOG10E);//返回以 10 为底的 e 的对数（约等于0.434）*/
+        //
+        /*console.log(Math.SQRT2);//返回 2 的平方根（约等于 1.414）
+        console.log(Math.SQRT1_2);//返回返回 2 的平方根的倒数（约等于 0.707）*/
+
+        //取最大值和最小值min(),max()
+        //console.log(Math.max(25,78,2,5,84,23)); //不能是数组,必须是一个个的数值类型
+        //console.log(Math.min(25,78,2,5,84,23));
+        var a = [25,78,2,5,84,23];
+        //console.log(Math.max.apply(null,a)); //里面必须有两个参数，第一个参数是空null，Math.max.apply(Function, Args)
+                                             //Function为要调用的方法，Args是参数列表，当Function为null时，默认为上文
+        //console.log(Math.min.apply(null,a));
+
+
+
+        //取值函数ceil(),floor(),round()
+        var b = 32.4689;
+        var c = 32.8689;
+        //console.log(Math.ceil(b));//向上取整，不管小数点后是多少，整数位都进1
+        //console.log(Math.floor(c));//向下取整，不管小数点后是多少，小数位都全部舍去都不进
+        //console.log(Math.round(b));//取整数，四舍五入
+
+        //取随机数random()
+        console.log(Math.random());//随机去0-1之间的任何小数，不包括1
+
+
+
+
+
+
+    </script>
+</body>
+</html>

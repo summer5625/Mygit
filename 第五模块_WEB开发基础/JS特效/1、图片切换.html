@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片切换</title>
+</head>
+<body>
+    <img src="image/a1.jpg" id="scenery" width="300px"><br>
+    <button id="prev">上一张</button>
+    <button id="next">下一张</button>
+
+    <script type="text/javascript">
+        var scenery = document.getElementById('scenery');
+        var nextBtn = document.getElementById('next');
+        var prevBtu = document.getElementById('prev');
+        var minIndex = 1, maxIndex = 6, currentIndex = minIndex;
+
+        //监听按钮点击
+        nextBtn.onclick = function () {
+            if (currentIndex === maxIndex){
+                currentIndex = minIndex;
+            }
+            else {
+                currentIndex++;}
+             scenery.setAttribute('src',`image/a${currentIndex}.jpg`);
+        };
+
+        prevBtu.onclick = function () {
+            if (currentIndex === minIndex){
+                currentIndex = maxIndex;
+            }
+            else {
+                currentIndex--;
+            }
+            scenery.setAttribute('src',`image/a${currentIndex}.jpg`);
+        };
+
+
+    </script>
+</body>
+</html>

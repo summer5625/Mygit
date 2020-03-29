@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Z-index属性</title>
+    <style type="text/css">
+        .a{
+            position: relative;
+            width: 200px;
+            height: 40px;
+            background-color: royalblue;
+            border: 2px solid gold;
+            z-index: auto; /*z-index属性只能用在定位的元素上，默认auto；z-index数值越大层级就越高，就优先压盖别的元素
+                            定位属性元素的z-index值大于没有定位属性的元素，z-index值只能是正整数
+                            z-index有从父现象，如果父级元素z-index数值比别的小，那么无论子级元素z-index值设多大都不起作用*/
+        }
+        .b{
+            position: relative;
+            width: 200px;
+            height: 40px;
+            background-color: royalblue;
+            border: 2px solid gold;
+            top: -30px;
+            left: 50px;
+            z-index: 100;
+        }
+        .c{
+            position: relative;
+            width: 200px;
+            height: 40px;
+            background-color: royalblue;
+            border: 2px solid gold;
+            top: -50px;
+            left: 100px;
+            z-index: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="aa" style="position: relative;z-index: 15">
+        <div class="a">A</div>
+    </div>
+    <div class="bb" style="position: relative;z-index: 10">
+        <div class="b">B</div>
+    </div>
+    <div class="c">C</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>location</title>
+</head>
+<body>
+    <form>
+        <input type="text" name="user">
+        <input type="password" name="pwd">
+        <input type="submit">
+    </form>
+    <script type="text/javascript">
+        console.log(location.href);//获取完整地址
+        console.log(location.host);//获取网页地址和端口
+        console.log(location.port);//获取网页端口
+        console.log(location.hostname);//获取网页地址
+        console.log(location.pathname);//获取路径
+        console.log(location.protocol);//获取地址前缀的http
+        console.log(location.search);//获取用户输入内容
+    </script>
+
+<!--<span>luffy</span>-->
+<!--<script>-->
+
+<!--    var oSpan = document.getElementsByTagName("span")[0];-->
+
+<!--    oSpan.onclick = function () {-->
+<!--        location.href = "http://www.luffycity.com";   //点击span时，跳转到指定链接-->
+<!--        window.open("http://www.luffycity.com","_blank");  //方式二 跳转-->
+<!--    }-->
+
+<!--</script>-->
+</body>
+</html>

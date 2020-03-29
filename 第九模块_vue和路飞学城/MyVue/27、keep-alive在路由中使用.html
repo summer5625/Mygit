@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+
+    <div id="app"></div>
+    <script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+    <!--1、引入vue-router对象，返回一个全局的VueRouter对象，提供两个全局的组件：outer-link  router-view-->
+    <script type="text/javascript" src="./node_modules/vue-router/dist/vue-router.js"></script>
+    <script type="text/javascript">
+
+        //2、让vue使用该VueRouter对象创建
+        Vue.use(VueRouter);
+
+        var Timeline = {
+			template:`
+				<div>
+				  <h3 @click="colorHandler">我是首页</h3>
+				</div>
+			`,
+            methods:{
+			    colorHandler(e){
+			        e.target.style.color='red'
+                }
+            },
+            created(){
+			    console.log('首页组件创建了')
+            },
+            mounted(){
+			    console.log('首页组件DOM加载了')
+            },
+            destroyed(){
+			    console.log('首页组件销毁了')
+            }
+		};
+
+        var Pins = {
+
+            template:`
+                <div>我是沸点</div>`,
+            created(){
+			    console.log('沸点组件创建了')
+            },
+            mounted(){
+			    console.log('沸点组件DOM加载了')
+            },
+            destroyed(){
+			    console.log('沸点组件销毁了')
+            }
+        };
+
+
+        //3、创建一个路由对象
+        var router = new VueRouter({
+
+            //配置路由对象
+            routes:[
+                {
+                    path:'/timeline',
+                    name:'timeline',
+                    component:Timeline,
+                },
+                {
+                    path:'/pins',
+                    name:'pins',
+                    component:Pins
+                }
+
+            ]
+        });
+        //router-link默认会被渲染成a标签，to会被渲染成href属性
+        //router-view路由组件的出口，页面显示
+        var App = {
+            //keep-alive对网页上的组件缓存，防止创建销毁组件是消耗浏览器性能
+            template:`
+                <div>
+                    <router-link to="/timeline">首页</router-link>
+                    <router-link to="/pins">沸点</router-link>
+                    <keep-alive>
+                        <router-view></router-view>
+                    </keep-alive>
+                </div>
+
+            `,
+        };
+
+        new Vue({
+            el:'#app',
+            components:{
+                App
+            },
+            router,  //不加router路由对象会报错
+            template:`<App></App>`,
+        })
+
+
+
+    </script>
+</body>
+</html>

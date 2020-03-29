@@ -1,0 +1,95 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>siblings用法</title>-->
+<!--    <style type="text/css">-->
+<!--        div{-->
+<!--            color: black;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <div class="box">-->
+<!--        <P>站站</P>-->
+<!--        <P>光光</P>-->
+<!--        <P>淑媛</P>-->
+<!--        <P>芳华</P>-->
+<!--        <P>小猪</P>-->
+<!--        <P>老黑</P>-->
+<!--    </div>-->
+
+<!--    <script type="text/javascript" src="jQuery3.4.1.js"></script>-->
+<!--    <script type="text/javascript">-->
+<!--    //siblings()返回被选元素的所有同级元素，不包括自己-->
+
+<!--        $('div p').click(function () {-->
+<!--            $(this).css('color','red').siblings('p').css('color','black');-->
+<!--        });-->
+
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>siblings用法</title>
+    <style type="text/css">
+        div{
+            color: black;
+        }
+        p{
+            display: none;
+        }
+        .active{
+            display: block;
+            color: #ff6700;
+        }
+    </style>
+</head>
+<body>
+    <ul class="box">
+        <li>
+            <a href="javascript:void(0);">站站</a>
+        </li>
+        <li>
+            <a href="javascript:void(0);">光光</a>
+        </li>
+        <li>
+            <a href="javascript:void(0);">淑媛</a>
+        </li>
+        <li>
+            <a href="javascript:void(0);">芳华</a>
+        </li>
+        <li>
+            <a href="javascript:void(0);">小猪</a>
+        </li>
+        <li>
+            <a href="javascript:void(0);">老黑</a>
+        </li>
+    </ul>
+    <p>家电</p>
+    <p>电视</p>
+    <p>冰箱</p>
+    <p>车子</p>
+    <p>被子</p>
+    <p>句子</p>
+
+    <script type="text/javascript" src="jQuery3.4.1.js"></script>
+    <script type="text/javascript">
+    //siblings()返回被选元素的所有同级元素，不包括自己
+
+        $('ul li').click(function () {
+            $(this).children('a').css('color','red').parent('li').siblings('li').children('a').css('color','black');
+            console.log($(this).1());
+            $('p').eq($(this).1()).addClass('active').siblings('p').removeClass('active');
+
+        });
+
+    </script>
+</body>
+</html>

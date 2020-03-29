@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>聚焦、失焦和键盘事件</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+    <input type="text" name="user">
+
+    <script type="text/javascript" src="jQuery3.4.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+
+            //加载页面时让输入框获取焦点
+
+            //$('input[type=text]').focus();
+
+            /*setTimeout(function () {
+                $('input[type=text]').blur();
+            },1000);
+
+
+
+            $('input[type=text]').focus(function () {
+                console.log('获取焦点');
+            });
+
+            $('input[type=text]').blur(function () {
+                console.log('失去焦点');
+            });*/
+
+
+
+            //按键盘事件
+            $('input').keyup(function (e) {
+                console.log(e.keyCode);
+                console.log('键盘按下去了');
+
+                //keyCode获取建码
+                switch (e.keyCode) {
+                    case 13:
+                        console.log('回车键按下去');
+                        console.log($(this).val());
+                        break;
+                    case 27:
+                        console.log('esc按下去了');
+                        break;
+                    //default:
+                       // console.log('其他键按下去了 ');
+                       // break;
+                }
+
+
+
+            });
+
+
+        })
+
+    </script>
+</body>
+</html>

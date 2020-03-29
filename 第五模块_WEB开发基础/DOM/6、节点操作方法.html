@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>节点操作方法</title>
+    <style type="text/css">
+        .add{
+            color: orange;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<!--
+动态操作节点：
+    1、创建节点createElement()
+    2、插入节点appendChild()和insertBefore(newNode,node)
+    3、删除节点removeChild()
+    4、替换节点replaceChild(newNode,node)
+    5、创建文本节点createTextNode()
+
+-->
+    <div id="box">
+        <p id="active">淑媛</p>
+    </div>
+    <script type="text/javascript">
+        var oDiv = document.getElementById('box');
+        var oA = document.getElementById('active');
+
+        var newNode = document.createElement('h2');//创建新节点
+        var newNode2 = document.createElement('h2');
+
+        oDiv.appendChild(newNode);//插入节点
+        oDiv.insertBefore(newNode2,oA);//第一个参数是新插入的节点，第二个参数是参考的节点位置
+
+
+
+        newNode.setAttribute('class','add');//创建属性节点
+        var textNode = document.createTextNode('站站');//创建文本节点
+        newNode.appendChild(textNode);//插入文本节点
+        newNode2.innerHTML = '<a href="#">站站.com</a>';
+
+
+        /*newNode.innerHTML = '账号';//和上面插入文本效果一样，更加简洁
+        newNode.innerHTML = '<a href="#">百度</a>';//既可以插入文本也可以插入标签
+        newNode.innerText = '<a href="#">百度</a>';//只能插入文本*/
+
+        //newNode = null;//释放节点对象，一般是在最后释放
+
+
+        //删除节点对象
+        //oDiv.removeChild(oA);
+
+
+        //替换节点对象
+        var newNode3 = document.createElement('a');
+        newNode3.setAttribute('href','http://www.baidu.com');
+        newNode3.innerHTML = '百度一下';
+        oDiv.replaceChild(newNode3,oA);
+
+
+    </script>
+</body>
+</html>

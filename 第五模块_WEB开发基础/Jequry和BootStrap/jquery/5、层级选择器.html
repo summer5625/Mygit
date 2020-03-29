@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>层级选择器</title>
+    <style type="text/css">
+        ul{
+            color: p;
+        }
+    </style>
+</head>
+<body>
+    <ul class="list">
+        <li>
+            love
+            <ol>
+                <li>老黑</li>
+            </ol>
+        </li>
+        <li class="item">
+            淑媛
+            <a href="#">girl</a>
+        </li>
+        <li>芳华</li>
+        <li>站站</li>
+        <li>光光</li>
+        <li>小猪</li>
+    </ul>
+
+    <script type="text/javascript" src="jQuery3.4.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //后代选择器
+            //修改样式属性
+            $('.list li').css('color','red');
+
+            //子代选择器
+            $('.item>a').css({
+                color:'green',
+                backgroundColor:'yellow'
+            });
+
+            //紧邻选择器,只选中紧挨着的
+            $('.item+li').css('color','purple');
+
+            //兄弟选择器
+            $('.item~li').css('color','blue');
+        })
+    </script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,439 @@
+1、requests模块
+
+    requests模块是python中原生的一款基于网络请求的模块，它功能强大、简单便捷、效率极高
+
+    作用：模拟浏览器发送请求
+
+2、使用requests模块
+
+    1.浏览器发请求步骤：requests模块编码流程
+        --指定url
+        --发起请求
+        --获取服务端相应数据
+        --持久化存储数据
+    2.编码：
+        --需求：爬取搜狗首页的页面数据
+
+
+3、数据解析原理：
+
+    解析的局部的文本内容会在标签之间或者标签对应的属性中进行存储
+        1.进行指定标签定位
+        2.对标签或者标签对应的属性中存储的数据值进行提取（解析）
+
+
+    bs4数据解析：只能在python中
+        1.首先pip下载安装bs4和lxml插件
+
+
+
+    xpath解析：最常用最高效便捷的鄂一中解析方式
+
+
+4、验证码识别
+
+    第三方自动识别验证码
+
+
+
+5、模拟登陆
+
+
+    1、处理响应的cookie
+
+       1.cookie的来源：登录后，服务端创建的
+
+       2.获取cookie：使用session会话对象
+            session会话对象作用：可以进行请求发送，如果请求过程中产生了cookie，则该cookie会被自动存储或携带在session对象中
+
+       3.创建session对象
+
+       4.使用session对象进行模拟登录post请求（cookie会被存储在session中）
+
+       5.session对象对个人主页对应的的get请求使用session进行发送
+
+
+6、代理：破解IP频率检测得反爬机制
+
+    代理网站：快代理    西祠代理   www.goubanjia.com
+
+    1、代理就是代理服务器
+
+    2、代理服务器可以突破ip访问的限制，可以隐藏自身的真实ip
+
+    3.代理服务器匿名度：
+        1.透明：服务器直到该次请求使用了代理，也知道请求对应的真实ip
+        2.匿名：知道使用了代理，不知道真实ip
+        3.高匿：不知道使用代理，不知道真实ip
+
+
+###########################高性能异步爬虫########################
+
+
+1、多线程或者多线程进行爬取（不建议使用）
+
+2、使用进程池或线程池（适当使用）
+
+    好处：降低系统对线程或者进程创建和销毁的频率，从而降低系统开线
+    坏处：线程池和进程池中线程或者线程数量有上线
+
+3、单线程+异步协程（推荐）
+
+    event_loop:事件循环，相当于一个无线循环，可以把一些函数注册到这个事件训循环上，当满足某些条件时函数就会被循环执行
+
+    coroutine： 协程对象，可以将协程对象注册到事件循环上，他会被事件循环调用。
+    可以使用async关键字来定义一个方法，这个方法在调用时不会立即执行，而是返回一个协程对象
+
+    task： 任务，是对协程对象的进一步封装，包含了任务的各种状态
+
+    future：代表将来执行或还没有执行的任务，实际上和task没有本质区别
+
+    async：定义协程对象
+
+    await：用来挂起阻塞方法的执行
+
+
+
+
+# ############################selenium模块############################
+
+selenium模块是基于浏览器自动化的模块
+作用：便捷的获取网站红动态加载的数据  实现便捷模拟登陆
+
+selenium模块使用：
+
+    1、安装selenium模块
+
+    2、下载安装浏览器驱动程序：将下载好的驱动程序放到项目文件夹下
+
+    3、实例化浏览器对象
+
+    4、编写浏览器自动化代码
+
+
+
+selenium模块处理iframe处理：
+
+    iframe：可以在当前网页中嵌套一个子页面，如果直接定位iframe中的标签，则会找不到，报错
+
+
+无头浏览器：是在爬取网页时没有用可视化界面，在后台偷偷的运行爬取
+
+send_keys(Keys.BACK_SPACE) 删除键（BackSpace）
+send_keys(Keys.SPACE) 空格键(Space)
+send_keys(Keys.TAB) 制表键(Tab)
+send_keys(Keys.ESCAPE) 回退键（Esc）
+send_keys(Keys.ENTER) 回车键（Enter）
+send_keys(Keys.CONTROL, ‘a’) 全选（Ctrl+A）
+send_keys(Keys.CONTROL, ‘c’) 复制（Ctrl+C）
+send_keys(Keys.CONTROL, ‘x’) 剪切（Ctrl+X）
+send_keys(Keys.CONTROL, ‘v’) 粘贴（Ctrl+V）
+send_keys(Keys.F1) 键盘 F1
+send_keys(Keys.F12) 键盘 F12
+
+move_to_element(ele_1) # 鼠标移动到摸个位置
+click(on_element=None) ——单击鼠标左键
+click_and_hold(on_element=None) ——点击鼠标左键，不松开
+context_click(on_element=None) ——点击鼠标右键
+double_click(on_element=None) ——双击鼠标左键
+drag_and_drop(source, target) ——拖拽到某个元素然后松开
+drag_and_drop_by_offset(source, xoffset, yoffset) ——拖拽到某个坐标然后松开
+key_down(value, element=None) ——按下某个键盘上的键
+key_up(value, element=None) ——松开某个键
+move_by_offset(xoffset, yoffset) ——鼠标从当前位置移动到某个坐标
+move_to_element(to_element) ——鼠标移动到某个元素
+move_to_element_with_offset(to_element, xoffset, yoffset) ——移动到距某个元素（左上角坐标）多少距离的位置
+perform() ——执行链中的所有动作
+release(on_element=None) ——在某个元素位置松开鼠标左键
+send_keys(*keys_to_send) ——发送某个键到当前焦点的元素
+send_keys_to_element(element, *keys_to_send) ——发送某个键到指定元素
+
+######################################scrapy框架######################################
+
+1、scrapy框架安装
+
+    Mac 和linux系统直接pip install scrapy即可
+
+    windows环境安装：
+        1.安装wheel：pip install wheel
+
+        2.下载twisted：http://www.lfd.uci.edu/~gohlke/pythonlibs/#twisted
+
+        3.进入到下载文件所在的目录，安装twisted：pip install  Twisted-19.10.0-cp37-cp37m-win_amd64.whl
+
+        4.安装pywin32：pip install pywin32
+
+        5.安装scrapy：pip install scrapy
+
+
+2、使用scrapy框架
+
+    1.进入要创建项目的文件夹：scrapy startproject 项目名称
+
+    2.在创建的项目中的spiders文件夹中创建一个爬虫文件
+
+    3、进入工程目录，在命令行输入一下命令来在spiders文件夹下创建爬虫源文件：scrapy genspider 文件名 起始url
+        scrapy genspider first www.baidu.com
+
+    4、在创建的爬虫文件中编写爬虫代码
+
+    5、代码编写完成后，在命令行输入：scrapy crawl 爬虫文件名称
+        不想打印日志信息输入： scrapy crawl 爬虫文件名称 --nolog
+        执行上面的不打印日之后，程序出错则看不到错误信息，要想看到错误信息需要在配置文件中添加：LOG_LEVEL = 'ERROR'
+
+3、scrapy中的数据解析
+
+
+4、scrapy中的持久化存储
+
+    1、基于终端指令方法
+        作用：只可以将parse方法中返回的数据存储到本地文件中
+        好处：简洁高效便捷
+        缺点：局限性比较强，数据只可以存储大指定后缀的文本文件中
+        1.数据解析的方法要有return返回值
+        2.在命令行输入：scrapy crawl 源文件名 -o 文件存储路径
+        3.持久化存储的数据文本类型只能为：'json', 'jsonlines', 'jl', 'csv', 'xml', 'marshal', 'pickle'
+
+
+    2、基于管道实现存储
+
+        1.获取数据进行数据解析
+
+        2.在items文件中的item类中定义数据解析后的相关属性
+
+        3.将解析的数据封装到item类中
+
+        4.将item类型的对象提交给管道进行持久化存储操作
+
+        5.在pipelines文件中的process_item属性中要将其接收到的item对象找那个存储的数据进行持久化操作
+
+        6.在配置文件中开启管道
+
+
+    好处：通用性强
+    缺点：编码复杂
+
+需求：将爬取到的数据一份存储到本地，一份存储到数据库
+
+    方法：
+        在pipeline中定义多个管道类，分别用于存到本地和存到数据库
+
+全站数据爬取：
+
+    1.手动对url发送请求
+
+
+
+五大核心组件：
+
+    1、spider：产生url，并进行请求发送，将获取的数据进行解析
+
+    2、引擎
+
+    3、调度器：由过滤器和队列组成
+
+    4、管道
+
+    5、下载器
+
+
+请求传参：
+
+    使用场景：如果爬取解析的数据不在同一张页面中。（即深度爬取）
+
+    需求：爬取boss的岗位名和描述
+
+
+图片爬取之ImagesPipeline：
+
+    1.该类只需要将img的src属性值进行解析，提交到ImagesPipeline管道，管道就会对图的src进行请求发送获取图片的二进制数据
+
+    需求：
+        爬取站长素材中的高清图片
+
+        问题：图片的src2是一个伪属性，
+
+
+中间件：
+
+    中间件存在位置：
+        1.在引擎和下载器中间有个中间件叫下载中间件 （主要）
+
+        2.在spider爬虫和引擎直接有个中间件，叫爬虫中间件
+
+    下载中间件：
+
+        作用：可以拦截到整个工程中所有的请求和响应
+
+        拦截请求：
+            1.进行UA伪装: 一般在process_request方法中
+
+            2.使用代理IP：在process_exception方法中
+
+        拦截响应：
+            篡改响应数据，响应对象
+
+        需求：爬取网易新闻的标题和内容
+
+        流程：
+
+
+
+Crawlspider：Spider类的一个子类
+
+    全站数据爬取：
+        1.基于spider：手动发送请求
+
+        2.基于Crawlspider全站数据爬取
+
+    使用：
+
+        1.创建工程
+
+        2.进入工程文件夹
+
+        3.基于Crawlspider创建爬虫文件：scrapy genspider -t crawl 文件名  网址
+
+
+   需求：
+        爬取阳光网站上新闻编号，标题，内容和标号
+
+
+
+分布式爬虫：
+
+    概念：搭建一个分布式的机群，让其对统一组资源进行分布联合爬取
+    作用：提升爬取数据的效率
+
+    实现：
+
+        1.安装scrapy-redis组件：原生的scrapy是不能实现分布式爬虫的，必须要让scrapy结合scrapy-redis组件一起实现分布式爬虫
+            原生的scrapy不能实现：调度器不能被分布式机群共享，管道不可以被分布式机群共享
+
+        2.crapy-redis组件作用：可以给原生的scrapy框架提供可以被共享的管道和调度器
+
+
+    分布式搭建：
+
+        1.创建工程
+
+        2.创建基于Crawlspider的爬虫文件
+
+        3.修改当前的爬虫文件：
+
+            -- 导包：from scrapy_redis.spiders import RedisCrawlSpider # 导入scrapy_redis
+
+            -- 注释 allowed_domains和start_urls
+
+            -- 添加新属性：redis_key = 'sun' ，可以被共享的调度器队列的名称
+
+            -- 将当前爬虫类的父类修改成RedisCrawlSpider类，编写数据解析相关操作
+
+        4.修改配置文件：
+
+            -- 指定使用可以被共享的管道：
+                ITEM_PIPELINES = {
+                    'scrapy_redis.pipelines.RedisPipeline': 400
+                }
+            -- 指定使用可以被共享的调度器：
+
+                DUPEFILTER_CLASS = 'scrapy_redis.dupefilter.RFPDupeFilter'
+
+                SCHEDULER = 'scrapy_redis.scheduler.Scheduler'
+
+                SCHEDULER_PERSIST = True
+
+            -- 指定redis服务器：
+
+                REDIS_HOT = 服务器ip  # redis远程服务器的ip
+                REDIS_PORT = 6379
+
+        5.redis相关配置：
+
+            -- 配置redis的配置文件
+                linu或者Mac系统配置文件在：redis.conf
+                windows系统在：redis.Windows.conf
+
+                -- 注释配置文件中：bind 127.0.0.1
+                -- 关闭保护模式： protected-mode no
+
+            -- 结合配置文件开启redis服务
+
+            -- 启动客户端
+
+        6.执行工程：要是源文件名称
+            scrapy runspider fbs.py
+
+
+        7.向调度器的对列中放入起始url
+
+            在redis客户端中命令行：lpush 调度器名称 url
+
+        8.爬取到的数据存储在：
+
+            redis的 工程名称：items这个数据结构中
+
+
+
+
+增量式爬虫：
+
+    监测网站数据更新的情况，只会爬取网站最新更新出来的数据
+
+    1.指定一个起始url
+
+    2.基于CrawlSpider获取其他页码连接
+
+    3.基于rule将其页码链接进行请求
+
+    4.从每一个页码对应页面源码中解析出每一个电影页面详情页面的url
+
+    5.核心：检测电影详情页面的url之前有没有请求过，将爬取过的电影详情页面url存储到redis的set结构
+
+    6.对详情页面发请求，然后解析出电影的名称和简介
+
+    7.进行持久化存储
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

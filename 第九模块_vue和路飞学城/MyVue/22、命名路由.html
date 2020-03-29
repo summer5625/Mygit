@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+
+    <div id="app"></div>
+    <script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+    <!--1、引入vue-router对象，返回一个全局的VueRouter对象，提供两个全局的组件：outer-link  router-view-->
+    <script type="text/javascript" src="./node_modules/vue-router/dist/vue-router.js"></script>
+    <script type="text/javascript">
+
+        //2、让vue使用该VueRouter对象创建
+        Vue.use(VueRouter);
+
+        var Login = {
+			template:`
+				<div>登录页面</div>
+			`
+		};
+		var Register = {
+			template:`
+				<div>注册页面</div>
+			`
+		};
+
+        //3、创建一个路由对象
+        var router = new VueRouter({
+
+            //配置路由对象
+            routes:[
+                {
+                    path:'/login',
+                    name:'login',  //给路由命名，必须时候name
+                    component:Login
+                },
+                {
+                    path:'/register',
+                    name:'register',
+                    component:Register
+                }
+            ]
+        });
+        //router-link默认会被渲染成a标签，to会被渲染成href属性
+        //router-view路由组件的出口，页面显示
+        var App = {
+            template:`
+                <div>
+                    <RouterLink :to="{name:'login'}">登录页面</RouterLink>
+                    <RouterLink :to="{name:'register'}">注册页面</RouterLink>
+
+                    <RouterView></RouterView>
+                </div>
+
+            `,
+        };
+
+        new Vue({
+            el:'#app',
+            components:{
+                App
+            },
+            router,  //不加router路由对象会报错
+            template:`<App></App>`,
+        })
+
+
+
+    </script>
+</body>
+</html>

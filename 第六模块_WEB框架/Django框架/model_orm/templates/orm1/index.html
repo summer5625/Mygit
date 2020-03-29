@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+    <h2>all方法查询</h2>
+    <p>{{ book_list }}</p>
+{#    {% for item in book_list %}#}
+{#        <p>{{ item }}</p>#}
+{#    {% endfor %}#}
+    <hr>
+
+    <h2>frist和last方法查询</h2>
+    <p>{{ book_frist }}</p>
+    <p>{{ book_last }}</p>
+
+    <hr>
+
+    <h2>filter方法</h2>
+    <p>{{ book_l.0.title }}</p>
+
+    <hr>
+
+    <h2>get方法</h2>
+    <p>{{ book2 }}</p>
+
+    <hr>
+    <h2>exclude方法，排除选中的项</h2>
+    <P>{{ book_e }}</P>
+
+    <hr>
+    <h2>order_by查询结果排序</h2>
+    <p>{{ book_od }}</p>
+    <p>{{ book_odre }}</p>
+
+    <hr>
+    <h2>count统计查询结果</h2>
+    <p>{{ counts }}</p>
+
+    <hr>
+    <h2>exists()判断是否有查询的结果</h2>
+    <p>{{ book_true }}</p>
+    <p>{{ book_flase }}</p>
+    <hr>
+
+    <h2>values方法</h2>
+    <p>{{ book_v }}</p>
+    <hr>
+
+    <h2>values_list方法</h2>
+    <p>{{ book_v_l }}</p>
+
+    <hr>
+
+    <h2>distinct()去重方法，针对值才有意义</h2>
+    <p>{{ book_p_d }}</p>
+
+    <script type="text/javascript" src=""></script>
+    <script type="text/javascript"></script>
+</body>
+</html>

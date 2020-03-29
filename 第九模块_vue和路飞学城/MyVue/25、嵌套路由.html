@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+
+    <div id="app"></div>
+    <script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+    <!--1、引入vue-router对象，返回一个全局的VueRouter对象，提供两个全局的组件：outer-link  router-view-->
+    <script type="text/javascript" src="./node_modules/vue-router/dist/vue-router.js"></script>
+    <script type="text/javascript">
+
+        //2、让vue使用该VueRouter对象创建
+        Vue.use(VueRouter);
+
+        var Home = {
+			template:`
+				<div>
+				    <router-link to="/home/music">音乐</router-link>
+				    <router-link to="/home/movie">电影</router-link>
+				    <router-view></router-view>
+				</div>
+			`
+		};
+
+        var Music = {
+            template:`<div>听音乐</div>`
+        };
+
+         var Movie = {
+            template:`<div>看电影</div>`
+        };
+
+
+        //3、创建一个路由对象
+        var router = new VueRouter({
+
+            //配置路由对象
+            routes:[
+                {
+                    path:'/',
+                    //重定向
+                    // redirect:'/home'
+                    redirect:{name:'home'}
+                },
+                {
+                    path:'/home',
+                    // name:'home',
+                    component:Home,
+                    //嵌套路由的子路由
+                    children:[
+                        //动态路由匹配，表示你的子组件中的结构是不同的，如果相同就不能使用嵌套路由
+                        {
+                            //当为空时，表示当访问/home时，Home组件的出口是不会渲染任何内容，这是因为没有匹配到合适的子路由
+                            path:'',
+                            component:Music
+                        },
+                        {
+                            path:'music',
+                            component:Music
+                        },
+                         {
+                            path:'movie',
+                            component:Movie
+                        }
+                    ]
+                }
+            ]
+        });
+        //router-link默认会被渲染成a标签，to会被渲染成href属性
+        //router-view路由组件的出口，页面显示
+        var App = {
+            template:`
+                <div>
+                    <router-link to="/home">首页</router-link>
+
+                    <router-view></router-view>
+                </div>
+
+            `,
+        };
+
+        new Vue({
+            el:'#app',
+            components:{
+                App
+            },
+            router,  //不加router路由对象会报错
+            template:`<App></App>`,
+        })
+
+
+
+    </script>
+</body>
+</html>

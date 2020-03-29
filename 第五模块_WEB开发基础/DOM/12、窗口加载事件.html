@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>窗口加载事件</title>
+    <!--当js引入卸载head中时由于HTML文档读取时按顺序读取的，当读取到js时还没读取body标签中的内容，js就无法获取节点，报错
+    这时就需要用到onload，来使body加载完成后再读取js中内容，当然也可以用延时操作解决加载顺问题。但是在使用onload时会造成
+    同时使用多个onload，前面onload内容会被后面的覆盖住，因此在使用onload时一般使用一个-->
+    <script type="text/javascript">
+        /*var divObj = document.getElementsByTagName('div')[0];
+        console.log(divObj);*/
+        window.onload = function () {
+            var divObj = document.getElementsByTagName('div')[0];
+            console.log(divObj);
+            divObj.onclick = function () {
+                this.innerHTML = '芳华';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>淑媛</div>
+</body>
+</html>

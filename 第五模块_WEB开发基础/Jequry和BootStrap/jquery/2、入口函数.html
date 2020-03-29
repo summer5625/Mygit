@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>入口函数</title>
+</head>
+<body>
+
+
+    <script type="text/javascript" src="jQuery3.4.1.js"></script>
+    <script type="text/javascript">
+        //window.onload()函数在调用时会有覆盖现象和等待图片资源加载完成后才调用的缺点
+
+
+        console.log($(document)); //返回的是jQuery对象
+        console.log($(document)[0]);//js对象
+
+        //1、jquery入口函数
+        //等待文档加载完成后调用此方法，相当于window.onload()的作用，不同的是没有window.onload()的哪两个缺点
+        $(document).ready(function () {
+            alert(1);
+        });
+
+        //2、jQuery入口函数简单写法
+        $(function () {
+            alert(2);
+        });
+
+        //图片加载完成后调用
+        $(window).ready(function () {
+            alert(3);
+        });
+    </script>
+</body>
+</html>

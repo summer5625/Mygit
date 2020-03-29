@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>三级菜单动画</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            width: 100px;
+            list-style: none;
+            display: none;
+            background-color: #b3d4fc;
+        }
+        #1st{
+            width: 100px;
+            height: 160px;
+        }
+        #setting{
+            background-color: #ff6700;
+            width: 50px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        .til{
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            cursor: pointer;
+        }
+        .t1{
+            position: relative;
+        }
+        .c{
+            position: absolute;
+            left: 90px;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <p id="setting">设置</p>
+        <ul id="1st">
+            <li id="1ed" class="t1">
+                <p class="til" id="p1">主题</p>
+                <ul id="1th" class="c">
+                    <li>字体</li>
+                    <li>背景色</li>
+                    <li>显示样式</li>
+                </ul>
+            </li>
+            <li id="2ed" class="t1">
+                <p class="til" id="p2">网络设置</p>
+                <ul id="2th" class="c">
+                    <li>防火墙</li>
+                    <li>网络限速</li>
+                    <li>网路IP</li>
+                    <li>子网掩码</li>
+                    <li>SDN</li>
+                </ul>
+            </li>
+            <li id="3ed" class="t1">
+                <p class="til" id="p3">程序</p>
+                <ul id="3th" class="c">
+                    <li>快捷键</li>
+                    <li>程序兼容</li>
+                    <li>版本号</li>
+                </ul>
+            </li>
+            <li id="4ed" class="t1">
+                <p class="til" id="p4">自定义设置</p>
+                <ul id="4th" class="c">
+                    <li>自定义主题</li>
+                    <li>按键定制</li>
+                    <li>自定义功能</li>
+                </ul>
+            </li >
+        </ul>
+    </div>
+
+    <script type="text/javascript" src="jQuery3.4.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#setting').click(function () {
+                $('#1st').stop().slideToggle(10);
+            });
+
+            $('#p1').mouseenter(function () {
+                $('#1th').show();
+            });
+
+            $('#p1').mouseout(function () {
+                $('#1th').hide();
+            });
+
+            $('#p2').mouseenter(function () {
+                $('#2th').show();
+            });
+
+            $('#p2').mouseout(function () {
+                $('#2th').hide();
+            });
+
+            $('#p3').mouseenter(function () {
+                $('#3th').show();
+            });
+
+            $('#p3').mouseout(function () {
+                $('#3th').hide();
+            });
+
+            $('#p4').mouseenter(function () {
+                $('#4th').show();
+            });
+
+            $('#p4').mouseout(function () {
+                $('#4th').hide();
+            });
+
+        })
+    </script>
+</body>
+</html>

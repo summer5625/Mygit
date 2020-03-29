@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定时器回顾</title>
+</head>
+<body>
+    <button id="start">开启</button>
+    <button id="close">关闭</button>
+
+    <script type="text/javascript">
+        var begin = document.getElementById('start');
+        var stop = document.getElementById('close');
+        var num = 0, timer = null;
+        begin.onclick = function () {
+            clearInterval(timer);//在开启定时之前要清除定时器，因为定时器是可以累加的，不清楚用户频繁开启定时器会累加到一起
+            timer = setInterval(function () {
+                num++;
+                console.log(num);
+            },1000)
+        };
+        stop.onclick = function () {
+            clearInterval(timer);
+        }
+    </script>
+</body>
+</html>

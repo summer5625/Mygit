@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>history对象</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var count = 0;
+        setTimeout(function () {
+            history.go(0);//0时代表时在当前网页刷新
+            history.go(-1);//负数时是向后退，数值为多少就向后退几次
+            history.go(1);//正数时代表向前
+        },2000)
+    </script>
+</body>
+</html>

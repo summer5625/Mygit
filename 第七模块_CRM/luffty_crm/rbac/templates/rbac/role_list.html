@@ -1,0 +1,66 @@
+{% extends 'rbac/rbac_base.html' %}
+{% load rbac %}
+
+{% block rbac_content %}
+
+    <div>
+        <ol class="breadcrumb no-radius no-margin" style="border-bottom: 1px solid #ddd;">
+            {% for item in request.breadcrumb %}
+                {% if item.class %}
+                    <li class="{{ item.class }}">{{ item.title }}</li>
+                {% else %}
+                    <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+                {% endif %}
+            {% endfor %}
+
+        </ol>
+    </div>
+
+    <div class="luffy-container">
+        <div class="btn-group" style="margin: 5px 0">
+            {% if request|has_permission:"rbac:role_add" %}
+            <a class="btn btn-default"  href="{% url 'rbac:role_add' %}">
+                <i class="fa fa-plus-square" aria-hidden="true"></i> 添加角色
+            </a>
+            {% endif %}
+        </div>
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>名称</th>
+                {% if request|has_permission:"rbac:role_edit" or request|has_permission:"rbac:role_del" %}
+                <th>选项</th>
+                {% endif %}
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for row in roles %}
+                <tr>
+                    <td>{{ row.rid }}</td>
+                    <td>{{ row.title }}</td>
+                    {% if request|has_permission:"rbac:role_edit" or request|has_permission:"rbac:role_del" %}
+                    <td>
+                        {% if request|has_permission:"rbac:role_edit" %}
+                        <a style="color: #333333;" href="{% url 'rbac:role_edit' pk=row.rid %}">
+                            <i class="fa fa-edit" aria-hidden="true"></i>
+                        </a>
+                        {% endif %}
+
+                        {% if request|has_permission:"rbac:role_del" %}
+                        <a style="color: #d9534f;" href="{% url 'rbac:role_del' pk=row.rid %}"><i
+                                class="fa fa-trash-o"></i>
+                        </a>
+                        {% endif %}
+
+
+                    </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+   </div>
+
+{% endblock %}

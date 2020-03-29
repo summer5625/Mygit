@@ -1,0 +1,434 @@
+<!--用普通方法-->
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>九宫格布局</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #wraps{
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        #wraps .item{
+            width: 270px;
+            height: 360px;
+            font-size: 13px;
+        }
+        #wraps .item .title{
+            width: 248px;
+            height: 30px;
+            line-height: 30px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        .imgContainer{
+            width: 248px;
+            display: table-cell;
+            text-align: center;
+        }
+        #wraps .item .price{
+            color: #ff6700;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="cols">
+        <button class="button">3列</button>
+        <button class="button">4列</button>
+        <button class="button">5列</button>
+    </div>
+    <div id="wraps">
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e1.jpg" width="248px" height="248px">
+            </div>
+            <p class="title">中长款连衣裙女装大码2019初秋新款欧洲站牛仔翻领假两件卫衣裙子</p>
+            <p class="price">￥149</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e2.jpg" width="248px" height="248px">
+            </div>
+            <p class="title">冷淡风连衣裙女2019秋装新款韩版气质显瘦碎花法式冬季长袖打底裙</p>
+            <p class="price">￥168</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e3.jpg" width="248px" height="248px">
+            </div>
+            <p class="title">欧洲站2019早秋新款女装法式维多利亚宫廷复古法国很仙过膝连衣裙</p>
+            <p class="price">￥390</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e4.jpg" width="248px" height="248px">
+            </div>
+            <p class="title">【秀琴日代】maje19秋林允儿裴秀智同款V领长袖收腰修身OL连衣裙</p>
+            <p class="price">￥980</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e5.jpg" width="248px" height="248px">
+            </div>
+            <p class="title">2019夏秋新款baby杨颖明星同款粉色刺绣订婚礼服名媛小香风连衣裙</p>
+            <p class="price">￥308</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e6.jpg" width="248px" height="248px">
+            </div>
+            <p class="title">欧洲站2019秋季新款v领气质长袖收腰针织裙修身甜美显瘦连衣裙女</p>
+            <p class="price">￥320</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e7.jpg" width="248px" height="248px">
+            </div>
+            <p class="title">欧洲站欧阳娜娜明星同款显瘦中长款重磅真丝雪纺连衣裙女碎花裙潮</p>
+            <p class="price">￥579</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e8.jpg" width="248px" height="248px">
+            </div>
+            <p class="title">苏珊意大利 MaxMara春夏全智贤同款翻领长袖印花显瘦中长连衣裙</p>
+            <p class="price">￥100</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e9.jpg" width="248px" height="248px">
+            </div>
+            <p class="title">Sara意代Tory burch19法式复古连衣裙印花长袖连衣裙</p>
+            <p class="price">￥130</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e10.png" width="248px" height="248px">
+            </div>
+            <p class="title">韩国女装2019夏季新款小黑裙荷叶边宽松显瘦小个子雪纺碎花连衣裙</p>
+            <p class="price">￥537</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e11.jpg" width="248px" height="248px">
+            </div>
+            <p class="title">coco法国 maje 杨幂同款 链条印花翻领长袖气质修身连衣裙</p>
+            <p class="price">￥650</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e12.jpg" width="248px" height="248px">
+            </div>
+            <p class="title">韩国代购明星同款2019春夏装新款优雅花卉中长款长袖衬衫连衣裙</p>
+            <p class="price">￥750</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e13.png" width="248px" height="248px">
+            </div>
+            <p class="title">糯米法国 maje 小黑裙收腰小香风百褶百褶针织连衣裙 MFPRO00582</p>
+            <p class="price">￥1350</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e14.png" width="248px" height="248px">
+            </div>
+            <p class="title">代购sandro19秋冬新款酒红V领珍珠长袖修身显瘦连衣裙女SFPRO0050子</p>
+            <p class="price">￥119</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e15.png" width="248px" height="248px">
+            </div>
+            <p class="title">雪纺连衣裙2019夏显瘦收腰气质洋气印花长袖流行设计感小众衬衫裙</p>
+            <p class="price">￥179</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e16.png" width="248px" height="248px">
+            </div>
+            <p class="title">心洛法代maje 19秋冬 小香风长袖圆领纽扣百褶连衣裙MFPRO00582</p>
+            <p class="price">￥150</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e17.png" width="248px" height="248px">
+            </div>
+            <p class="title">秋装2019年新款法式复古连衣裙碎花雪纺长袖气质长款裙子衬衫裙女</p>
+            <p class="price">￥152</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e18.png" width="248px" height="248px">
+            </div>
+            <p class="title">苣独2019春秋新款女装 长袖鱼尾长款修身红色V领内搭蕾丝连衣裙女</p>
+            <p class="price">￥328</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e19.png" width="248px" height="248px">
+            </div>
+            <p class="title">高圆圆裹身连衣裙2019春夏新明星同款衬衫领长袖OL风大摆型百褶裙</p>
+            <p class="price">￥658</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e20.png" width="248px" height="248px">
+            </div>
+            <p class="title">代购2018春秋装范冰冰宋茜明星同款长袖圆领印花中长款连衣裙显瘦</p>
+            <p class="price">￥630</p>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        var getItems = document.getElementsByClassName('item');
+        var getButtons = document.getElementsByClassName('button');
+
+        function setCols(colsNum) {
+            for (var i = 0; i < getItems.length; i++) {
+                getItems[i].style.float = 'left';
+                getItems[i].parentNode.style.width = (colsNum * getItems[i].offsetWidth) + 'px';
+            }
+        }
+        getButtons[0].onclick = function () {
+             setCols(3);
+        };
+
+        getButtons[1].onclick = function () {
+            setCols(4);
+        };
+
+        getButtons[2].onclick = function () {
+            setCols(5);
+        };
+    </script>
+-->
+
+
+<!--用定位-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>九宫格布局</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #wraps{
+            margin-top: 10px;
+            position: relative;
+        }
+        #wraps .item{
+            width: 270px;
+            height: 360px;
+            font-size: 13px;
+        }
+        #wraps .item .title{
+            width: 248px;
+            height: 30px;
+            line-height: 30px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        .imgContainer{
+            width: 248px;
+            display: table-cell;
+            text-align: center;
+        }
+        #wraps .item .price{
+            color: #ff6700;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="cols">
+        <button class="button">3列</button>
+        <button class="button">4列</button>
+        <button class="button">5列</button>
+    </div>
+    <div id="wraps">
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e1.jpg" width="248px" height="248px">
+            </div>
+            <p class="title">中长款连衣裙女装大码2019初秋新款欧洲站牛仔翻领假两件卫衣裙子</p>
+            <p class="price">￥149</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e2.jpg" width="248px" height="248px">
+            </div>
+            <p class="title">冷淡风连衣裙女2019秋装新款韩版气质显瘦碎花法式冬季长袖打底裙</p>
+            <p class="price">￥168</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e3.jpg" width="248px" height="248px">
+            </div>
+            <p class="title">欧洲站2019早秋新款女装法式维多利亚宫廷复古法国很仙过膝连衣裙</p>
+            <p class="price">￥390</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e4.jpg" width="248px" height="248px">
+            </div>
+            <p class="title">【秀琴日代】maje19秋林允儿裴秀智同款V领长袖收腰修身OL连衣裙</p>
+            <p class="price">￥980</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e5.jpg" width="248px" height="248px">
+            </div>
+            <p class="title">2019夏秋新款baby杨颖明星同款粉色刺绣订婚礼服名媛小香风连衣裙</p>
+            <p class="price">￥308</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e6.jpg" width="248px" height="248px">
+            </div>
+            <p class="title">欧洲站2019秋季新款v领气质长袖收腰针织裙修身甜美显瘦连衣裙女</p>
+            <p class="price">￥320</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e7.jpg" width="248px" height="248px">
+            </div>
+            <p class="title">欧洲站欧阳娜娜明星同款显瘦中长款重磅真丝雪纺连衣裙女碎花裙潮</p>
+            <p class="price">￥579</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e8.jpg" width="248px" height="248px">
+            </div>
+            <p class="title">苏珊意大利 MaxMara春夏全智贤同款翻领长袖印花显瘦中长连衣裙</p>
+            <p class="price">￥100</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e9.jpg" width="248px" height="248px">
+            </div>
+            <p class="title">Sara意代Tory burch19法式复古连衣裙印花长袖连衣裙</p>
+            <p class="price">￥130</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e10.png" width="248px" height="248px">
+            </div>
+            <p class="title">韩国女装2019夏季新款小黑裙荷叶边宽松显瘦小个子雪纺碎花连衣裙</p>
+            <p class="price">￥537</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e11.jpg" width="248px" height="248px">
+            </div>
+            <p class="title">coco法国 maje 杨幂同款 链条印花翻领长袖气质修身连衣裙</p>
+            <p class="price">￥650</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e12.jpg" width="248px" height="248px">
+            </div>
+            <p class="title">韩国代购明星同款2019春夏装新款优雅花卉中长款长袖衬衫连衣裙</p>
+            <p class="price">￥750</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e13.png" width="248px" height="248px">
+            </div>
+            <p class="title">糯米法国 maje 小黑裙收腰小香风百褶百褶针织连衣裙 MFPRO00582</p>
+            <p class="price">￥1350</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e14.png" width="248px" height="248px">
+            </div>
+            <p class="title">代购sandro19秋冬新款酒红V领珍珠长袖修身显瘦连衣裙女SFPRO0050子</p>
+            <p class="price">￥119</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e15.png" width="248px" height="248px">
+            </div>
+            <p class="title">雪纺连衣裙2019夏显瘦收腰气质洋气印花长袖流行设计感小众衬衫裙</p>
+            <p class="price">￥179</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e16.png" width="248px" height="248px">
+            </div>
+            <p class="title">心洛法代maje 19秋冬 小香风长袖圆领纽扣百褶连衣裙MFPRO00582</p>
+            <p class="price">￥150</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e17.png" width="248px" height="248px">
+            </div>
+            <p class="title">秋装2019年新款法式复古连衣裙碎花雪纺长袖气质长款裙子衬衫裙女</p>
+            <p class="price">￥152</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e18.png" width="248px" height="248px">
+            </div>
+            <p class="title">苣独2019春秋新款女装 长袖鱼尾长款修身红色V领内搭蕾丝连衣裙女</p>
+            <p class="price">￥328</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e19.png" width="248px" height="248px">
+            </div>
+            <p class="title">高圆圆裹身连衣裙2019春夏新明星同款衬衫领长袖OL风大摆型百褶裙</p>
+            <p class="price">￥658</p>
+        </div>
+        <div class="item">
+            <div class="imgContainer">
+                <img src="image/e20.png" width="248px" height="248px">
+            </div>
+            <p class="title">代购2018春秋装范冰冰宋茜明星同款长袖圆领印花中长款连衣裙显瘦</p>
+            <p class="price">￥630</p>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var getItems = document.getElementsByClassName('item');
+        var getButtons = document.getElementsByClassName('button');
+        
+        function setLoc(colsNum) {
+            for (var i=0; i < getItems.length;i++){
+                var col = parseInt(i % colsNum);
+                var row = parseInt(i / colsNum);
+                //getItems[i].style.float = 'left';
+                getItems[i].style.position = 'absolute';
+                getItems[i].style.top = (row * getItems[i].offsetHeight) + 'px';
+                getItems[i].style.left = (col * getItems[i].offsetWidth) + 'px';
+            }
+        }
+
+        getButtons[0].onclick = function () {
+             setLoc(3);
+        };
+
+        getButtons[1].onclick = function () {
+            setLoc(4);
+        };
+
+        getButtons[2].onclick = function () {
+            setLoc(5);
+        };
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BFC解析</title>
+    <style type="text/css">
+        .top{
+            border: 2px solid red;
+
+        }
+        .c1{
+            width: 200px;
+            height: 200px;
+            background-color: #F0F43D;
+            /*margin-bottom: 100px;*/
+            float: left;
+
+        }
+        .c2{
+            width: 500px;
+            height: 200px;
+            background-color: #52D20C;
+            /*margin-top: 50px;*/
+            /*overflow: hidden;*/
+        }
+        /*.head{
+            width: 100%;
+            height: 100px;
+            background-color: purple;
+        }*/
+
+   </style>
+</head>
+<body>
+<!--BFC区域：Block Formtting Context简称，即块级格式化上下文；BFC区域是一个独立的区域
+    BFC形成条件：除了overflow:visitable的属性值不能形成，其余属性值都能形成
+    -->
+    <div class="top clearbox">
+        <div class="c1">左边</div>
+        <div class="c2">右边</div>
+    </div>
+<!--    <div class="head">头部</div>-->
+</body>
+</html>

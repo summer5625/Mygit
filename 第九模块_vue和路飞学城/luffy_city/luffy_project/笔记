@@ -1,0 +1,9 @@
+####################################Django的media配置####################################
+
+用途：配置用户上传存放的文件资源
+
+配置方法：
+
+    1、在setting.py文件中配置：
+        MEDIA_URL = 'media/'
+        MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

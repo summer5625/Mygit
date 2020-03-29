@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>过滤器</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+
+    <div id="app">
+        <input v-model="price">
+        <!--使用过滤器，将值和过滤器用| 分隔开-->
+        <h3>{{price | currentPrice}}</h3>
+        <!-- 使用全局过滤器-->
+        <p><h3> {{msg | reverse}}</h3></p>
+    </div>
+    <script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+        //定义全局过滤器
+        //两个参数，第一个是过期名字，第二个是过滤器
+        Vue.filter('reverse', function (value) {
+            return value.split('').reverse().join('')
+        });
+
+        new Vue({
+            el:'#app',
+            data(){
+                return{
+                    price:0,
+                    msg:'hello word'
+                }
+            },
+            //定义局部过滤器
+            filters:{
+                currentPrice(value){
+                    console.log(value);
+                    return value+'$'
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>

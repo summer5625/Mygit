@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态操作样式</title>
+    <style type="text/css">
+        .height{
+            background-color: #333333;
+            color: white;
+            font-size: 20px;
+            width: 250px;
+            height: 250px;
+            line-height: 250px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <p id="box">淑媛</p> <!--class="height"-->
+
+    <script type="text/javascript">
+        var par = document.getElementById('box');
+        console.log(par.style);
+        par.onclick = function () {
+
+            //逐项配置
+            /*par.style.backgroundColor = '#333333';
+            par.style.color = 'white';
+            par.style.fontSize = '20px';
+            par.style.width = '250px';
+            par.style.height = '250px';
+            par.style.lineHeight = '250px';
+            par.style.textAlign = 'center';*/
+
+            //现在css中配置好，在设置属性
+            par.setAttribute('class','height');
+        };
+
+
+    </script>
+</body>
+</html>

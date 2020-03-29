@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>设置获取标签的属性值</title>
+    <style type="text/css">
+        #box{
+            color: #ff6700;
+        }
+    </style>
+</head>
+<body>
+    <h2>要买的课程</h2>
+    <p title="购买课程">web全栈，需要购买</p>
+    <ul id="classList">
+        <li class="item">JavaScript</li>
+        <li class="item">CSS</li>
+        <li>DOM</li>
+    </ul>
+    <script type="text/javascript">
+        //获取标签对应的属性值
+        var getAtt = document.getElementsByTagName('p')[0];
+        console.log(getAtt);
+        var title = getAtt.getAttribute('title');//获取title属性的值
+        console.log(title);
+
+        //设置对象属性
+        getAtt.setAttribute('id','box'); //设置标签内字体的颜色
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

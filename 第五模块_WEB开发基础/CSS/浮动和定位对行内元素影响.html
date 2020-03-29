@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浮动和定位对行内元素影响</title>
+    <style type="text/css">
+        span{
+            /*给行内元素设置浮动，脱离了标准文档流，可以设置宽高（相当于将其转换成块元素）*/
+            /*float: left;
+            background-color: #F0F43D;
+            width: 200px;
+            height: 200px;*/
+
+            /*给行内元素设置绝对定位和固定定位，脱离了标准文档流，可以设置宽高（相当于将其转换成块元素）*/
+            position: absolute/*fixed*/;
+            background-color: #F0F43D;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <span>行内元素</span>
+</body>
+</html>

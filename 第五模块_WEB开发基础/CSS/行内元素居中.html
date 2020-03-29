@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>行内元素居中</title>
+    <style type="text/css">
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: #ff6700;
+            text-align: center;/*水平居中*/
+            /*line-height: 200px;/*垂直居中*/
+
+            /*转化成表格垂直居中*/
+            display: table-cell;/*转化表格*/
+            vertical-align: middle;/*设置垂直居中属性值：top middle bottom三个值*/
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span>站站啊啊</span>
+    </div>
+</body>
+</html>

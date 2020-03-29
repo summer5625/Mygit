@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>双向数据绑定</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+    <div id="app">
+
+        <input type="text" name="" v-model="msg">
+        <p>{{msg}}</p>
+
+        <!--  : 是v-bind的简写  @ 是v-on的简写      -->
+        <input type="text" name="b" :value="msg1" @input="changeHandler">
+        <h4>{{msg1}}</h4>
+    </div>
+
+    <script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+
+        //使用v-model实现双向数据绑定，只能用在表单上
+        //在vue中 ： 是v-bind的缩写    @是v-on的简写
+        // @input是用来实时监听input输入框内的变化
+        new Vue({
+            el:'#app',
+            data:{
+                msg:'alex',
+                msg1:'la'
+            },
+            methods:{
+                changeHandler(){
+                    this.msg1 = event.target.value
+                }
+            }
+        })
+
+
+    </script>
+</body>
+</html>

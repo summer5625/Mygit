@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取元素节点</title>
+</head>
+<body>
+    <h2>要买的课程</h2>
+    <p title="购买课程">web全栈，需要购买</p>
+    <ul id="classList">
+        <li class="item">JavaScript</li>
+        <li class="item">CSS</li>
+        <li>DOM</li>
+    </ul>
+    <script type="text/javascript">
+        var str = document.getElementById('classList'); //根据标签ID获取元素内容，获取的是单个对象
+        console.log(str);
+        console.log(typeof str);
+
+        //根据标签名称来获取标签对象，获取到的对象可以看做是一个集合
+        var list = document.getElementsByTagName('li');//通过标签名称获取,获取到所有的标签构成一个集合，不是列表
+        console.log(list);
+        for (var i = 0;i < list.length;i++){
+            console.log(list[i]);
+        }
+
+        var acstr = document.getElementsByClassName('item');//通过类名获取，得到的是一个集合
+        console.log(acstr);
+    </script>
+</body>
+</html>

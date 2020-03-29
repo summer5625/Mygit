@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+
+    <div id="app">
+        <input v-model="getMsg">
+        <h3>{{getMsg}}</h3>
+        <button @click="Handler">修改</button>
+    </div>
+    <script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+
+        new Vue({
+            el:'#app',
+            data(){
+                return {
+                    myName:'',
+                    age:20
+                }
+            },
+
+            methods:{
+                Handler(){
+                    this.myName = '芳华';
+                    this.age = 23
+
+                }
+            },
+            //定义计算属性,实时监听数据的变化
+            computed:{
+                getMsg:{
+                    //设置计算属性值
+                    set:function (newValue) {
+
+                        console.log(newValue);
+                        this.myName = newValue
+                    },
+                    //获取计算属性的值
+                    get:function (){
+
+                       return this.myName
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

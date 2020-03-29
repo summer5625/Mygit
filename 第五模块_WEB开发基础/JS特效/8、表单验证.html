@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单验证</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #prompt{
+            font-size: 12px;
+            color: darkgray;
+        }
+        #score{
+            border: 1px solid darkgray;
+        }
+        .right{
+            background: url("image/right.png") no-repeat 5px center;
+            background-size: 15px 15px;
+            padding-left: 20px;
+            color: lightgreen!important;
+        }
+        .error{
+            background: url("image/error.png") no-repeat 5px center;
+            background-size: 15px 15px;
+            padding-left: 20px;
+            color: red!important;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <label for="score">你的成绩</label>
+        <input type="text" placeholder="请输入你的分数" id="score">
+        <span id="prompt">请输入你的成绩</span>
+    </div>
+
+    <script type="text/javascript">
+        function $(id) {
+            return typeof id === 'string'? document.getElementById(id):null;
+        }
+
+        //输入框失去焦点时，获取输入内容，并校验内容合法性
+        $('score').onblur = function () {
+            var score = parseFloat(this.value);
+            console.log(isNaN(this.value));
+            if (isNaN(this.value)) {
+                //$('prompt').setAttribute('class','error');
+                $('prompt').className = 'error'; //使用class关键字设置属性值
+                $('prompt').innerHTML = '输入的成绩不正确';
+                this.style.borderColor = 'red';
+            }else if (score >=0 && score <=100){
+                $('prompt').className = 'right';
+                $('prompt').innerHTML = '输入的成绩正确';
+                this.style.borderColor = 'lightgreen';
+            }else {
+                $('prompt').className = 'error'; //使用class关键字设置属性值
+                $('prompt').innerHTML = '请输入0-100间的数';
+                this.style.borderColor = 'red';
+            }
+
+        };
+
+        //输入框有焦点的恢复默认值
+        $('score').onfocus = function () {
+            this.value = '';
+            this.style.borderColor = 'darkgray';
+            this.style.outline = 'none';
+            $('prompt').className = '';
+            $('prompt').style.color = 'darkgray';
+            $('prompt').innerHTML = '请输入你的成绩';
+
+        }
+    </script>
+</body>
+</html>

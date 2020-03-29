@@ -1,0 +1,53 @@
+2019-03-29 01:15:40 AM  INFO  role:teacher  account:2019  operation:landing  info:登录成功!
+2019-03-29 01:18:24 AM  INFO  role:teacher  account:2019  operation:landing  info:登录成功!
+2019-03-31 10:24:49 PM  INFO  role:teacher  account:2019  operation:landing  info:登录成功!
+2019-03-31 10:25:26 PM  INFO  role:teacher  account:2019  operation:landing  info:登录成功!
+2019-03-31 10:28:46 PM  INFO  role:teacher  account:2019  operation:landing  info:登录成功!
+2019-03-31 10:32:08 PM  INFO  role:teacher  account:2019  operation:landing  info:登录成功!
+2019-03-31 10:33:33 PM  INFO  role:teacher  account:2019  operation:book  info:登录成功!
+2019-04-03 01:29:02 AM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-03 01:31:55 AM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-03 01:32:26 AM  INFO  role:teacher   account:20190010001   operation:update massage   info:个人信息更新成功!
+2019-04-03 01:32:35 AM  INFO  role:teacher   account:20190010001   operation:change password   info:密码修改成功!
+2019-04-03 01:37:59 AM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-03 01:39:06 AM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-03 01:41:15 AM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-03 01:47:50 AM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-03 01:54:51 AM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-03 02:01:35 AM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-03 02:14:33 AM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-03 02:19:56 AM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-03 11:12:27 PM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-03 11:20:14 PM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-03 11:22:47 PM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-03 11:24:23 PM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-03 11:26:40 PM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-03 11:59:24 PM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-04 12:16:03 AM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-04 12:21:51 AM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-04 12:31:13 AM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-04 01:07:37 AM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-04 01:08:04 AM  INFO  role:teacher   account:20190010001   operation:schooltime   info:已在001班级上课!
+2019-04-04 10:57:37 PM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-04 10:58:26 PM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-04 11:04:11 PM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-04 11:04:36 PM  INFO  role:teacher   account:20190010001   operation:schooltime   info:已在001班级上课!
+2019-04-05 12:51:57 AM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-05 12:53:18 AM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-05 11:42:12 PM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-05 11:42:19 PM  INFO  role:teacher   account:20190010001   operation:update massage   info:个人信息更新成功!
+2019-04-05 11:42:24 PM  INFO  role:teacher   account:20190010001   operation:change password   info:密码修改成功!
+2019-04-05 11:46:05 PM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-05 11:46:16 PM  INFO  role:teacher   account:20190010001   operation:schooltime   info:已在001班级上课!
+2019-04-05 11:47:41 PM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-05 11:51:01 PM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-05 11:52:38 PM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-05 11:53:35 PM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-05 11:55:02 PM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-05 11:59:26 PM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-06 12:00:23 AM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-06 12:02:45 AM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-06 12:05:25 AM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-06 12:06:30 AM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-06 01:19:40 AM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!
+2019-04-06 10:41:45 PM  INFO  role:teacher   account:20190010001   operation:landing   info:登录成功!

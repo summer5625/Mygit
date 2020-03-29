@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对DOM对象操作</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+    <input type="radio" name="sex" checked>男
+    <input type="radio" name="sex">女
+
+    <script type="text/javascript" src="jQuery3.4.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //js对input单选按钮checked的默认值设置为checked，无论设置值为多少都返回checked，不方便数据库存储
+            console.log($('input[type=radio]').attr('checked'));
+
+            var oInput = document.getElementsByTagName('input')[1];
+            console.dir(oInput);
+
+            console.log($('input[type=radio]').eq(0).prop('checked'));
+
+
+            $('input[type=radio]').eq(0).prop('aaa','111');
+            console.log($('input[type=radio]').eq(0));
+
+
+            $('input[type=radio]').eq(0).removeProp('aaa');
+            console.log($('input[type=radio]').eq(0));
+        })
+    </script>
+</body>
+</html>

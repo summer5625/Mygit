@@ -1,0 +1,58 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>window对象</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <script type="text/javascript">-->
+<!--        //网页有弹出框-->
+<!--        window.alert('你真棒!');-->
+
+<!--        //有弹出框和按钮点击后会有返回值,点击确定返回true，反之返回false-->
+<!--        var a = window.confirm('是干垃圾吗？');-->
+<!--        console.log(a);-->
+
+<!--        //弹出输入框，输入内容确定后会将内容返回-->
+<!--        var b = window.prompt('你叫啥?');-->
+<!--        console.log(b);-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript">
+
+        var oBtn = document.getElementsByTagName('button')[1];
+        var closeBtn = document.getElementsByTagName('button')[3];
+
+        oBtn.onclick = function(){
+                      //open('https://www.baidu.com')
+
+            //打开空白页面
+            open('about:blank',"_self")
+        };
+        closeBtn.onclick = function(){
+            if(confirm("是否关闭？")){
+                close();
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+    <!--行间的js中的open() window不能省略-->
+    <button onclick="window.open('https://www.luffycity.com/')">路飞学城</button>
+
+    <button>打开百度</button>
+    <button onclick="window.close()">关闭</button>
+    <button>关闭</button>
+
+</body>
+</html>

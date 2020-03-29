@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>节点对象的其他属性</title>
+</head>
+<body>
+    <div>上一个兄弟</div><div id="father"><p>淑媛</p><p>站站</p></div><div>下一个兄弟</div>
+
+    <script type="text/javascript">
+        var father = document.getElementById('father');
+        console.log(father.childNodes);//
+
+        //获取第一个子节点
+        console.log(father.childNodes[0]);
+        console.log(father.firstChild);
+
+        //获取最后一个子节点
+        console.log(father.childNodes[father.childNodes.length-1]);
+        console.log(father.lastChild);
+
+        //获取父级节点
+        console.log(father.parentNode);
+
+        //获取下一个兄弟节点
+        console.log(father.nextSibling);
+
+        //获取上一个兄弟节点
+        console.log(father.previousSibling);
+
+    </script>
+</body>
+</html>

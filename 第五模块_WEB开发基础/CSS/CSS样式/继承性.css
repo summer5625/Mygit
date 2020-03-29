@@ -1,0 +1,12 @@
+/*a标签不能继承祖宗特性*/
+
+body{
+    color: fuchsia;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+
+body:hover{
+    color: aqua;
+}

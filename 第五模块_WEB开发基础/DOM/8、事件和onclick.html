@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件和onclick</title>
+    <style type="text/css">
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<!--事件添加有两种方式，一个是在js中，另外是再接在标签上添加-->
+    <div id="box"></div>  <!--<div id="box" onclick="chang()"></div>-->
+
+    <script type="text/javascript">
+        var getNode = document.getElementById('box');
+        /*getNode.onclick = function chang() {
+            alert('我太难了!');
+        }*/
+
+        var isRed = true;
+        getNode.onclick = function () {
+            if (isRed){
+                this.style.backgroundColor = 'blue';
+                isRed = false;
+            } else {
+                this.style.backgroundColor = 'red';
+                isRed = true;
+            }
+        }
+    </script>
+</body>
+</html>

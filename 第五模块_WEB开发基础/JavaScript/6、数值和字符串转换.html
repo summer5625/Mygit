@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数值和字符串转换</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //数值转字符串隐式转换
+        var a = 56;
+        var b = 'acb';
+        var c = a + b; //当字符串和数值相加时，浏览器内部自动将数值类型转换成字符串类型，再相加
+        //alert(c);
+
+        //数值转字符串隐式转换
+        var d = a.toString();
+        //alert(typeof d);
+
+        //字符串转数值
+        var x = Number('56');
+        //alert(x);
+        //alert(typeof x)
+
+        var f = '56fg'; //此种形式下转换成数值，浏览器会弹出NaN，这就是报错了，意思是not a number
+        var y = Number(f);
+        alert(y);
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        header{
+            width: 100%;
+            height: 50px;
+            background-color: greenyellow;
+            margin-bottom: 20px;
+        }
+
+        #box{
+            width: 1300px;
+            background-color: #888888;
+            position: relative;
+            text-align: center;
+        }
+
+        #b1{
+            width: 400px;
+            position: absolute;
+            background-color: palegreen;
+            text-align: center;
+        }
+
+        #b2{
+            width: 400px;
+            position: absolute;
+            left: 450px;
+            background-color: palegreen;
+            text-align: center;
+        }
+
+        #b3{
+            width: 400px;
+            position: absolute;
+            right: 0;
+            background-color: palegreen;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        {% block head %}
+        {% endblock %}
+    </header>
+    <div id="box">
+        <div id="b1">
+            {% block b1 %}
+            {% endblock %}
+        </div>
+        <div id="b2">
+            {% block b2 %}
+            {% endblock %}
+        </div>
+        <div id="b3">
+            {% block b3 %}
+            {% endblock %}
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src=""></script>
+    <script type="text/javascript"></script>
+</body>
+</html>

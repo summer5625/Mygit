@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通过Prop向子组件传递数据</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css">
+         *{
+            margin: 0;
+            padding: 0;
+        }
+        .main{
+            width: 100%;
+        }
+        .head{
+            width: 100%;
+            height: 70px;
+            background-color: #1b6d85;
+            text-align: center;
+            line-height: 70px;
+            font-size: 20px;
+        }
+        .wrap{
+            width: 100%;
+            height: 1200px;
+        }
+        .wrap .aside{
+            width: 30%;
+            height: 100%;
+            background-color: #52D20C;
+            float: left;
+        }
+        .wrap .content{
+            width: 70%;
+            height: 100%;
+            background-color: #ff6700;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app"></div>
+
+    <script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+
+         var Vhead = {
+            template:`
+                <header class="head">头部啊</header>
+
+            `
+        };
+
+        var Vaside = {
+            template:`<div class="aside"><slot></slot></div>`
+        };
+        var Vcontent = {
+            template:`<div class="content">
+
+                            <ul>
+                                <li v-for="item in post" :key="item.id">{{item.title}}</li>
+                            </ul>
+                            <button @click="changeSize">字体大小</button>
+                      </div>`,
+            props:['post'],
+            methods:{
+                changeSize(){
+                    //通过$emit()方法来触发自定义事件
+                    //第一个参数是自定义事件的名字，第二个参数是传递的值
+                    this.$emit('postSize', 5)
+                }
+            }
+
+        };
+
+        //局部组件
+        var Vmain = {
+            template:`
+                <div class="main" :style="{fontSize:fontsize+'px'}">
+                    <h4>{{title}}</h4>
+                    <Vhead></Vhead>
+
+                    <div class="wrap">
+                        <Vaside>侧边栏</Vaside>
+                        <Vcontent v-bind:post="appPost" @postSize="clickHandler"></Vcontent>
+                    </div>
+                </div>
+            `,
+            components:{
+                //等价于Vhead:Vhead
+                Vhead,
+                Vaside,
+                Vcontent
+            },
+            props:['title', 'appPost'],
+            methods:{
+                clickHandler(value){
+                    this.fontsize = this.fontsize + value
+                },
+
+            },
+            data(){
+                return{
+                    fontsize:18
+                }
+            }
+        };
+
+
+        new Vue({
+            el:'#app',
+            //使用子组件
+            template: `<Vmain :title="text" :appPost="post"/>`,
+            data:{
+                text:'大标题啊',
+                post:[
+                    {id:1, title:'兰若生春夏'},
+                    {id:2, title:'芊蔚何青青'},
+                    {id:3, title:'幽独空林色'},
+                    {id:4, title:'朱蕤冒紫茎'}
+                ]
+            },
+            components:{
+                // 挂在组件
+                Vmain:Vmain,
+
+            }
+        })
+
+        /*
+            父组件向子组件传递数据：通过props
+                1.在子组件自定义特性。props:[自定义属性， 自定义属性.....]，当一个值传递给props特性时，他就变成了那个组件实例的
+                  一个属性，那么我们就可想像访问data中的值一样去访问，不过{{自定义属性名称}}
+
+                2.要在父组件中导入到子组件内部，要绑定自定义属性<Vmain :自定义属性名="data中定义的数据属性"/>
+
+                3.一个组价默认可以拥有任意数量的prop，任何值都可以传递
+
+            子组件向父组件传递数据
+                1.给子组件中的摸个按钮绑定原生事件，通过调用内建的this.$emit('自定义事件名称', 传递的数据)，
+                  来向父级组件触发一个自定义事件
+
+                2.在父组建中的子组件标签中要绑定自定义的事件
+
+
+
+         */
+
+    </script>
+</body>
+</html>

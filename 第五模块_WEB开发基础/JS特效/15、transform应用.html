@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>transform应用</title>
+    <style type="text/css">
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /*transform: translate(100px,200px);/*表示在水平和竖直方向上的位移*/
+            /*transform: translate(100px,200px) rotate(10deg);/*表示旋转多少度，默认顺时针旋转*/
+            /*transform: scale(2.0);/*表示放大多少倍*/
+            /*transform: skew(15deg);/*表示倾斜多少度*/
+        }
+    </style>
+</head>
+<body>
+    <button id="but">形变</button>
+    <div id="box"></div>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            var btu = document.getElementById('but');
+            var bo = document.getElementById('box');
+            var index = 0;
+
+            btu.onclick = function () {
+                index++;
+                bo.style.transform = `translate(${index*100}px,${index*60}px)
+                rotate(${index*10}deg) scale(${index*1.3})`;
+            }
+        }
+    </script>
+</body>
+</html>

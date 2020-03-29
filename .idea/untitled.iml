@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="PYTHON_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/第二模块：函数编程/ATM/bin" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/第二模块：函数编程/ATM/conf" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/第二模块：函数编程/ATM/core" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/第二模块：函数编程/ATM/db" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/第二模块：函数编程/ATM/log" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/第三模块：面向对象&amp;网络编程基础/面向对象编程/CSS/core" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/第三模块：面向对象&amp;网络编程基础/面向对象编程/CSS/bin1" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/第三模块：面向对象&amp;网络编程基础/面向对象编程/CSS/conf" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/第三模块：面向对象&amp;网络编程基础/面向对象编程/CSS/db" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/第三模块：面向对象&amp;网络编程基础/面向对象编程/CSS/log" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/第三模块：面向对象&amp;网络编程基础/网络编程/FTP" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/第三模块：面向对象&amp;网络编程基础/网络编程/FTP/service" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/456/net/FTP" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/测试/automation_framework_demo" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/Rbac/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/work_Review/CRM/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/work_Review/DRF/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/work_Review/JWT/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/work_Review/JWTT/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/work_Review/RBAC/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/work_Review/Rbbbb/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/work_Review/Rbbc/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/work_Review/Rbbcc/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/work_Review/SSSSk/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/work_Review/STARK/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/work_Review/URbac/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/work_Review/newJWT/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/work_Review/untitled/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/work_Review/untitled1/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/work_Review/untitled2/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/work_Review/untitled6/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/work_Review/untitled9/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/第七模块_CRM/pritice_crm/p_rbac/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/第七模块_CRM/work_Review/RBAC/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/第三模块：面向对象&amp;网络编程基础/面向对象编程/CSS" />
+      <excludeFolder url="file://$MODULE_DIR$/第三模块：面向对象&amp;网络编程基础/面向对象编程/course select system" />
+      <excludeFolder url="file://$MODULE_DIR$/第九模块_vue和路飞学城/luffy_city/DRFDemo/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/第九模块_vue和路飞学城/luffy_city/luffy_project/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/第九模块_vue和路飞学城/work_Review/RBAC/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/第二模块：函数编程/ATM" />
+      <excludeFolder url="file://$MODULE_DIR$/第六模块_WEB框架/Django框架/BBS/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/第六模块_WEB框架/Django框架/Middleware_model/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/第六模块_WEB框架/Django框架/MultiTables/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/第六模块_WEB框架/Django框架/MultiTableskkkk/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/第六模块_WEB框架/Django框架/ajax/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/第六模块_WEB框架/Django框架/author_modles/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/第六模块_WEB框架/Django框架/cnblog/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/第六模块_WEB框架/Django框架/cookieSession/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/第六模块_WEB框架/Django框架/forms_module/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/第六模块_WEB框架/Django框架/mBMS/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/第六模块_WEB框架/Django框架/model_orm/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/第六模块_WEB框架/Django框架/my_django/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/第六模块_WEB框架/Django框架/paging_device/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/第六模块_WEB框架/Django框架/play/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/第六模块_WEB框架/Django框架/view_project/venv" />
+    </content>
+    <orderEntry type="jdk" jdkName="Python 3.7" jdkType="Python SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+  <component name="TemplatesService">
+    <option name="TEMPLATE_FOLDERS">
+      <list>
+        <option value="$MODULE_DIR$/测试/automation_framework_demo" />
+      </list>
+    </option>
+  </component>
+  <component name="TestRunnerService">
+    <option name="PROJECT_TEST_RUNNER" value="Unittests" />
+  </component>
+</module>

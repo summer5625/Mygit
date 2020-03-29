@@ -1,0 +1,7 @@
+2019-05-06 01:20:40 AM  INFO  account:xia  operation:download  file_name:夏云翔.docx  info:download successfully
+2019-05-06 01:22:06 AM  INFO  account:xia  operation:uploading  file_name:PyCharm 使用技巧.docx  info:uploading successfully
+2019-05-12 09:29:49 PM  INFO  account:xia  operation:add_user  info:registered successfully
+2019-05-12 09:32:20 PM  INFO  account:xia  operation:download  file_name:工作日报.xlsx  info:download successfully
+2019-05-12 09:34:32 PM  INFO  account:liu  operation:add_user  info:registered successfully
+2019-05-12 09:34:58 PM  INFO  account:liu  operation:uploading  file_name:JM571862277R90250000000.doc  info:uploading successfully
+2019-05-12 09:35:10 PM  INFO  account:liu  operation:download  file_name:JM571862277R90250000000.doc  info:download successfully

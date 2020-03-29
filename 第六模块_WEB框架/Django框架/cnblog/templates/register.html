@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--媒体查询视口设置-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>用户注册</title>
+    <link rel="stylesheet" type="text/css" href="/static/blog/bootstrap-3.3.7/css/bootstrap.css">
+    <style type="text/css">
+        #head_img{
+            width: 60px;
+            height: 60px;
+            margin-left: 20px;
+        }
+
+        .error{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="col-lg-4 col-lg-offset-4">
+            <h3>新用户注册</h3>
+            <form id="reg_inform">
+                {% csrf_token %}
+
+                {% for item in form %}
+
+                    <div class="form-group">
+                        <label for="{{ item.auto_id }}">{{ item.label }}</label>
+                        {{ item }}
+                        <span class="error pull-right">{{ item.error.0 }}</span>
+                    </div>
+
+                {% endfor %}
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <label for="photo">
+                                头像
+                                <img src="/static/blog/images/default.png" id="head_img">
+                            </label>
+                            <input type="file" class="form-control" style="display: none" id="photo">
+                            <span class="error pull-right"></span>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <input type="button" class="btn btn-info" value="注册" id="login_btn">
+
+            </form>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/static/blog/jQuery3.4.1.js"></script>
+    <script type="text/javascript" src="/static/blog/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+
+        //头像预览
+        $('#photo').change(function () {
+
+            //获取用户上传文件的对象
+            var file_obj = $(this)[0].files[0];
+
+            //获取文件对象的路径
+            var file_path = new FileReader(file_obj);
+
+            //该段是异步执行的，从系统中进行了IO操作速度慢
+            file_path.readAsDataURL(file_obj);
+
+            //修改img的src属性，由于上一步是异步执行io，如果不进行noload延时加载，当执行该段代码时，上面一段代码还未执行完成
+            //就获取不到文件的路径的，加载图片就失败了
+            file_path.onload = function () {
+                $('#head_img').attr('src', file_path.result);
+                //console.log(file_path.result)
+            }
+        });
+
+        //提交注册信息
+
+        $('#login_btn').click(function () {
+
+            var formdata = new FormData();
+
+            //formdata.append('user', $('#id_user').val());
+            //formdata.append('pwd', $('#id_pwd').val());
+            //formdata.append('r_pwd', $('#id_r_pwd').val());
+            //formdata.append('email', $('#id_email').val());
+            //formdata.append('tel', $('#id_tel').val());
+            //formdata.append('photo', $('#photo')[0].files[0]);
+            //formdata.append('csrfmiddlewaretoken', $('[name=csrfmiddlewaretoken]').val());
+
+
+            //简单方式添加发送数据
+            var request_data = $('#reg_inform').serializeArray();
+            $.each(request_data,function (index, data) {
+                formdata.append(data.name, data.value)
+            });
+
+            formdata.append('csrfmiddlewaretoken', $('[name=csrfmiddlewaretoken]').val());
+            formdata.append('photo', $('#photo')[0].files[0]);
+
+            $.ajax({
+                url:'',
+                type:'post',
+                contentType:false,
+                processData:false,
+                data:formdata,
+                success:function (data) {
+                    //console.log(data);
+                    if (data.user) {//注册成功
+                        location.href = '/blog/index/'
+                    }
+                    else {//注册失败
+
+                        //情空上次的错误信息
+                        $('span.error').html('');
+                        $('.form-group').removeClass('has-class');
+
+                        $.each(data.msg, function (key, error_list) {
+                            //console.log(key, error_list);
+                            
+                            if (key === '__all__') {
+                                $('#id_r_pwd').next().text(error_list[0]).parent().addClass('has-error');
+                            }
+                            else {
+                                $('#id_' + key).next().text(error_list[0]);
+                                $('#id_' + key).parent().addClass('has-error');
+                            }
+
+
+                        })
+                    }
+                }
+            })
+
+
+        })
+    </script>
+</body>
+</html>

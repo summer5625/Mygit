@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上传图片验证</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            var file = document.getElementById('file');
+            file.onchange = function () {
+                var format = ['.jpg','.png','.gif','.bmp'];
+                //获取文件路径
+                var path = this.value;
+
+                //获取文件后缀名并转换成小写
+                var loc = path.lastIndexOf('.');
+                var getLower = path.substr(loc).toLowerCase();
+
+                //获取后缀名在文件格式列表中的位置
+                var getIndex = format.indexOf(getLower);
+
+                if (getIndex === -1){
+                    alert('上传格式错误!');
+                }else {
+                    alert('上传格式正确!');
+                }
+
+            };
+        };
+    </script>
+</head>
+<body>
+    <label for="file">上传文件格式验证</label>
+    <input type="file" name="" id="file">
+</body>
+</html>

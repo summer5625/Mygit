@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象单体模式</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+
+
+<script type="text/javascript" src=""></script>
+<script type="text/javascript">
+
+    // 普通方式创建函数
+
+    /*var person = {
+        name:'summer',
+        age:19,
+        fav:function (content) {
+            console.log('喜欢学习');
+            console.log(this); //this是当前自己
+            console.log(arguments[0])
+        }
+    };
+    person.fav('love')*/
+
+
+    // es6中使用单体模式创建函数
+    var person = {
+        name:'summer',
+        age:19,
+        fav (content) {
+            console.log('喜欢学习');
+            console.log(this); //this是当前自己
+            console.log(arguments[0]) //可以使用arguments方法
+        }
+    };
+    person.fav('love')
+
+
+
+
+</script>
+</body>
+</html>

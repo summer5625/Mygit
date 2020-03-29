@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box"></div>
+
+<!--引包-->
+    <script type="text/javascript" src="jQuery3.4.1.js"></script>
+    <script type="text/javascript">
+
+        var a = document.getElementById('box');
+        console.log(a);
+        //只执行函数
+        (function add() {
+            return console.log(2);
+        })();
+        console.log(jQuery);
+
+        //jquery是一个全局对象，当调用$()时，内部会生成new jQuery()对象，创建出对象后就可以调用对象的属性和方法，相当于拿到事件源
+        console.log($('box'));
+
+    </script>
+</body>
+</html>
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title></title>-->
+<!--    <style type="text/css">-->
+<!--        div{-->
+<!--            width: 100px;-->
+<!--            height: 100px;-->
+<!--            background-color: green;-->
+<!--            margin-top: 20px;-->
+<!--            display: none;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <button>操作</button>-->
+<!--    <div></div>-->
+<!--    <div></div>-->
+<!--    <div></div>-->
+
+<!--    <script type="text/javascript" src="jQuery3.4.1.js"></script>-->
+<!--    <script type="text/javascript">-->
+<!--        $(document).ready(function(){-->
+<!--            // 获取dom元素-->
+<!--            var oBtn = $('button'); //根据标签名获取元素-->
+<!--            var oDiv = $('div'); //根据标签名获取元素-->
+<!--            oBtn.click(function(){-->
+<!--                oDiv.show(1000);//显示盒子-->
+<!--                oDiv.html('赵云'); // 设置内容-->
+<!--            });//事件是通过方法绑定的-->
+<!--        })-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->

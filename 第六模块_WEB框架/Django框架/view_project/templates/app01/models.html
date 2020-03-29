@@ -1,0 +1,177 @@
+{#引入的模板必须放在最前面#}
+{% extends 'app01/bases.html' %}
+
+{% block head %}
+    models
+{% endblock %}
+
+{% block b1 %}
+    <h2>句点符</h2>
+    <p>字符串:{{ s }}</p>
+    <p>整数:{{ i }}</p>
+    <p>列表:{{ l }}</p>
+    <p>字典:{{ d }}</p>
+    <p>布尔值:{{ b }}</p>
+    <p>对象:{{ p1 }}</p>
+    <p>对象列表:{{ p_l }}</p>
+
+
+    <hr>
+    <h2>深度查询</h2>
+
+    <p>取列表l的数:{{ l.1 }}</p>
+    <p>取字典d的值:{{ d.name }}</p>
+    <p>取字典d的值:{{ d.age }}</p>
+    <p>取p_l的数:{{ p_l.0 }}</p>
+{% endblock %}
+
+
+{% block b2 %}
+    <h2>过滤器</h2>
+
+    <p>{{ l.3|default:'没找到' }}</p>  {# 超找列表中字符串，没找到就显示没找到 #}
+    <p>{{ d|length }}</p>   {#如果是 列表返回列表长度#}
+    <p>{{ val|filesizeformat }}</p>{# 将一个数字转换成内存大小字符 #}
+    <p>{{ now|date:'Y-m-d' }}</p> {# 讲一个日期对象转换成字符串 #}
+    <p>{{ l|slice:'2:-1' }}</p>  {#  给字符串和列表切片 #}
+    <p>{{ l_str|truncatechars:5 }}</p> {#  截断字符串，截断多少个字符 #}
+    <p>{{ l_e|truncatewords:5 }}</p>{#  截断英文的 #}
+    <p>{{ bq|safe }}</p> {# 防止标签被转义为字符串 #}
+
+    <hr>
+    <h2>标签</h2>
+
+    <h3>for标签</h3>
+    {#  遍历一个列表 #}
+    {% for i in l %}
+        <p>{{ i }}</p>
+    {% endfor %}
+
+    {#  当列表为空时 #}
+    {% for i in kl %}
+        {% empty %}
+            <p>list is empty</p>
+    {% endfor %}
+    {#  遍历一个字典 #}
+    {% for key,valu in d.items %}
+        <p>{{ key }}:{{ valu }}</p>
+    {% endfor %}
+
+    <hr>
+    <h3>if标签</h3>
+    {% if i > 20 and i < 22%}
+        <p>i</p>
+    {% elif i >= 23 and i < 30 %}
+        <p>大佬喽</p>
+        {% else %}
+        <p>boos哦</p>
+    {% endif %}
+
+    <h3>with简化变量名称</h3>
+    {% with p_l.0.name as pl%}
+        <p>{{ pl }}</p>
+    {% endwith %}
+
+    <h3>csrf_token</h3> {# 用于跨站请求伪造保护。#}
+
+{% endblock %}
+
+{% block b3 %}
+    <h2>自定义过滤器</h2>
+    {% load my_tag_fliter %}
+    <p>{{ i|multi_fliter:10 }}</p>
+
+    <h3>自定义标签</h3>
+    <p>{% multi_tag 8 9 %}</p>
+{% endblock %}
+
+
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Title</title>#}
+{#    <link rel="stylesheet" type="text/css" href="">#}
+{#    <style type="text/css"></style>#}
+{#</head>#}
+{#<body>#}
+
+{#    <h2>句点符</h2>#}
+{#    <p>字符串:{{ s }}</p>#}
+{#    <p>整数:{{ i }}</p>#}
+{#    <p>列表:{{ l }}</p>#}
+{#    <p>字典:{{ d }}</p>#}
+{#    <p>布尔值:{{ b }}</p>#}
+{#    <p>对象:{{ p1 }}</p>#}
+{#    <p>对象列表:{{ p_l }}</p>#}
+{##}
+{##}
+{#    <hr>#}
+{#    <h2>深度查询</h2>#}
+{##}
+{#    <p>取列表l的数:{{ l.1 }}</p>#}
+{#    <p>取字典d的值:{{ d.name }}</p>#}
+{#    <p>取字典d的值:{{ d.age }}</p>#}
+{#    <p>取p_l的数:{{ p_l.0 }}</p>#}
+
+{#    <hr>#}
+{#    <h2>过滤器</h2>#}
+{##}
+{#    <p>{{ l.3|default:'没找到' }}</p>  {# 超找列表中字符串，没找到就显示没找到 #}
+{#    <p>{{ d|length }}</p>   {#如果是 列表返回列表长度#}
+{#    <p>{{ val|filesizeformat }}</p>{# 将一个数字转换成内存大小字符 #}
+{#    <p>{{ now|date:'Y-m-d' }}</p> {# 讲一个日期对象转换成字符串 #}
+{#    <p>{{ l|slice:'2:-1' }}</p>  {#  给字符串和列表切片 #}
+{#    <p>{{ l_str|truncatechars:5 }}</p> {#  截断字符串，截断多少个字符 #}
+{#    <p>{{ l_e|truncatewords:5 }}</p>{#  截断英文的 #}
+{#    <p>{{ bq|safe }}</p> {# 防止标签被转义为字符串 #}
+{##}
+{#    <hr>#}
+{#    <h2>标签</h2>#}
+{##}
+{#    <h3>for标签</h3>#}
+    {#  遍历一个列表 #}
+{#    {% for i in l %}#}
+{#        <p>{{ i }}</p>#}
+{#    {% endfor %}#}
+{##}
+    {#  当列表为空时 #}
+{#    {% for i in kl %}#}
+{#        {% empty %}#}
+{#            <p>list is empty</p>#}
+{#    {% endfor %}#}
+    {#  遍历一个字典 #}
+{#    {% for key,valu in d.items %}#}
+{#        <p>{{ key }}:{{ valu }}</p>#}
+{#    {% endfor %}#}
+{##}
+{#    <hr>#}
+{#    <h3>if标签</h3>#}
+{#    {% if i > 20 and i < 22%}#}
+{#        <p>i</p>#}
+{#    {% elif i >= 23 and i < 30 %}#}
+{#        <p>大佬喽</p>#}
+{#        {% else %}#}
+{#        <p>boos哦</p>#}
+{#    {% endif %}#}
+{##}
+{#    <h3>with简化变量名称</h3>#}
+{#    {% with p_l.0.name as pl%}#}
+{#        <p>{{ pl }}</p>#}
+{#    {% endwith %}#}
+{##}
+{#    <h3>csrf_token</h3> {# 用于跨站请求伪造保护。#}
+
+{#    <hr>#}
+{#    <h2>自定义过滤器</h2>#}
+{#    {% load my_tag_fliter %}#}
+{#    <p>{{ i|multi_fliter:10 }}</p>#}
+{##}
+{#    <h3>自定义标签</h3>#}
+{#    <p>{% multi_tag 8 9 %}</p>#}
+{##}
+{##}
+{#    <script type="text/javascript" src=""></script>#}
+{#    <script type="text/javascript"></script>#}
+{#</body>#}
+{#</html>#}

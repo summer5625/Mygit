@@ -1,0 +1,31 @@
+p{
+    color: blueviolet;
+    font-weight: bolder;
+}
+#asset{
+    color: green;
+}
+
+#debt{
+    color: orange;
+}
+
+#land{
+    color: red;
+}
+
+.po{
+    color: blueviolet;
+}
+
+.ye{
+    color: yellow;
+}
+
+.p20{
+    font-size: 20px;
+}
+
+.bold{
+    font-weight: bolder;
+}

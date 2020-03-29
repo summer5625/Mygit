@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>背景属性</title>
+    <style type="text/css">
+        .pat{
+            width: 1400px;
+            height: 1400px;
+            border: 3px solid green;
+            /*background-color: red;*/
+            background-image: url("imge/back.jpg");
+            /*background-repeat: repeat; /*默认平铺背景图片*/
+            /*background-repeat: no-repeat;/*取消平铺背景图片*/
+            /*background-repeat: repeat-x;/*在水平方向上平铺背景图片*/
+            /*background-repeat: repeat-y;/*在垂直方向上平铺背景图片 */
+            background-repeat: no-repeat;
+
+
+            /*背景图定位*/
+            /*background-position:-100px -100px;*/
+            /*background-position-x: 100px;/*
+            /*background-position-y: 200px;*/
+
+            /*关键字定位：top right left bottom center*/
+            /*background-position: bottom center;/*两个搭配共9组*/
+
+            /*百分比定位*/
+            /*水平百分比值= 水平偏移量/（容器宽度 - 背景图片宽度）
+              垂直百分比= 垂直偏移量/（容器高度 - 背景图片高度）*/
+            background-position: 30% 60%;
+            /*计算偏移值*/
+            /*background-position: 210px 420px;
+            background-attachment: fixed;*/
+
+        }
+    </style>
+</head>
+<body>
+    <div class="pat">
+        <p style="color: #fff">人间仙境</p>
+    </div>
+</body>
+</html>

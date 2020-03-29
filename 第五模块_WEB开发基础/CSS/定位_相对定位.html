@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>相对定位</title>
+    <style type="text/css">
+        body{
+            border: 2px solid orange;
+            width: 400px;
+        }
+        .one{
+            width: 200px;
+            height: 200px;
+            background-color: #ff0000;
+            position: relative; /*相对定位属性值*/
+            left: 200px;/*向右移动200*/
+        }
+        .two{
+            width: 200px;
+            height: 200px;
+            background-color: #52D20C;
+            position: relative;
+            top: 200px;/*向下移动200*/
+            left: 200px;/*向右移动200*/
+        }
+        .three{
+            width: 200px;
+            height: 200px;
+            background-color: #F0F43D;
+        }
+    </style>
+</head>
+<body>
+    <!--相对定位：
+            不脱离标准文档流，可以调整元素
+         参考点：
+            以原来的位置为参考点
+          应用：
+            微调元素的位置-->
+    <div class="one">one</div>
+    <div class="two">two</div>
+    <div class="three">three</div>
+</body>
+</html>

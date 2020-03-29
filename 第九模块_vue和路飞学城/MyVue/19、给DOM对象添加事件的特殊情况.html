@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+
+        Vue.component('subM',{
+            template:`<div></div>`
+        });
+
+        var App = {
+            data(){
+                return{
+                    isShow:false
+                }
+            },
+            template:`<div>
+                        <input type="text" v-if="isShow" ref="fos">
+                      </div>
+                      `,
+            mounted(){
+                //获取输入框焦点
+                // this.$refs.fos.focus()
+
+
+                // this.isShow = true;
+                // //无法获取到DOM
+                //是由于，vue实现响应并不是在数据发生变化之后DOM立即发生变化，而是按照一定的策略进行DOM更新，即在数据发生变化到
+                //对DOM更新中间有一个过程
+                // this.$refs.fos.focus()
+
+                this.isShow = true;
+                console.log(this.$refs.fos);
+
+                //$nextTick()是在下次更新循环结束之后执行的延迟回调，在修改数据后使用$nextTick()，则可以在回调中获取更新之后的DOM
+                this.$nextTick(function () {
+
+                    //获取更新后的DOM
+                    console.log(this.$refs.fos);
+                    this.$refs.fos.focus()
+                })
+
+            }
+
+        };
+
+        new Vue({
+            el:'#app',
+            data(){
+                return{
+
+                }
+            },
+            template: `<App></App>`,
+            components:{
+                App
+            }
+
+        })
+
+    </script>
+</body>
+</html>

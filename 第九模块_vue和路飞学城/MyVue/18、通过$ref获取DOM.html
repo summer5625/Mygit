@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+
+    <div id="app"></div>
+
+    <script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+
+        Vue.component('subM',{
+            template:`<div></div>`
+        });
+
+        var App = {
+            template:`<div>
+                         <button ref="btn">按钮哦</button>
+                         <p ref="sb">summer</p>
+                         <subM ref="sub"></subM>
+                      </div>
+                      `,
+            beforeCreate() {
+                console.log(this.$refs.btn)
+            },
+            created() {
+                console.log(this.$refs.btn)
+            },
+            beforeMount(){
+                console.log(this.$refs.btn)
+            },
+            mounted(){
+                console.log(this);
+                console.log(this.$refs.btn);//获取DOM
+
+                //绑定事件
+                var op = this.$refs.sb;
+                this.$refs.btn.onclick=function () {
+                    console.log('点我啊!');
+                    console.log(op.innerHTML);
+
+                };
+
+                //如果是个组件绑定ref属性，那么this.$refs.sub获取的是组件对象
+                console.log(this.$refs.sub)
+            },
+        };
+
+        new Vue({
+            el:'#app',
+            data(){
+                return{
+
+                }
+            },
+            template: `<App></App>`,
+            components:{
+                App
+            }
+
+        })
+    </script>
+</body>
+</html>

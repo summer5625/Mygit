@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>登录</h2>
+    <form action="{% url 'landing' %}" method="post">
+        用户名<input type="text" name="user">
+        密码<input type="password" name="pwd">
+        <input type="submit">
+    </form>
+
+    <div>
+
+        {% for item in ls %}
+            <p><a href="{% url 'change' item %}">{{ item }}</a></p>
+        {% endfor %}
+    </div>
+
+</body>
+</html>

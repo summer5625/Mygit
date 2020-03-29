@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>操作input中value值</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+    <form>
+        男<input type="radio" name="sex">
+        女<input type="radio" name="sex"><br>
+
+        <select>
+            <option>淑媛</option>
+            <option>芳华</option>
+            <option>荆门</option>
+            <option>华为</option>
+        </select>
+    </form>
+
+    <script type="text/javascript" src="jQuery3.4.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //刷新页面时设置单选框默认值
+            $('input[type=radio]').eq(0).attr('checked',true);
+
+            console.log($('input[type=radio]').change(function () {
+                //获取值on
+                console.log($(this).val());
+                console.log($('input[type=radio]:checked').val());
+            }));
+
+            //加载页面时获取值
+            console.log($('select option:selected').text());
+
+            //加载页面时获取被选中的索引
+            console.log($('select').get(0).selectedIndex);
+            $('select option').get(0).selected = true;
+            $('select').change(function () {
+                //获得选中项的值
+                console.log($('select option:selected').text());
+                console.log($('select').find('option:selected').text());
+
+                //获取选中项的索引
+                console.log($('select option:selected').1());
+                console.log($('select').get(0).selectedIndex);
+            })
+        })
+
+    </script>
+</body>
+</html>

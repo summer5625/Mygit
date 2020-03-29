@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格标签</title>
+</head>
+<body>
+    <table border="1" cellspacing="0">  <!--border是表格边框线的宽度，cellspacing是边框线的间距-->
+        <caption>商品清单</caption>  <!--添加表格标题-->
+        <thead>
+            <th>产品名称</th>
+            <th>品牌</th>
+            <th colspan="2">数量和入库时间</th> <!--横向合并单元格，合并列-->
+        </thead>
+        <tbody>
+            <tr>
+            <td>电视机</td>
+            <td>海尔</td>
+            <td>200</td>
+            <td>Sep-17</td>
+            </tr>
+            <tr>
+                <td>音响</td>
+                <td>300</td>
+                <td rowspan="2">小米</td> <!--纵向合并单元格，合并行-->
+                <td>Aug-18</td>
+            </tr>
+            <tr>
+                <td>电冰箱</td>
+                <td>1000</td>
+
+                <td>Feb-19</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr><td colspan="6">表格</td></tr>
+        </tfoot>
+    </table>
+
+</body>
+</html>

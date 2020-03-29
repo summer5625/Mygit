@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>内置对象Array</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //构造函数
+        var co = new Array();
+        if (Array.isArray(co)){
+            co[0] = 'r';
+            co[1] = 'b';
+            co[2] = 'g';
+        }
+        console.log(typeof co);
+        var a = co.toString(); // 数组转字符串
+        console.log(a);
+        console.log(typeof a);
+    </script>
+</body>
+</html>

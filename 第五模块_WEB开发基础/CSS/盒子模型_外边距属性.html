@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>外边距属性margin</title>
+    <style type="text/css">
+        span{
+            background-color: #52D20C;
+        }
+        div{
+            background-color: red;
+        }
+        /*水平方向盒子间距合并，及左右两个盒子设置距离的和*/
+        .s1{
+            margin-right: 40px;
+        }
+        .s2{
+            margin-left: 50px;
+        }
+        /*垂直方向上两个盒子的外边距塌陷，取两个盒子外边距的最大值*/
+        .box1{
+            margin-bottom: 100px;
+        }
+        .box2{
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!--外边距：一个盒子到另外一个盒子的距离-->
+    <span class="s1">狗熊</span><span class="s2">站站</span>
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+</html>

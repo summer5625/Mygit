@@ -1,0 +1,17 @@
+DRF 序列化组件
+
+1、下载djangorestframework包：pip install djangorestframework
+
+2、在项目文件夹里的settings.py文件中配置djangorestframework:
+
+    INSTALLED_APPS = [
+        'rest_framework',  # 注册
+    ]
+
+3、在应用文件夹下新建一个serializers.py文件
+
+4、在文件中声明一个需要序列化的表格对象
+
+5、在视图文件中导入rest_framework的接口api和返回函数response
+
+6、序列化的数据在xxx.data里面

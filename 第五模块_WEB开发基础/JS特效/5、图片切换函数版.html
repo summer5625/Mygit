@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片切换函数版</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #box{
+            border: 1px solid #ccc;
+            width: 450px;
+            height: 50px;
+            padding-top: 500px;
+            background: url("image/b1.png") no-repeat;
+        }
+        #box ul li{
+            display: inline-block;
+            margin-right: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <ul>
+            <li class="item">
+                <img src="image/bs1.png">
+            </li>
+            <li class="item">
+                <img src="image/bs2.png" >
+            </li>
+            <li class="item">
+                <img src="image/bs3.png">
+            </li>
+            <li class="item">
+                <img src="image/bs4.png">
+            </li>
+            <li class="item">
+                <img src="image/bs5.png">
+            </li>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+        //低级写法
+        /*var item1 = document.getElementById('item1');
+        var item2 = document.getElementById('item2');
+        var item3 = document.getElementById('item3');
+        var item4 = document.getElementById('item4');
+        var item5 = document.getElementById('item5');
+        var bgImg = document.getElementById('box');
+
+        item1.onmouseover = function () {
+            bgImg.style.background = 'url("image/b1.png") no-repeat';
+        };
+        item2.onmouseover = function () {
+            bgImg.style.background = 'url("image/b2.png") no-repeat';
+        };
+        item3.onmouseover = function () {
+            bgImg.style.background = 'url("image/b3.png") no-repeat';
+        };
+        item4.onmouseover = function () {
+            bgImg.style.background = 'url("image/b4.png") no-repeat';
+        };
+        item5.onmouseover = function () {
+            bgImg.style.background = 'url("image/b5.png") no-repeat';
+        };*/
+
+
+        //函数写法
+        /*function ite(id) {
+            return typeof id === 'string'?document.getElementById(id):null;
+        }
+
+        function setBgc(itLi,imgSrc) {
+            ite(itLi).onmouseover = function () {
+                ite('box').style.background = imgSrc;
+            }
+        }
+
+        setBgc('item1','url("image/b1.png") no-repeat');
+        setBgc('item2','url("image/b2.png") no-repeat');
+        setBgc('item3','url("image/b3.png") no-repeat');
+        setBgc('item4','url("image/b4.png") no-repeat');
+        setBgc('item5','url("image/b5.png") no-repeat');*/
+
+        //升级写法
+        var bgImg = document.getElementById('box');
+        var items = document.getElementsByClassName('item');
+        for (var i=0; i < items.length;i++){
+            var  item = items[i];
+            item.id = i+1;
+            item.onmouseover = function f(){
+                bgImg.style.background = `url("image/b${this.id}.png") no-repeat`;
+            }
+        }
+
+    </script>
+</body>
+</html>

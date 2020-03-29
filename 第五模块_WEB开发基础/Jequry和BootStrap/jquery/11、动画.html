@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css">
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: #ff6700;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button id="show">显示</button>
+    <button id="hidden">隐藏</button>
+    <button id="of">开关式</button>
+    <div class="box"></div>
+
+
+    <script type="text/javascript" src="jQuery3.4.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#show').click(function () {
+                //show(动画时间，function)
+                //默认normal 400ms； slow 600ms ；fast 200ms
+                $('.box').show(2000,function () {
+                    $(this).text('淑媛');
+                })
+            });
+
+            $('#hidden').click(function () {
+                $('.box').hide()
+            });
+
+            //开关式的显示隐藏
+            $('#of').click(function () {
+                //$('.box').toggle(2000);//此种方式和定时器差不多，多次开关会累加，需要在每次开之前先关闭
+                $('.box').stop().toggle(2000);
+            })
+
+        })
+    </script>
+</body>
+</html>

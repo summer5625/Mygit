@@ -1,0 +1,304 @@
+前端框架和库的区别：
+
+    功能上的不同：
+        jquery库：包含DOM(操作DOM)+请求，就是一块功能。
+
+        art-template库：模板引擎渲染，高性能的渲染DOM    (我们后端的一种模板  跟python的模板类似)
+
+        框架：大而全的概念，简易的DOM体验+请求处理+模板引擎
+
+        在KFC的世界里，库就是一个小套餐，框架就是全家桶。
+
+
+    代码上的不同：
+        一般使用库的代码，是调用某个函数或者直接使用抛出来的对象，我们自己处理库中的代码。
+        一般使用框架，其框架本身提供的好的成套的工具帮我们运行我们编写好的代码。
+
+
+    框架的使用：
+        1.初始化自身的一些行为
+        2.执行你所编写的代码
+        3.释放一些资源
+
+nodejs的安装使用：
+
+    1、官网下载安装：https://nodejs.org/en/download/
+
+    2、打开cmd输入node -v 检查安装版本
+
+    3、npm使用
+        a.使用cmd命令进入当前项目的文件夹
+        b.输入npm init初始化npm
+        c.按照要求一步步操作，记住项目文件夹不要命名为vue
+        d.命令行输入npm install vue --save下载安装vue
+    4、使用npm init --yes进行初始化项目时会直接生成package.json文件，就不用输入太多东西了
+
+    5、npm install@+vue版本号 --save  下载指定版本的vue
+       npm install jquery --save 下载jQuery
+
+
+    6、参数说明package.json文件：
+
+        {
+      "name": "myvue",  # 项目的目录
+      "version": "1.0.0", # 项目版本号
+      "description": "",  # 项目描述
+      "main": "index.js", # 项目的入口文件
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },   # 项目的脚本
+      "author": "summer",  # 项目的作者
+      "license": "ISC",  # 认证证书
+      "dependencies": {
+        "vue": "^2.6.10"
+      }  # 当前项目的依赖
+    }
+
+
+Vue起步：
+
+1、引包三种方式：
+    1.直接下载并用<script>标签引入
+    2.CDN方式引入：<script src='htps://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js'></script>
+    3.npm install vue 方式
+
+2、启动new Vue
+
+
+
+Vue基础语法补充：
+
+    1、$属性：
+        $refs：获取组件内的元素
+        $parent：获取当前组件的父组件
+        $children：获取当前组件的子组件
+        $root：获取 New Vue的实例化对象
+        $el：获取组件对象的DOM元素
+
+
+vue的插件：
+
+    1、vue + vue-router主要来做单页面应用（Single Page Application），简称SPA
+
+    2、单页面应用：它是一种网站应用的模型，它可以动态重写当前的页面来与用户交互，而不需要重新加载整个页面
+
+    3、为什么要做单页面应用应用？
+
+        1.传统的开发方式，url改变后，立马发送请求，响应整个页面，有可能资源过多，传统开发会让前端页面出现白屏，用户体验不好
+
+        2.SPA单页面应用：锚点值改变后，不会立刻发送请求，是在某个合适的时机，发送ajax请求，局部改变页面中的数据，页面不跳转
+
+
+
+路由范式：
+
+    1.#/xxx/1
+
+    2.#/xxx/xxx?xxx=1
+
+
+axios插件：
+
+    1、安装：像router一样安装
+    2、作用：前后端交互的，前端可以使用axios向后端发送请求，和ajax差不多
+
+
+webpack插件打包js文件：
+
+    1、作用：对前端资源（如：html，css，js，图片，mp3，mp4等）进行编译打包，输出一个js文件
+
+    2、webpack打包命令：
+        使用方法一：使用命令行
+            1.进入程序对应的根文件夹
+            2.在命令行输入 ：webpack 要打包文件的路径 打包后文件的名字和路径
+            3.缺点：每次修改后都要重新打包
+
+        使用方法二：在项目文件夹安装webpack模块
+            1.进入项目所在文件夹
+            2.在命令行输入 npm init --yes,会生成一个package.json文件
+            3.在命令行输入npm i webpack@3.12.0 -D，下载安装webpack模块包
+            4.在项目文件夹创建一个webpack.config.js文件
+            5.在命令行输入：webpack
+
+            另外一种生成bundle.js打包文件的方法：
+            1.在package.json文件中将："scripts": {"test": "echo \"Error: no test specified\" && exit 1" }
+              修改为："scripts": {"dev": "webpack"}
+            2.然后安照第二种方法的1、2、3、4步骤执行
+            3.最后在命令行输入npm run dev
+
+    3、修改webpack配置文件
+        1.一般情况下webpack的配置文件名字webpack.config.js是固定不变的，但有时候也需要修改配置文件名字，便于区分生成环境和开发环境
+        2.在package.json文件中配置配置文件："scripts": {
+            "dev": "webpack --config ./webpack.dev.config.js",  //开发环境
+            "build": "webpack --config ./webpack.product.config.js" //生产环境
+          },
+        3.在命令行输入npm run dev 或者npm run build即可
+
+webpack插件打包css文件：
+
+    1、进入项目文件夹，在命令行输入npm install style-loader -D和npm install css-loader -D下载安装style-loader和css-loader
+    2、style-loader会在HTML文件中生成一个style标签，css-loader解析导入的css文件
+
+前端中也有模块导入，导入方式如下：
+    import xxx from './index.js'
+
+
+webpack插件值html-webpack-plugin：
+
+    //该操作是产品上线
+    1、下载安装，命令行输入：npm install html-webpack-plugin -D
+    2、在webpack.product.config.js文件中配置引入html-webpack-plugin插件
+    3、配置完成后再命令行输入：>npm run build
+
+
+安装生成环境上线工具：
+    1、下载安装http-server插件：npm install -g http-server
+    2、在项目文件夹下命令行输入：Hs -o -p 端口号
+
+
+webpack-dev-server插件使用(开发环境下的插件)：
+
+    1.进入项目文件夹，命令行输入：npm install webpack-dev-server@2.9.0 -D下载安装插件
+
+    2.在package.json文件中配置webpack-dev-server插件：
+
+    3.配置完成后命令行输入npm run dev
+
+
+
+单页组件vue-loader和vue-template-compiler：
+
+    1.下载安装，进入项目文件夹，命令行输入：npm install vue-loader@14.1.1 vue-template-compiler@2.5.17 -D
+
+    2.在webpack-dev-config-css文件中配置vue-loader解析：
+        module:{
+            loaders:[
+                {
+                    test:/\.vue$/, //必须是test
+                    loader:'vue-loader'
+                },
+            ]
+        },
+
+    3.将入口文件修改为以.vue为后缀名
+    4.编写后缀名为.vue的入口文件
+    5.编写完成后再命令行输入：npm run dev
+
+
+
+前端脚手架：通过框架将开发过程中用到的工具、环境都配置好了，开发人员就可以方便直接的做业务开发，而不用去配置环境，这个环境就是脚手架
+
+1、进入https://cn.vuejs.org/v2/guide/installation.html#Vue-Devtools，找到命令行工具CLI，点击‘官方的CLI’，进入官网
+    点击页面上的https://cli.vuejs.org/网址，选择语言中文，页面显示vue cLI3的使用说明和下载
+
+2、在命令行输入：npm install -g @vue/cli 下载安装cli
+
+3、拉取旧版本2.x版本的cli，在命令行输入：npm install -g @vue/cli-init，这样就可以兼容旧版本了
+
+
+使用前端脚手架：
+    简单模板webpack-simple使用步骤：
+        1.命令行进入项目文件夹，在命令行输入：vue init webpack-simple 项目名称
+
+        2.下载安装完成后，命令行输入：cd 01-simple-project 进入项目文件夹
+
+        3.在命令行输入:npm install 下载所有,下载速度较慢，以后可以使用淘宝上的镜像
+
+        4.下载安装完成所有的内容后，在命令行输入：npm run dev
+
+
+    复杂模板脚手架webpack使用：
+        1.命令行进入项目文件夹，在命令行输入：vue init webpack 项目名称
+
+        2.下载完成后输入：cd 02-webpack-project进入项目文件夹
+
+        3.安装vue-router
+
+
+组件vuex的使用：
+
+    1、创建一个webpack项目
+
+    2、创建完成项目后，下载vuex组件：npm install vuex -S
+
+    3、在src文件夹中创建一个用于存放数据的store文件夹，在下面创建一个用于管理数据仓库的index.js文件
+
+    4、在index.js中导入vue和vuex，并使用vuex插件
+
+
+
+
+
+
+
+#######################################路飞学城项目#######################################
+
+
+项目内容：
+
+    1、首页搭建
+
+        1.导航栏实现
+
+        2.轮播图实现
+
+    2、免费课程
+
+        1.课程列表实现
+
+        2.选项卡实现
+
+
+    3、Django框架页面实现
+
+        1.权限组件开发
+
+        2.用户密码登录
+
+        3.geetest验证码
+
+
+    4、用户购物车页面
+
+
+代码编写
+
+
+    1、公共组件：导航栏
+
+        1.下载安装element组件：npm i element-ui -S
+
+        2.在mainn.js中做如下配置：
+
+            import ElementUI from 'element-ui'
+            import 'element-ui/lib/theme-chalk/index.css'
+
+            Vue.use(ElementUI);
+
+        3.编写导航栏样式
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

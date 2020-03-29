@@ -1,0 +1,26 @@
+{% extends 'BMS/show_book_bases.html' %}
+{% load staticfiles %}
+{% block title %}
+    查看图书
+{% endblock %}
+
+{% block book_content %}
+    {% for item in book_list %}
+        <tr>
+            <td>{{ item.title }}</td>
+            <td>{{ item.price }}</td>
+            <td>{{ item.pub_date|date:'Y-m-d' }}</td>
+            <td>{{ item.publish }}</td>
+            <td>
+                <a href="/BMS/show/{{ item.id }}/delete/">
+                    <button type="submit" class="btn btn-warning">删除</button>
+                </a>
+            </td>
+            <td>
+                <a href="/BMS/show/{{ item.id }}/change/">
+                    <button type="submit" class="btn btn-info">编辑</button>
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
+{% endblock %}

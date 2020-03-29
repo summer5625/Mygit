@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模板层</title>
+</head>
+<body>
+
+    <h2>自定义过滤器</h2>
+    {% load my_tag_fliter %}
+    <p>{{ i|multi_fliter:10 }}</p>
+
+    <h3>自定义标签</h3>
+    <p>{% multi_tag 8 9 %}</p>
+
+
+</body>
+</html>

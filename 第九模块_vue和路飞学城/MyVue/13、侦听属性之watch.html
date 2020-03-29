@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>侦听属性之watch</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+    <div id="app">
+        <input v-model="msg">
+        <h3>{{msg}}</h3>
+        <button @click="Handler">修改</button>
+    </div>
+
+    <script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+
+        //watch侦听的是单个属性
+        new Vue({
+            el:'#app',
+            data(){
+                return {
+                    msg:'',
+                    firstN:'淑媛'
+                }
+            },
+            //定义watch侦听,侦听输入框内的变化
+            watch:{
+                msg:function (value) {
+                    console.log(value);
+                    if (value === 'summer'){
+                        console.log(value+' love nobody')
+                    }
+                }
+            },
+            methods:{
+                Handler(){
+                    this.msg = '芳华'
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>

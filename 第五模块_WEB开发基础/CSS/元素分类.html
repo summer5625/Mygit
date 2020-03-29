@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>元素分类</title>
+    <style type="text/css">
+        div{
+            background-color: #52D20C;
+            /*设置区域高度*/
+            height: 50px;
+            /*设置区域宽度*/
+            width: 50px;
+        }
+        p{
+            background-color: brown;
+        }
+        a,span{
+            background-color: aquamarine;
+            width: 200px;
+            height: 50px;
+        }
+
+        input{
+            width: 200px;
+            height: 20px;
+        }
+        img{
+            width: 300px;
+
+        }
+    </style>
+</head>
+<body>
+    <!--块级元素：独占一行，可以设置宽高，不设置宽默认是父标签的100%-->
+    <div>一个块</div>
+    <p>段落</p>
+    <h3>标题</h3>
+    <ul>
+        <li>列表</li>
+    </ul>
+    <ol>
+        <li>列表</li>
+    </ol>
+
+    <!--行内元素：都在一行显示，不能设置宽高-->
+    <a href="">百度一下</a>
+    <span>行内元素</span>
+    <strong></strong>
+    <em></em>
+    <label></label>
+
+    <!--行内块元素：在一行内显示，可以设置宽高-->
+    <input type="text" name="">
+    <input type="password" name="">
+    <img src="imge/timg01.jpg" alt="美女" title="美女">
+    <img src="imge/img02.jpg" alt="" title="">
+</body>
+</html>

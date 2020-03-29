@@ -1,0 +1,228 @@
+
+一、项目设计流程
+    1、分析需求
+    2、设计表结构
+    3、按功能写代码
+    4、功能测试
+    5、项目部署上线
+
+
+
+二、项目需求
+    1、基于用户认证组件和Ajax实现登录验证（图片验证码）
+    2、基于forms组件和Ajax实现注册功能
+    3、系统首页，文章列表渲染
+    4、设计个人站点页面
+    5、文章详情页面
+    6、实现文章点赞
+    7、文章评论
+        文章评论
+        评论的评论
+    8、富文本编辑框和防止XSS攻击
+
+
+
+
+滑动验证码：
+    1、先安装social-auth-app-django模块和social-auth-core
+    2、
+
+
+基于form组件和Ajax的用户注册
+
+    头像预览功能实现：
+        1、获取用户选中的文件对象
+        2、获取文件对象的路径
+        3、修改img标签的src属性
+
+
+
+注册用户头像的存储
+
+    class UserInfo(AbstractUser):
+    '''
+    用户信息表
+    '''
+        nid = models.AutoField(primary_key=True)
+        telephone = models.CharField(max_length=11, null=True, unique=True)
+
+        //FileField和ImageField相同，只是要求文件格式不一样
+        avatar = models.FileField(upload_to='avatars/', default='avatars/default.png')
+
+
+    表中avatar字段是存放用户头像的字段，该字段有两个参数：
+        1、upload_to='avatars/'：是用户上传头像储存位置，如果项目根目录有avatars文件夹，则将用户上传文件存放到该文件夹中，
+            如果项目根目录下没有该文件夹，则Django会自动创建该文件夹，并将用户头像存放到该文件夹
+        2、default='avatars/default.png'：是默认的用户头像，如果用户注册时没有上传头像，则默认使用该文件为头像
+
+    注意：avatar字段存储的是用户头像的路径
+
+
+
+    创建新用户：
+
+         avatar_obj = request.FILES.get('photo')
+         UserInfo.objects.create_user(username=user.cleaned_data.get('user'),
+                                         password=user.cleaned_data.get('pwd'),
+                                         email=user.cleaned_data.get('email'),
+                                         telephone=user.cleaned_data.get('tel'),
+                                         avatar=avatar_obj)
+
+
+         Django实现用户文件上传保存：
+            会将文件对象下载到表中设置的项目根目录下avatar文件夹中（如果没有该文件夹会自己创建）
+
+
+
+media配置
+
+    Django中有两种静态文件：
+        1、js  css  img网页文件存放在 /static/文件夹下
+
+        2、用户上传文件，存放在/media/文件夹下
+
+    前面说到用户注册上传头像文件存储在项目根文件夹下的avatar文件夹下的
+
+    在项目中一般将用户上传文件存放再项目根文件夹下的media文件夹下的，这样才符合要求
+    要想实现将用户上传文件存放到media中那么就需要在setting.py中配置media的路径
+
+    Django实现用户文件上传保存：
+            会将文件对象下载到表中设置的项目根目录下media/avatar/文件夹中（如果没有该文件夹会自己创建）
+
+
+media配置值MEDIA_URL：
+
+    作用：使客户端浏览器能直接访问到media中的用户静态文件
+
+    配置方法：
+
+        在全局setting.py中：
+            添加：MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+                 MEDIA_URL = '/media/'
+
+        在全局的urls.py文件中添加路径：
+
+            添加： re_path(r'media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT})路径
+
+
+设计系统首页（文章列表渲染）
+
+admin组件（非项目必须，也可以用其他插件程序管理数据库）：
+    Django内部自带的一个组件：进行后台数据管理的界面（在WEB页面上显示），即能操作数据库
+
+
+配置admin：
+    在项目文件夹下，找到admin.py文件，将所有创建的表格导入到这个文件中即可
+    from blog.models import *
+
+
+    admin.site.register(UserInfo)
+    admin.site.register(Blog)
+    admin.site.register(Category)
+    admin.site.register(Tag)
+    admin.site.register(Article)
+    admin.site.register(Article2Tag)
+    admin.site.register(ArticleUpDown)
+    admin.site.register(Comment)
+
+    在登录该页面时必须是超级用户，才能登陆
+
+
+
+
+个人页面站点文章列表渲染
+
+
+
+数据查询
+
+mysql之date_format
+
+mysql中将时间对象转换为时间的字符串：select data_format(date, '%Y-%m-%d') from t_table
+
+
+日期归档查询，方式一：
+Django之extra函数
+    extra(select=None, where=None, params=None, tables=None, order_by=None, select_params=None)
+
+    有些情况下，Django的查询语法难以简单的表达复杂的 WHERE 子句，对于这种情况, Django 提供了 extra() QuerySet修改机制 — 它能在 QuerySet生成的SQL从句中注入新子句
+
+    extra可以指定一个或多个 参数,例如 select, where or tables. 这些参数都不是必须的，但是你至少要使用一个!要注意这些额外的方式对不同的数据库引擎可能存在移植性问题.(因为你在显式的书写SQL语句),除非万不得已,尽量避免这样做
+
+    参数之select
+
+    The select 参数可以让你在 SELECT 从句中添加其他字段信息，它应该是一个字典，存放着属性名到 SQL 从句的映射。
+
+    queryResult=models.Article
+    　　　　　　　　　　　.objects.extra(select={'is_recent': "create_time > '2017-09-05'"})
+    结果集中每个 Entry 对象都有一个额外的属性is_recent, 它是一个布尔值，表示 Article对象的create_time 是否晚于2017-09-05.
+
+    练习：
+
+    in sqlite:
+
+        article_obj=models.Article.objects
+    　　　　　　　　　　　　　　.extra(select={"standard_time":"strftime('%%Y-%%m-%%d',create_time)"})
+    　　　　　　　　　　　　　　.values("standard_time","nid","title")
+        print(article_obj)
+        # <QuerySet [{'title': 'MongoDb 入门教程', 'standard_time': '2017-09-03', 'nid': 1}]>
+
+
+日期归档查询方拾贰：
+
+
+       from django.db.models.functions import TruncMonth
+
+       Sales.objects
+		    .annotate(month=TruncMonth('timestamp'))  # 截取时间到月，并将截取到的时间赋值给month
+		    .values('month')                          # 根据截取的时间进行分组
+		    .annotate(c=Count('id'))                  # 统计个数
+		    .values('month', 'c')                     # 获取想要的结果
+
+	使用此函数后，要注意配置的时区问题，如果不注意时区 问题就会报如下错误：
+	    	ValueError: Database returned an invalid datetime value. Are time zone definitions for your database installed?
+
+    解决办法：
+        一般在setting.py文件中将时区设置为，当前所在的时区
+        在setting.py文件中USE_TZ = True，默认设置的是True，这个是造成上面问题的主要原因，只需要将其改为False即可
+
+
+
+自定义标签（将数据和标签元素合并到一个自定义标签中）：
+
+    rom django import template
+    from django.db.models import Count
+    from django.db.models.functions import TruncMonth # 导入日期归档函数
+
+    from blog.models import *
+
+    register = template.Library()
+
+
+    @register.inclusion_tag('classification_tag.html') # 要有一个参数，参数是要渲染的标签模板
+    def classification_tag(username):
+
+        标签中要使用的数据
+
+        return 标签中要使用的数据字典
+
+
+
+文章评论功能：
+
+    根评论：对文章的评论
+
+    子评论：对评论的评论
+
+    事务操作
+
+
+发送邮件：
+
+
+
+后台管理页面
+
+
+

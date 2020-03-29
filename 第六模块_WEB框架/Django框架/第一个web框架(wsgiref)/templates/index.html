@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发表评论</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        textarea{
+            border: none;
+        }
+        ul{
+            list-style: none;
+        }
+        #box{
+            width: 740px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            padding: 20px;
+        }
+        #title{
+            width: 740px;
+            margin-bottom: 16px;
+            font-size: 25px;
+            font-weight: bolder;
+        }
+        #comment_title{
+            margin-bottom: 16px;
+            font-size: 25px;
+            font-weight: bolder;
+        }
+        #top{
+            width: 740px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+        #comment{
+            width: 720px;
+            padding: 10px 10px;
+            font-size: 15px;
+            outline: none;
+        }
+       #box .button_box{
+           height: 33px;
+           background-color: #F9F9F9;
+           line-height: 43px;
+           position: relative;
+       }
+       #box #button{
+           position: absolute;
+           width: 92px;
+           height: 33px;
+           background-color: #ff6700;
+           border: 1px solid #ff6700;
+           border-radius: 3px;
+           right: 12px;
+           bottom: 5px;
+           cursor: pointer;
+       }
+        #comment_list li{
+            border-bottom: 1px dashed #ccc;
+            width: 740px;
+            color: red;
+            line-height: 50px;
+        }
+        #comment_list li a{
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="title">发表评论</div>
+        <div id="top">
+            <textarea id="comment" cols="100" rows="10" placeholder="请输入评论" style="resize: none"></textarea>
+            <div class="button_box">
+                <button id="button">发布</button>
+            </div>
+        </div>
+        <div class="comment_table">
+            <div id="comment_title">用户评价</div>
+            <ul id="comment_list"></ul>
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+        window.onload = function () {
+            function $(id) {
+                return typeof id === 'string'? document.getElementById(id):null;
+            }
+
+            //监听按钮点击
+            $('button').onclick = function () {
+                //获取输入内容
+                var inputContent = $('comment').value;
+                //console.log(inputContent);
+                if (inputContent.length === 0){
+                    alert('输入不能为空!');
+                    return;
+                } else {
+                    var newLi = document.createElement('li');
+                    newLi.innerHTML = `${inputContent}<a href="javascript:void(0);" class="delete">删除</a>`;
+                    $('comment_list').insertBefore(newLi,$('comment_list').children[0]);//在最新一条评论前插入新评论
+
+                    //提交评论成功后清空输入框内容
+                    $('comment').value = '';
+
+                    //删除评论
+                    var delBtn = document.getElementsByClassName('delete');
+                    for (var i=0;i < delBtn.length;i++){
+                        delBtn[i].onclick = function () {
+                            this.parentNode.remove();
+                            console.log(i);
+                        }
+                    }
+                }
+            };
+        }
+    </script>
+</body>
+</html>

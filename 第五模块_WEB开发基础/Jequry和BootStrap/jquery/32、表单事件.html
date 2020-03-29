@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单事件</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+    <form action="http://www.baidu.com/s">
+        <input type="text" name="wd">
+        <input type="submit" value="搜索">
+    </form>
+
+
+    <script type="text/javascript" src="jQuery3.4.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            //输入 内容被选中触发事件
+            $('input[type=text]').select(function () {
+                console.log('内容被选中了');
+                console.log($('input').val());
+            });
+
+            //原生js的onsubmit事件
+            $('form').submit(function (e) {
+                //阻止了form表单上的默认的请求
+                e.preventDefault();
+
+                //自己发请求
+                console.log('form被submit了');
+            });
+        })
+    </script>
+</body>
+</html>

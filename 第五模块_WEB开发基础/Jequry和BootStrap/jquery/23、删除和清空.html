@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>删除和清空</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+    <div class="box">
+        <p style="font-size: 20px;font-weight: bold">淑媛</p>
+    </div>
+    <button id="del">删除</button>
+
+    <script type="text/javascript" src="jQuery3.4.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //remove()删除节点后，事件也会删除 删除了整标签
+            $('#del').click(function () {
+                var dt = $('#del').remove();
+                $('.box').prepend(dt);
+                alert('2');
+
+                //$('.box').prepend($('#del'));
+                //alert('1');
+
+            });
+
+         //detach()删除节点后，事件会保留
+            $('#del').click(function () {
+                var dh = $(this).detach();
+                $('.box').prepend(dh);
+                alert('5');
+            })
+
+        })
+    </script>
+</body>
+</html>

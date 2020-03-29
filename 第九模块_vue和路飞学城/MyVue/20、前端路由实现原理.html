@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+    <!--
+        前端路由：
+            1.监视锚点值得改变，锚点值即a标签中跳转的地址
+            2.然后ajax获取动态数据
+            3.核心点时锚点值得改变
+    -->
+    <a href="#/login">登录页面</a>
+    <a href="#/register">注册页面</a>
+    <div id="app"></div>
+
+    <script type="text/javascript" src=""></script>
+    <script type="text/javascript">
+
+        var oDiv = document.getElementById('app');
+
+        //onhashchange事件，监视url上锚点数据变化
+        window.onhashchange = function () {
+            console.log(location.hash);
+
+            //根据不同的锚点值，对页面进行局部切换
+            switch (location.hash) {
+                case "#/login":
+                    oDiv.innerHTML = '<h2>登录页面</h2>';
+                    break;
+                case "#/register":
+                    oDiv.innerHTML = '<h2>注册页面</h2>';
+                    break;
+                default:
+                    break
+
+            }
+        }
+    </script>
+</body>
+</html>

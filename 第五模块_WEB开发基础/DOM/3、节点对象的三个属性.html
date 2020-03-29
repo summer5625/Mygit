@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>节点对象的三个属性</title>
+</head>
+<body>
+    <div id="box" title="属性节点">文本节点<!--注释节点--></div>
+    <script type="text/javascript">
+        //获取元素节点
+        var El = document.getElementById('box');
+        console.log('name:'+El.nodeName+'  value:'+El.nodeValue+'  type:'+El.nodeType);
+
+        //获取属性节点
+        var att = El.attributes[0];
+        console.log('name:'+att.nodeName+'  value:'+att.nodeValue+'  type:'+att.nodeType);
+
+        //获取文本节点
+        var text = El.childNodes[0];
+        console.log('name:'+text.nodeName+'  value:'+text.nodeValue+'  type:'+text.nodeType);
+
+        //获取注释节点
+        var comm = El.childNodes[1];
+        console.log('name:'+comm.nodeName+'  value:'+comm.nodeValue+'  type:'+comm.nodeType);
+
+        //获取文档节点
+        console.log('name:'+document.nodeName+'  value:'+document.nodeValue+'  type:'+document.nodeType)
+    </script>
+</body>
+</html>
+
+<!--
+节点对象的三个重要属性：
+    1、nodename：节点名称
+    2、nodeValue：节点值
+    3、nodeType：节点类型
+
+1、nodeName属性：节点名称，是只读的，又分为下面四种节点
+    元素节点：HMTL标签，nodeName和标签名称相同
+    属性节点：标签的属性，nodeName与属性名称相同
+    文本节点：标签中的文字，nodeName永远是#text
+    文档节点：整个html文档就是一个文档节点，nodeName永远是#document
+    注释节点：注释的内容，nodeName永远是#comment
+
+
+2、nodeValue属性：节点的值
+    元素节点的nodeValue是undefined或null
+    文本节点的nodeValue是文本自身
+    属性节点的nodeValue是属性的值
+
+3、nodeType属性：节点的类型，是只读的
+        常有以下几种类型：
+            元素类型      节点类型
+              元素          1
+              属性          2
+              文本          3
+              注释          8
+              文档          9
+-->

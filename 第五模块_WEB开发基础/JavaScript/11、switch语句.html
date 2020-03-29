@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>switch语句</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var weather = 'rain';  //switch语句必须有break，如果没有break，则遇到符合条件的，程序不会终止，会继续执行
+        switch (weather) {
+            case 'sunny':
+                alert('出去浪');
+                break;
+            case 'rain':
+                alert('老实点');
+                break;
+            case 'snow':
+                alert('堆雪人');
+                break;
+            default:
+                alert('如何决定');
+                break;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+    <div id="app">
+        <h3>{{getMsg}}</h3>
+        <button @click="Handler">修改</button>
+    </div>
+
+    <script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+
+        new Vue({
+            el:'#app',
+            data(){
+                return {
+                    myName:'淑媛',
+                    age:20
+                }
+            },
+
+            methods:{
+                Handler(){
+                    this.myName = '芳华';
+                    this.age = 23
+
+                }
+            },
+            //定义计算属性,实时监听数据的变化
+            computed:{
+                getMsg:function () {
+
+                    return `${this.myName}她的年龄是${this.age}, 可以和我谈恋爱了!`
+                }
+            }
+        })
+
+
+    </script>
+</body>
+</html>
+
+
+
+
+

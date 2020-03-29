@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>父子之间插入</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="ss"></div>
+
+    <script type="text/javascript" src="jQuery3.4.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+         //*1.父子之间插入  父元素.append(子元素)  子元素.appendTo(父元素),这两个是插入到父级的子级的最后一个元素
+            var ge = document.getElementsByClassName('box');
+            var oP = document.createElement('p');
+            oP.innerText = 'love';
+            oP.id = 'aa';
+
+        //父元素.append(子元素),子元素可以是一个string、jsDOM对象、jQuery对象
+            $('.box').append('淑媛');//向标签中插入普通文本
+            $('.box').append('<h2 class="ff">芳华</h2>');//向标签中插入子元素，标签+文本
+
+            $('.box').append(oP);//插入jsDOM对象，插在标签中最后面
+
+            $('.box').append($('.ss'));//插入jQuery对象，如果HTML中有被插入的元素，则相当与移动该标签的操作
+
+
+        //子元素.appendTo(父元素)
+            $(oP).appendTo(ge);
+            $('<h3>淑媛</h3>').appendTo($('.box'));
+            $('#aa').appendTo($('.box'));
+
+
+        $('.box').append(oP).click(function () {
+                alert($(this).text());
+            });
+
+
+        $('<p>淑媛</p>').appendTo('.box').click(function () {
+            $(this).css({
+                width:100,
+                height:100,
+                backgroundColor:'red'
+            })
+        });
+
+
+        //父元素.prepend(子元素)  子元素.prependTo(父元素),插入到子级的第一个元素
+            $('.box').prepend(oP);
+            $('<h2>淑媛</h2>').prependTo($('.box')).click(function () {
+                alert($(this).text())
+            });
+
+
+        })
+
+
+
+
+    </script>
+</body>
+</html>

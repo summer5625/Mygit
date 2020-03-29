@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定时器</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //延迟操作,setTimeout(function,time),里面连个参数，第二个参数是延时时间单位为ms
+        window.setTimeout(function () {
+            console.log('淑媛');
+        },1000);//延时1s后执行代码
+        console.log('站站');
+
+
+        //设定程序定时执行
+        setInterval(function () {
+            console.log('芳华');
+        },1000);//程序每隔1s执行一次
+
+        var num = 0;
+        var timer = null;
+        timer = setInterval(function () {
+            num++;
+            if (num > 5){
+                clearInterval(timer);//清除定时器
+                return;
+            }
+            console.log(num);
+        },1000);
+    </script>
+</body>
+</html>

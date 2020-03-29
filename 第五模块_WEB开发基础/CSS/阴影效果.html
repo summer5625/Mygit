@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>阴影效果</title>
+    <style type="text/css">
+        .shadow{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            margin: 50px 50px;
+            box-shadow: 10px 10px 15px red inset;/*设置阴影属性，第一个值时阴影水平方向偏移距离 ，第二个是垂直方向上偏移距离，
+                                    第三个值是阴影的模糊程度，第四个值是阴影颜色,第五个值是确定阴影是内设还是外设，默认外设*/
+        }
+        /*鼠标悬浮产线阴影效果，并且移动*/
+        /*.shadow:hover{
+            top: -3px;
+            box-shadow: 0 10px 15px #E0E0E0;
+        }*/
+    </style>
+</head>
+<body>
+    <div class="shadow"></div>
+</body>
+</html>

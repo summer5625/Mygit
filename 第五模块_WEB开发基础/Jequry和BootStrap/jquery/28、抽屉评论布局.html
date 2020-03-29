@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>抽屉评论布局</title>
+    <link rel="stylesheet" type="text/css" href="css/fonts.css">
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .commBtn{
+            font-size: 30px;
+            color: #fff;
+            cursor: pointer;
+        }
+        .box{
+            width: 300px;
+
+            background-color: #ff6700;
+            position: relative;
+
+        }
+        .comment{
+            position: relative;
+            width: 300px;
+            height: 500px;
+            background-color: #b3d4fc;
+        }
+        .comment .xP{
+            position: absolute;
+            right: 0;
+            top: 0;
+            color: black;
+            cursor: pointer;
+        }
+        .comment .xB{
+            position: absolute;
+            bottom: 0;
+            left: 120px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span class="commBtn">评论</span>
+        <div class="comment" style="display: none">
+            <span class="close xP">X</span>
+            <button class="close xB">收起</button>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="jQuery3.4.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //点击评论，展开品论列表
+            $('.commBtn').click(function (e) {
+                e.stopPropagation();
+                $('.comment').delay(1000).slideDown(100);//delay()延时操作
+            });
+
+            //关闭评论
+            $('.comment span.close, .comment button.close').click(function (e) {
+                e.stopPropagation();
+                $('.comment').delay(1000).slideUp(100);
+            });
+
+            $('.box').click(function (e) {
+                return false;
+            });
+
+            $('body').click(function (e) {
+                $('.comment').delay(500).slideUp(100);
+                return false;
+            });
+
+
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDoList</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <style type="text/css"></style>
+</head>
+<body>
+    <header>
+        <div>
+            <label for="title">ToDoList</label>
+            <input type="text" id="title" placeholder="添加待办事项">
+            <button id="btn">添加</button>
+        </div>
+    </header>
+    <div id="content">
+        <h2>
+            正在进行
+            <span id="count">1</span>
+        </h2>
+
+        <ul id="backlog">
+            <li class="rows">
+                <input type="checkbox">
+                <p>
+                    <span>待办事项</span>
+                    <input type="text">
+                </p>
+                <span>X</span>
+            </li>
+            <li class="rows">
+                <input type="checkbox">
+                <p>
+                    <span>待办事项</span>
+                    <input type="text">
+                </p>
+            </li>
+            <li class="rows">
+                <input type="checkbox">
+                <p>
+                    <span>待办事项</span>
+                    <input type="text">
+                </p>
+            </li>
+        </ul>
+        <h2>
+            已完成事项
+            <span id="countF">1</span>
+        </h2>
+        <ul id="finishLog">
+            <li>
+                <input type="checkbox">
+                <p>
+                    <span>已完成事项</span>
+                    <input type="text">
+                </p>
+                <span>X</span>
+            </li>
+        </ul>
+    </div>
+    <footer>
+        Copyright &copy; 2019 todolist.cn
+    </footer>
+
+
+    <script type="text/javascript" src="js/jQuery3.4.1.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript"></script>
+</body>
+</html>

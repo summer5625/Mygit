@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字符串常用方法</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var str = 'ghskk泪vbeuqns2f流';
+        console.log(str.length);//查看字符串长度
+        //console.log(str.charAt(6));//获取指定的字符
+        //console.log(str.charCodeAt(6));//获取指定字符的ASSIC码
+        //console.log(str.concat('嘻嘻嘻','呵呵呵'));//拼接字符串，一般不用此方法拼接，一般用+
+
+        //字符串切片slice(),substring(),substr()
+        //console.log(str.slice(-5,-2));//同数组的slice一样
+        //console.log(str.substring(-5));//不能为负数，一个参数时为负数获取的是整个字符串
+        //console.log(str.substr(4));//一个参数时和上面两个一样
+        //console.log(str.substr(2,5));//两个参数时，第二个参数代表取多少个字符
+
+        //查找索引indexOf(),lastIndexOf()
+        //console.log(str.indexOf('t',6));//查找指定字符的索引，从前向后找，第二个参数代表查找的起始位置
+        //console.log(str.lastIndexOf('t',6))//查找指定字符的索引，从后向前找，第二个参数代表查找的起始位置
+
+
+        //trim()清除字符串前后的空格，中间空格不清除
+        //var str1 = ' i love you  ';
+        //console.log(str1.trim());
+
+        //字符串转大小写,常用toUpperCase()，toLowerCase()
+        //toLocaleLowerCase()和toLocaleUpperCase()用于个别地区
+
+        //console.log(str.toUpperCase());
+        var st = 'I Love You';
+        //console.log(st.toLowerCase());
+
+        //查找当前字符串中指定字符的所有位置
+        var word = 'Tell me where do I find someone like you girl';
+        var coun = [];
+        var indx = word.indexOf('e');
+        while (indx > -1){
+            coun.push(indx);
+            indx = word.indexOf('e',indx+1);
+        }
+        console.log(coun);
+
+    </script>
+</body>
+</html>

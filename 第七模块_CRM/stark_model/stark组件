@@ -1,0 +1,104 @@
+1、创建项目
+
+
+2、创建app01和app02中的表结构
+
+
+3、对以上三张表做增删改查
+    1.为每个表创建增删改查四个url和四个视图函数
+
+        app01/models.py
+
+            Department
+                /app01/department/list/
+                /app01/department/add/
+                /app01/department/edit/(/d+)/
+                /app01/department/del/(/d+)/
+
+            UserInfo
+                /app01/userinfo/list/
+                /app01/userinfo/add/
+                /app01/userinfo/edit/(/d+)/
+                /app01/userinfo/del/(/d+)/
+
+
+        app02/models.py
+
+             Host
+                /app02/host/list/
+                /app02/host/add/
+                /app02/host/edit/(/d+)/
+                /app02/host/del/(/d+)/
+
+    2.动态生成每个表的增删改查url
+
+        a.动态生成url
+
+        b.将试图提取到基类Handler
+
+        c.url分发扩展和后缀名
+
+        d.为url设置别名
+
+        e.优化url别名重生成
+
+
+
+4、定制页面显示的列
+
+    a.自定义显示的列
+
+    b.定义分页
+
+    c.定义添加按钮
+        --要保留原搜索信息，用装饰器保留上次搜索条件
+
+        --添加页面和数据保存
+
+    d.增删改查功能
+
+
+
+5、其他常用功能
+
+    1.排序
+
+    2.模糊搜索
+
+        a.实现：在页面设置form表单，搜索，一get形式提交到当前页面地址
+
+    3.批量操作
+
+        a.添加CheckBox列
+        b.生成批量操作按钮
+
+
+    4.组合搜索
+
+        实现：
+            a.根据字段找到关联的数据
+            b.用户配置搜索字段
+            c.根据配置字段获取对应关联数据
+            d.在页面上显示组合搜索的按钮
+                1.将根据字段获取到的数据中的queryset类型和元组类型的数据进行分类后封装；定义一个封装的类
+            e.为组合搜索按钮生成url
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

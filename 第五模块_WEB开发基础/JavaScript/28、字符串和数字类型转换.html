@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字符串和数字类型转换</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //字符转数值
+        var str = '3.7415926454551552585211561';
+        var st = '3r00.1415926';
+        console.log(parseInt(str)); //转换成整型，不会四舍五入，遇到非数字即停止
+        console.log(parseFloat(str)); //转换成浮点型数字，最多保留小数点后18位
+        var a = Number(str);
+        console.log(isNaN(a));//
+
+        //数值转字符
+        //强制转换
+        var number = 333.1415926;
+        console.log(number.toString());
+        console.log(String(number));
+
+        //隐式转换
+        console.log('' + number);
+        console.log(''.concat(number));
+
+        console.log(number.toFixed(3));//不写参数只保留整数部分，写了参数就是要保留几位小数
+    </script>
+</body>
+</html>

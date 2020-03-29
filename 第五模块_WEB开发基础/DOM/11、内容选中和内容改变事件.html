@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>内容选中和内容改变事件</title>
+</head>
+<body>
+    <!--一般针对文本框或者文本域中的选中事件onselect和onchange-->
+    <textarea cols="30" rows="10">请输入描述文字，不少于20字</textarea>
+    <input type="text" name="" value="淑媛">
+    <script type="text/javascript">
+        var area = document.getElementsByTagName('textarea')[0];
+        var inp = document.getElementsByTagName('input')[0];
+
+        //检测内容是否被选中了
+        area.onselect = function () {
+            console.log('选中了');
+        };
+
+        //检测内容是否被改变了
+        area.onchange = function () {
+            console.log('内容被改变了');
+        };
+
+        //实时检测是否有输入
+        inp.oninput = function () {
+            console.log('正在输入');
+            console.log(inp.value);
+        };
+    </script>
+</body>
+</html>

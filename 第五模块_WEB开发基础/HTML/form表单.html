@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form表单</title>
+</head>
+<body>
+    <form action="http://www.baidu.com" method="get" enctype=""> <!--action提交输入框内输入的内容到相应的服务器  method提交的方式 -->
+        <p>
+            <label for="username">用户名:</label> <!--label标签是与相应输入框关联的标签，for是关联输入框框的id-->
+            <input type="text" placeholder="请输入用户名" id="username">
+            <!--type是输入内容显示方式text显示输入内容，password不明文显示输入内容，
+            placeholder是输入框中的提示 value是输入框中的默认值-->
+        </p>
+        <p>
+            <label for="pwd">密码:</label>
+            <input type="password" placeholder="请输入密码" id="pwd">
+        </p>
+        <p>
+            男:<input type="radio" name="sex" checked="checked">
+            女:<input type="radio" name="sex">
+            <!--radio是单选框，name是设置表单的属性，；两个选项属性相同选择时就是互斥的，checked是默认选择-->
+        </p>
+        <h3>购买的课程</h3>
+        <p>
+            python全栈:<input type="checkbox" checked="checked"><br>
+            web前端:<input type="checkbox"><br>
+            linux运维:<input type="checkbox">
+            <!--checkbox是复选框 可以设置checked属性-->
+        </p>
+        <h3>下拉框单选</h3>
+        <p>
+            <select>
+                <option value="a">web前端</option>
+                <option value="b">python全栈</option>
+                <option selected="selected">linux运维</option><!--selected设置下拉框默认选择项-->
+                <option>JavaScript</option>
+                <option>小程序</option>
+            </select>
+        </p>
+        <h3>下拉框多选</h3>
+        <p>
+            <select multiple="multiple" size="5"><!--添加multiple属性可以实现下拉框多选，不添加只能单选-->
+                <option value="a">web前端</option>
+                <option value="b">python全栈</option>
+                <option value="c" selected="selected">linux运维</option><!--selected设置下拉框默认选择项-->
+                <option>JavaScript</option>
+                <option>小程序</option>
+            </select>
+        </p>
+         <h3>多行文本输入</h3>
+        <p>
+            <textarea rows="5" cols="5"></textarea> <!--textarea多行文本输入框标签，rows是行数，cols是列数-->
+        </p>
+        <h3>文件上传</h3>
+        <p>
+            <input type="file">
+        </p>
+        <p>
+            <input type="submit" value="立即注册">
+            <input type="reset" value="重置">
+            <!--submit显示一个提交按钮，不设值默认显示提交，value是按钮显示内容-->
+        </p>
+
+        <button>按钮</button> <!--普通按钮-->
+        <input type="button" value="按一下">
+<!---->
+    </form>
+</body>
+</html>

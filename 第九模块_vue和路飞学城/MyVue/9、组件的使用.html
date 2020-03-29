@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件使用</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .main{
+            width: 100%;
+        }
+        .head{
+            width: 100%;
+            height: 70px;
+            background-color: #1b6d85;
+            text-align: center;
+            line-height: 70px;
+            font-size: 20px;
+        }
+        .wrap{
+            width: 100%;
+            height: 1200px;
+        }
+        .wrap .aside{
+            width: 30%;
+            height: 100%;
+            background-color: #52D20C;
+            float: left;
+        }
+        .wrap .content{
+            width: 70%;
+            height: 100%;
+            background-color: #ff6700;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+
+        //1.声明入口组件,组件名称的首字母要大写
+
+
+        var Vhead = {
+            template:`
+                <header class="head">头部啊</header>
+
+            `
+        };
+
+        var Vaside = {
+            template:`<div class="aside">侧边栏啊</div>`
+        };
+        var Vcontent = {
+            template:`<div class="content">内容啊</div>`
+        };
+
+        //局部组件
+        var Vmain = {
+            template:`
+                <div class="main">
+                    <Vhead></Vhead>
+                    <div class="wrap">
+                        <Vaside></Vaside>
+                        <Vcontent></Vcontent>
+                    </div>
+                </div>
+            `,
+            components:{
+                //等价于Vhead:Vhead
+                Vhead,
+                Vaside,
+                Vcontent
+            }
+        };
+
+
+        new Vue({
+            el:'#app',
+            //使用子组件
+            template: `<Vmain/>`,
+            data:{
+
+            },
+            components:{
+                // 挂在组件
+                Vmain:Vmain,
+
+            }
+        })
+
+    </script>
+</body>
+</html>

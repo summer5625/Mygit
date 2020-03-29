@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组常用方法</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //toString和toLocaleString在转换时间时有区别：toString转换成北京时间（Tue Sep 03 2019 15:54:22 GMT+0800 (中国标准时间)）
+        //toLocaleString转换成日期格式（2019/9/3）
+        var p1 = {
+            toLocaleString:function () {
+                return 'summer';
+            },
+            toString:function () {
+                return '夏天';
+            }
+        };
+        var p2 = {
+            toLocaleString:function () {
+                return '隔壁傻屌';
+            },
+            toString:function () {
+                return '隔壁没人';
+            }
+        };
+        /*var peo = [p1,p2];
+        var da = new Date();
+        var a = da.toString();
+        var b = da.toLocaleDateString();
+        console.log(a);
+        console.log(b);*/
+
+        //数组join分割字符串方法
+        var co = ['red',25,'blue'];
+        //var a = co.join('/');//将数组内元素用/分割开，并且拼接成一个字符串
+        //console.log(a);
+        //console.log(typeof a);
+
+        //数组的栈方法，先进后出
+        //co.push('yellow');  //push向数组内添加元素，添加到最后一个元素后面
+        //console.log(co);
+        //co.pop();
+        //console.log(co); //pop删除并返回数组最后一个元素
+
+        //数组的对列方法，先进先出
+        co.unshift('yellow'); //unshift向数组内添加元素，将元素添加到第一个元素
+        console.log(co);
+        co.shift(); //shift删除并返回数组内第一个元素
+        console.log(co);
+
+    </script>
+</body>
+</html>

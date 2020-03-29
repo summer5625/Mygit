@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+
+    <div id="app"></div>
+    <script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+    <!--1、引入vue-router对象，返回一个全局的VueRouter对象，提供两个全局的组件：outer-link  router-view-->
+    <script type="text/javascript" src="./node_modules/vue-router/dist/vue-router.js"></script>
+    <script type="text/javascript">
+
+        //2、让vue使用该VueRouter对象创建
+        Vue.use(VueRouter);
+         // 导航栏上 有首页  智能题库  登录退出 四个按钮
+
+        // 用户访问首页时 看到的是首页的内容
+
+         // 1.当用户访问智能题库时，此时我们检测用户是否有权限访问该智能题库的内容，
+         // 如果没有 检测用户是否登录过，如果没有，则跳转登录页面，登录完成之后。
+
+         // 在localStroage中通存储该用户的用户名和密码，并且立刻跳转到智能题库页面
+         // 2.当用户点击黜退，该用户直接删除
+
+        var Home = {
+			template:`
+				<div>
+				 我是首页
+				</div>
+			`
+		};
+
+        var QuestionBank = {
+
+            template:`
+                <div>我是题库</div>`,
+
+        };
+
+        var Login = {
+            data(){
+                return{
+                    name:'',
+                    pwd:'',
+                }
+            },
+            template:`<div>
+                        <input type="text" v-model = 'name'>
+                        <input type="text" v-model = 'pwd'>
+                        <input type="button" value="登录" @click="loginHandler">
+                      </div>`,
+            methods:{
+                loginHandler(){
+                    localStorage.setItem('user', {name:this.name, pwd:this.pwd});
+
+                    //编程式导航
+                    this.$router.push({name:'questionbank'})
+
+                }
+            }
+        };
+
+        //3、创建一个路由对象
+        var router = new VueRouter({
+
+            //配置路由对象
+            routes:[
+                {
+                    path:'/home',
+                    name:'home',
+                    component:Home,
+                },
+                {
+                    path:'/questionbank',
+                    name:'questionbank',
+                    component:QuestionBank,
+
+                    //给未来路由做权限控制
+                    meta:{
+                        //表名访问该路由时需要登录
+                        auth:true
+                    }
+
+                },
+                {
+                    path:'/login',
+                    name:'login',
+                    component:Login
+                }
+
+            ]
+        });
+
+        //全局的导航守卫
+        router.beforeEach(function (to, from, next) {
+            console.log(to.meta.auth);
+            console.log(from);
+            console.log(next);
+
+            if (to.meta.auth) {
+
+                //如果不调用next页面会卡住
+                if (localStorage.getItem('user')) {
+                    //不为空，放行
+                    next()
+                }else{
+                    //为空，跳转到登录
+                    next({path:'/login'})
+                }
+
+            }else{
+
+                next()
+            }
+        });
+
+        var App = {
+            //keep-alive对网页上的组件缓存，防止创建销毁组件是消耗浏览器性能
+            template:`
+                <div>
+                    <router-link to="/home">首页</router-link>
+                    <router-link to="/questionbank">智能题库</router-link>
+                    <router-link to="/login">登录</router-link>
+                    <a href="javascript:void(0)" @click="clear">退出</a>
+                    <keep-alive>
+                        <router-view></router-view>
+                    </keep-alive>
+                </div>
+
+            `,
+            methods: {
+                clear(){
+                    localStorage.removeItem('user');
+                    this.$router.push('/login');
+                }
+            }
+        };
+
+        new Vue({
+            el:'#app',
+            components:{
+                App
+            },
+            router,  //不加router路由对象会报错
+            template:`<App></App>`,
+        })
+
+
+
+    </script>
+</body>
+</html>

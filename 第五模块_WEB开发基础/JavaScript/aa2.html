@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*function createStudent(name,age) {
+            var obj = new Object();
+            obj.name = name;
+            obj.age = age;
+            return obj;
+        }*/
+        function Student(name,age) {
+            this.name = name;
+            this.age = age;
+            this.alertName = function () {
+                alert(this.name);
+            };
+        }
+        function Friut(name,color) {
+            this.name = name;
+            this.color = color;
+            this.alertName = function () {
+                alert(this.name);
+            };
+        }
+
+        var s1 = new Student('淑媛',25);
+        var f1 = new Friut('菠萝','yellow');
+        console.log(s1 instanceof Student);
+        console.log(f1 instanceof Student);
+
+    </script>
+</body>
+</html>

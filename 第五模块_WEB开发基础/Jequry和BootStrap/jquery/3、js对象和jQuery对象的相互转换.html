@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js对象和jQuery对象的相互转换</title>
+    <style type="text/css">
+        #box2{
+            width: 100px;
+            height: 100px;
+            background-color: #ff6700;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div id="box2"></div>
+
+    <script type="text/javascript" src="jQuery3.4.1.js"></script>
+    <script type="text/javascript">
+        //获取 js对象
+        var oDiv = document.getElementById('box2');
+        console.log(oDiv);
+
+        //获取jQuery对象
+        console.log($('#box2'));
+
+        //js对象转jQuery对象
+        console.log($(oDiv));
+
+        //jquery对象转js对象
+        console.log($('#box2')[0]);
+        console.log($('#box2').get(0));
+
+        /*
+           如果是js对象，更加希望转换成jQuery对象，才能简单的操作DOM.因为js包含jQuery的，jQuery只是封装DOM时间ajax动画，
+
+           注意：如果是jQuery对象就一定要调用jQuery对象的属性和方法，如果是js对象就一定要调用js的属性和方法。在jQuery中
+           大部分是API（方法），length和索引属性
+        */
+
+    </script>
+</body>
+</html>

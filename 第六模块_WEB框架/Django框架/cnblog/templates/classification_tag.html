@@ -1,0 +1,48 @@
+
+
+
+<div class="">
+    <div class="panel panel-info">
+        <div class="panel-body">
+            <h4>随笔分类</h4>
+        </div>
+        <div class="panel-footer">
+            {% for item in category_list %}
+                <p>
+                    <a href="/blog/{{ blog.site_name }}/category/{{ item.0 }}/">{{ item.0 }}</a>
+                    <span>({{ item.1 }})</span>
+                </p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="panel panel-info">
+        <div class="panel-body">
+            <h4>我的标签</h4>
+        </div>
+        <div class="panel-footer">
+            {% for item in tag_list %}
+                <p>
+                    <a href="/blog/{{ blog.site_name }}/tag/{{ item.0 }}/">{{ item.0 }}</a>
+                    <span>({{ item.1 }})</span>
+                </p>
+
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="panel panel-info">
+        <div class="panel-body">
+            <h4>随笔档案</h4>
+        </div>
+        <div class="panel-footer">
+            {% for item in date_list %}
+                <p>
+                    <a href="/blog/{{ blog.site_name }}/archive/{{ item.0|date:'Y/m' }}/">{{ item.0|date:'Y年m月' }}</a>
+                    <span>({{ item.1 }})</span>
+                </p>
+
+            {% endfor %}
+        </div>
+    </div>
+</div>

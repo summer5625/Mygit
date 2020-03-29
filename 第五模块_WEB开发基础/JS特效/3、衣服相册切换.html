@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>衣服相册切换</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+            overflow: hidden;
+        }
+        ul li{
+            float: left;
+            width: 65px;
+            height: 65px;
+            margin-left: 10px;
+            margin-top: 20px;
+            border: 2px solid #fff;
+            text-align: center;
+            line-height: 65px;
+        }
+        ul li.active{
+            border-color: red;
+        }
+    </style>
+</head>
+<body>
+    <img src="image/b1.png" id="bigPicture" width="400px">
+    <ul>
+        <li class="active">
+            <a href="#">
+                <img src="image/b1.png" width="46" class="small">
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="image/b2.png" width="46" class="small">
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="image/b3.png" width="46" class="small">
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="image/b4.png" width="46" class="small">
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="image/b5.png" width="46" class="small">
+            </a>
+        </li>
+    </ul>
+
+    <script type="text/javascript">
+        var bigImage = document.getElementById('bigPicture');
+        var smallImage = document.getElementsByClassName('small');
+
+        //遍历获取到所有小图片的image
+        for (var i=0; i < smallImage.length;i++){
+            smallImage[i].onmouseover = function () {
+                //在鼠标悬浮在每个li标签之前将所有li标签类名设置为空
+                for (var j=0; j < smallImage.length;j++){
+                    smallImage[j].parentNode.parentNode.setAttribute('class','');
+                }
+
+                //修改大图的src属性
+                var bigSrc = this.getAttribute('src');
+                bigImage.setAttribute('src',bigSrc);
+
+                //给每个img标签的爷爷标签添加类名
+                this.parentNode.parentNode.setAttribute('class','active');
+            }
+        }
+    </script>
+</body>
+</html>

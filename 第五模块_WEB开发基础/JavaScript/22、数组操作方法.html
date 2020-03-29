@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组操作方法</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //数组合并，元素添加
+        var a = ['淑媛','战王八',2];
+        var b = ['芳华','girl'];
+        //var newa =a.concat({name:'lv'},25); //添加元素后生成新的数组，原来数组没有变
+        //console.log(newa);
+        //var list = a.concat(b);//将两个数组合并成一个新数组
+        //console.log(list);
+
+
+        //数组切片slice
+        //当slice(x)只有一个参数时代表将数组从索引值x开始切割，x以前元素全部删除
+        //当有两个参数slice(x,y)时是从x开始切直到y，切片原则顾头不顾尾
+        var l = a.concat(b);
+        var lb = l.slice(-4,-2);
+       // console.log(lb);
+
+
+        //splice可以进行删除，插入，替换操作
+        //splice(start,number,element)有三个参数，第一个是开始值，第二个是删除数量，第三个是替换元素或者对象
+        //删除
+        var li = a.concat(b);
+        console.log(li);
+        //var ll = li.splice(1,2); //从索引值为1的元素开始，删除并返回两个元素，删除后原来数组元素改变
+        //console.log(ll);
+        //console.log(li);
+
+        //插入
+        //li.splice(1,0,'beautiful girl');
+        //li.splice(2,0,b); //插入数组后，会认为整体数组是一个元素
+        //console.log(li);
+
+        //替换
+        li.splice(2,1,'beautiful girl');
+        console.log(li);
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ formset.management_form }} <!--使用formset进行提交表单信息时要加上这行，否则会报错-->
+        <table>
+            <thead>
+                <tr>
+                    <td>标题</td>
+                    <td>URL</td>
+                    <td>NAME</td>
+                    <td>菜单</td>
+                    <td>父权限</td>
+                </tr>
+            </thead>
+            <tbody>
+            {% for form in formset %}
+                <tr>
+                    {% for field in form %}
+                        <td>{{ field }}<span style="color: red">{{ field.errors.0 }}</span></td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <input type="submit" value="提交">
+    </form>
+
+    <script type="text/javascript" src=""></script>
+    <script type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax的post请求</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+    <form>
+        <input type="text" name="user">
+        <input type="submit" name="">
+    </form>
+
+
+
+    <script type="text/javascript" src="jQuery3.4.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('form').submit(function (e) {
+                //阻止表单默认事件
+                e.preventDefault();
+                var userName = $('input[type=text]').val();
+
+
+                $.ajax({
+                    url:'http://localhost:8800/create',
+                    type:'post',
+                    data:{
+                        "name":userName
+                    },
+                    success:function (data) {
+                        console.log(data);
+                    },
+                    error:function (err) {
+                        console.log(err);
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+</html>

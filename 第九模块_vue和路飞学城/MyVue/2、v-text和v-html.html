@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+
+    <div id="app">
+        <h3>{{msg}}</h3>
+        <h3>覆盖面</h3>
+    </div>
+
+    <script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+
+        new Vue({
+            el:'#app',
+            data:{
+                msg:'错过就不在',
+                msg2:'<a href="#">电极棒</a>'
+            },
+            template:`
+                      <div>
+                          <h3>{{msg}}</h3>
+                          <p v-text="msg2"></p>
+                          <p v-html="msg2"></p>
+                      </div>`
+        })
+
+        //template模板的优先级最高，当有template时el对应的对象就被覆盖掉了
+        //当有v-text和v-html时，则template模板中在最外层必须要用<div>标签包裹，否则会报错，
+        //v-text相当于{{}}插值，内部实现原理：innerText， v-html 实现原理：innerHTML
+
+    </script>
+</body>
+</html>

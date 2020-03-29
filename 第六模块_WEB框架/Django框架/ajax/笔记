@@ -1,0 +1,26 @@
+1、向服务器发送请求途径
+
+    浏览器地址栏，默认get请求
+
+    form表单：
+        get请求
+        post请求
+
+    a标签，默认get请求
+
+    Ajax
+        优点：
+            1、AJAX使用JavaScript技术向服务器异步发送请求
+            2、页面局部刷新
+        get请求
+        post请求
+
+
+二、请求头
+    1、form表单的请求头：
+        一般form的enctype=属性不填写一般默认的是application/x-www-form-urlencoded格式，这种格式只能提交普通的键值
+        不能提交用户上传的文件
+
+        上传文件使用form表单的enctype="multipart/form-data"属性
+
+    2、Ajax的请求头

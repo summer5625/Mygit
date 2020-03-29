@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+
+    <div id="app">
+        <!--  模板语法：主要用于插值{{}}  -->
+        <h3>{{msg}}</h3>
+        <!--可以进行字符串相加-->
+        <h3>{{msg + ' word'}}</h3>
+        <!--可以使用三元运算-->
+        <!--不能使用if else-->
+        <h3>{{1 == 1 ? '真的':'假的'}}</h3>
+        <h3>{{msg.split('').reverse().join('')}}</h3>
+        <h3>{{'hello word'.split('').reverse().join('')}}</h3>
+        <h4>{{msg.split('')}}</h4>
+        <!--插入文本-->
+        <h4>{{'hello'}}</h4>
+    </div>
+
+    <!--  1. 引包  -->
+    <script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+
+        //2.创建vue实例化对象
+
+        var app = new Vue({
+            el:'#app', //要操作的节点对象
+            data:{
+                //数据属性，数据驱动视图
+                msg:'hello vue',
+                a:10
+            }
+        });
+        app.b = 5;
+        console.log(app);
+        console.log(app.$el===document.getElementById('app')) //true
+
+        //在vue实例化对象之后，这个对象属性前面会有一个$,主要是与我们自定义的属性进行区分
+    </script>
+    <script type="text/javascript">
+        var app = new Vue({
+            el:'#app',
+        })
+    </script>
+</body>
+</html>

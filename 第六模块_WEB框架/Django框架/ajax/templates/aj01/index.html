@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+{#    <h2>I am practice Ajax!</h2>#}
+{#    <button id="ajx">发送</button>#}
+{#    <h3 class="con"></h3>#}
+{#    <hr>#}
+{##}
+{#    <h2>计算</h2>#}
+{#    <input type="text" id="n1">+<input type="text" id="n2">=<input type="text" id="re"><button class="btn">计算</button>#}
+{##}
+{#    <hr>#}
+    <h2>登陆</h2>
+    <form enctype="application/x-www-form-urlencoded">
+        <label for="user">用户名:</label>
+        <input type="text" id="user">
+        <label for="pwd">密码:</label>
+        <input type="password" id="pwd">
+        <input type="button" value="登陆" id="login">
+        <span id="error"></span>
+    </form><hr>
+
+
+    <script type="text/javascript" src="../../static/jQuery3.4.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            $('#ajx').click(function () {
+                $.ajax({
+                    url:'/aj01/index/',
+                    type:'get',
+                    data:{'get':'abc'},
+                    success:function (data) {
+                        console.log(data)
+                    }
+                })
+            });
+
+
+            $('.btn').click(function () {
+                $.ajax({
+                    url:'http://127.0.0.1:8000/aj01/test/',
+                    type:'post',
+                    data:{'n1': $('#n1').val(), 'n2': $('#n2').val()},
+                    success:function (data) {
+
+                        $('#re').val(data);
+                    }
+                })
+            });
+            
+            $('#login').click(function () {
+                $.ajax({
+                    url:'http://127.0.0.1:8000/aj01/login/',
+                    type: 'post',
+                    contentType: 'application/json',
+                    data: JSON.stringify({'user': $('#user').val(), 'pwd': $('#pwd').val()}),
+                    success:function (data) {
+                        console.log(data);
+                        var get = JSON.parse(data);
+                        console.log(get);
+
+                        if (get.user) {
+                            console.log('success');
+                            location.href = 'http://127.0.0.1:8000/index/';
+                        }
+                        else {
+                            $('#error').html(get.msg).css({'color': 'red',})
+                        }
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+</html>

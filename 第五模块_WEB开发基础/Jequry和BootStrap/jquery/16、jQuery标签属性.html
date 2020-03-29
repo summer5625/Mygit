@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery标签属性</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+    <div title="love" class="jj">淑媛</div>
+    <a>百度啊</a>
+
+    <script type="text/javascript" src="jQuery3.4.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            /*1.样式属性操作css获取值
+            css('color','red')设置单个值
+            css({
+                key1:'value',
+                key2:''value2'
+            });
+            key既可以是驼峰体，又可以使margin-left此类的样式，但是要给margin-left加引号
+
+            2.标签的属性操作
+            attr(key)获取属性值
+            attr(key,value)设置单个属性值
+            attr({key1:value1,key2:value2})设置多个值
+
+            3.DOM对象属性操作
+
+            4.类样式属性操作
+            addClass() removeClass() toggleClass()
+
+            5.对值得操作
+            text() html() val()
+            innerText
+            innerHTML
+            value
+
+            6.对DOM操作增删改查
+
+            */
+
+            //attr()有一个参数时表示获取属性的值
+            console.log($('div').attr('title'));
+
+            //attr()有两个参数时时设置属性
+            $('div').attr('id','box');
+
+            //一般不建议用attr设置类属性，会将之前的属性值覆盖掉
+            $('div').attr('class','up');
+            $('div').attr('class','to go')
+
+
+            $('a').attr({
+                'href':'http://www.baidu.com',
+                title:'找到了'
+            });
+
+            //移除属性
+            //$('div').removeAttr('class');
+        })
+    </script>
+</body>
+</html>

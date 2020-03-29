@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>file_put</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+    <!--enctype="multipart/form-data"属性是让服务端接收到用户上传文件内容，否则服务端获取的只是用户名称-->
+    <h2>基于form表单进行文件上传</h2>
+    <form action="" method="post" enctype="multipart/form-data">
+        <label for="name">用户名</label>
+        <input id="name" type="text" name="user">
+        <label for="file">文件</label>
+        <input type="file" id="file" name="file">
+        <input type="submit" id="file_btn" value="提交">
+    </form>
+    <hr>
+
+    <h2>基于Ajax进行文件上传</h2>
+
+    <form>
+        <label for="name2">用户名</label>
+        <input id="name2" type="text" name="user">
+        <label for="file">文件</label>
+        <input type="file" id="file" name="file">
+        <input type="button" id="btn" value="提交">
+    </form>
+
+
+    <script type="text/javascript" src="../../static/jQuery3.4.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            /*$('#btn').click(function () {
+                $.ajax({
+                    url: 'http://127.0.0.1:8000/aj01/file/',
+                    type: 'post',
+                    /*contentType: 'application/json',  规定请求体的数据以json格式发送
+                    data: JSON.stringify(
+                        {
+                            'user': $('#name2').val()
+                        }
+                    ),
+                    success: function (data) {
+                        console.log(data)
+                    }
+                })
+            })*/
+
+            $('#btn').click(function () {
+                var formdata = new FormData();
+                formdata.append('user', $('#name2').val());
+                formdata.append('file', $('#file')[0].files[0]);
+                console.log($('#file')[0]);
+                console.log(formdata);
+
+
+                $.ajax({
+                    url: 'http://127.0.0.1:8000/aj01/file/',
+                    type: 'post',
+                    contentType: false,  /*contentType: false和processData: false是在进行文件上传时的固定参数格式*/
+                    processData: false,
+                    data: formdata,
+                    success: function (data) {
+                        console.log(data)
+                    }
+                })
+            })
+
+        })
+    </script>
+</body>
+</html>

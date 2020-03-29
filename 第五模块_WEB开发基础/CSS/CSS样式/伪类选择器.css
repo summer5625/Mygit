@@ -1,0 +1,27 @@
+/*没有被访问过a标签的颜色*/
+a:link{
+    color: yellow;
+}
+
+/*访问过后a标签内容颜色*/
+a:visited{
+    color: blue;
+}
+
+/*鼠标悬停在a标签时字体颜色*/
+a:hover{
+    color: red;
+}
+
+/*鼠标选中a标签时字体颜色*/
+a:active{
+    color: green;
+}
+
+sapn{
+    color: blueviolet;
+}
+
+span:hover{
+    color: fuchsia;
+}

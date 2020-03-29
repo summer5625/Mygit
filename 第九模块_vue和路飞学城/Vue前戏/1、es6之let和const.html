@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>let和const</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+
+
+<script type="text/javascript" src=""></script>
+<script type="text/javascript">
+
+    /*// 在es5中声明变量用var
+    console.log(a); //打印结果undefined
+    var a = 5;
+    // console.log(a); //打印结果5
+    //上面的例子说明了使用var声明的变量时全局的，第一次打印undefined 是因为在后面var a = 5声明了后变量提升，即先在打印前声明了
+    //变量a，但是没有赋值
+
+    var a = 6;
+    console.log(a)
+    //上面例子说明了，当声明了两个同样的变量时，后面的值会将前面的值覆盖掉*/
+
+
+    //使用let声明变
+    //console.log(a);  //程序直接报错
+    // {let a = 5;}
+    // console.log(a);
+    //上面例子说明了使用let声明的变量是局部的作用域
+    // let a = 6;
+    // let a = 5;
+    // console.log(a); //程序报错
+    //说明了使用let声明的变量，不能重复声明同一个变量，会报错
+
+
+    //使用const声明变量
+    {
+        const p = 3.14;
+        p=6;
+    }
+    // p =20; //程序报错
+    console.log(p)
+
+    //说明了使用const声明的变量是一个常量，一旦声明不可更改，局部作用域
+
+</script>
+</body>
+</html>

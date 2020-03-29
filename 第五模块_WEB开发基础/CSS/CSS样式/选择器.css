@@ -1,0 +1,31 @@
+/* 后代选择器*/
+div a{
+    color: green;
+}
+
+/*子代选择器*/
+.d1>a{
+    color: red;
+}
+
+/*组合选择器*/
+a,span,p{
+    color: yellow;
+    font-size: 20px;
+}
+
+/*交集选择器*/
+
+h3{
+    color: green;
+
+}
+
+.active{
+    color: red;
+}
+
+h3.active{
+    font-size: 20px;
+    font-weight:bold;
+}

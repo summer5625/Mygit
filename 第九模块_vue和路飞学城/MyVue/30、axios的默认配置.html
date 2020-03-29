@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+
+    <div id="app"></div>
+
+    <script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+    <script type="text/javascript" src="./node_modules/axios/dist/axios.js"></script>
+    <!--axios和vue都是全局的对象  未来axios会成为局部作用域-->
+    <script type="text/javascript">
+
+        //挂载axios插件
+        Vue.prototype.$axios = axios;
+
+        //配置公共的url
+        axios.defaults.baseURL = 'http://127.0.0.1:8800';
+
+        var App = {
+            data(){
+                return{
+                    msg:'',
+                    datas:[]
+                }
+            },
+            template:`
+                <div>
+                    <button @click="sendAjax">发Get</button>
+                    <div v-html="msg"></div>
+                    <button @click="sendPost">发Post</button>
+                    {{datas}}
+                </div>
+            `,
+            methods:{
+                sendAjax(){
+                    //使用axios发送get请求
+                    this.$axios.get('/').then(
+                        res=>{
+                            console.log(res.data);
+                            console.log(this);
+                            this.msg = res.data;
+
+                        }
+                    ).catch(err=>{
+                        console.log(err)
+                    })
+                },
+
+                sendPost(){
+                    //发送post请求
+                    //发送数据是要对数据进行封装
+                    // var _this=this; //不使用箭头函数可以先将this保留
+                    var params = new URLSearchParams();
+                    params.append('name', 'alex');
+                    this.$axios.post('/create', params).then(
+                        //此处建议使用箭头函数，否则在下面赋值时this的指向会发生变化
+                          (res) =>{
+
+                            console.log(res);
+
+                            //在这里this的指向发生了改变
+                            //解决办法：在这里将上面的function函数改成箭头函数
+                            console.log(this);
+                            this.datas = res;
+                        }
+                    ).catch(err=>{
+                        console.log(err);
+                    })
+                }
+            }
+        };
+
+        new Vue({
+            el:'#app',
+            data(){
+                return{
+
+                }
+            },
+            template: '<App/>',
+            components:{
+                App
+            }
+
+        })
+
+    </script>
+</body>
+</html>

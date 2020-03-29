@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+    <div class="form-group">
+         <label for="authors">作者</label>
+         <select class="form-control" name="author" multiple="multiple" id="authors">
+             {% for item in authors %}
+                 {% if item.aid in a_id %}
+                     <option selected="selected">{{ item.aname }}:{{ item.aid }}</option>
+                     {% else %}
+                     <option>{{ item.aname }}:{{ item.aid }}</option>
+                 {% endif %}
+
+             {% endfor %}
+         </select>
+    </div>
+
+    <script type="text/javascript" src="jQuery3.4.1.js"></script>
+    <script type="text/javascript">
+
+        $(function () {
+           /* var oP = document.createElement('option');*/
+            var pub = ['舒服', '惬意', '芳华', '淑媛'];
+            var i = 0;
+            var b = ['舒服', '芳华'];
+
+            for (i; i<pub.length;i++){
+
+                 /* console.log(isInArray(b,pub[i]));*/
+                 console.log(b.indexOf(pub[i]))
+
+                /*if (pub[i] === '芳华') {
+                    $('#publish').append(`<option selected="selected">${pub[i]}</option>`);
+                }
+                else {
+                    $('#publish').append(`<option>${pub[i]}</option>`);
+                }*/
+            }
+
+
+
+        })
+
+    </script>
+</body>
+</html>

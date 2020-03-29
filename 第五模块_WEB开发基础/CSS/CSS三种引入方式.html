@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS三种引入方式</title>
+    <style type="text/css"> <!--嵌入式引入-->
+        h3{
+            color: blue;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="CSS样式/new_001.css"> <!--外部引入-->
+<!-- -->
+</head>
+<body>
+<!--1、内联式（行内式）：不会额外产生请求，尽量少用
+    2、嵌入式：代码复用不方便
+    3、外部式：代码可以重复使用，将结构和样式进行分离，但会产生额外的请求
+-->
+    <p style="color: aquamarine"> <!--内联式引入-->
+        内联式即行内式
+    </p>
+    <h3>嵌入式</h3>
+    <h4>外部式</h4>
+</body>
+</html>

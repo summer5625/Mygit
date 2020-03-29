@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery的位置信息</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .t1{
+            top: 10px;
+            left: 10px;
+            position: relative;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            padding: 20px;
+            border: 2px solid red;
+            position: absolute;
+            top: 200px;
+            left: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="t1" style="height: 3000px">
+        <div class="box"></div>
+    </div>
+
+
+    <script type="text/javascript" src="jQuery3.4.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //获取宽高,
+            //console.log($('.box').width());
+            //console.log($('.box').height());
+            //设置宽高,width和height设置获取宽高都是不包含padding和border的
+            //$('.box').width('300');
+            //$('.box').height('300');
+
+            //innerWidth(),innerHeight()中包含padding和内宽，不包含border
+            //console.log($('.box').innerWidth());
+            //console.log($('.box').innerHeight());
+
+            //改变的是内部宽高，不改变padding
+            //$('.box').innerHeight(300);
+            //$('.box').innerWidth(300);
+
+            //outerHeight(),outerWidth()中包括内宽，padding和border
+            //console.log($('.box').outerHeight());
+            //console.log($('.box').outerWidth());
+
+            //$('.box').outerWidth(300);
+            //$('.box').outerHeight(300);
+
+            //offset()返回值是一个对象包含了top和left的值,left和top的值时根据到浏览器顶部距离来确定的，和其他定位无关
+            //console.log($('.box').offset());
+
+            //不能用下面方法来修改标签定位，属性值时只读的
+            //$('.box').offset().top = 100;
+
+            //滚动偏移的距离，页面卷起的高度和宽度
+            //$(document).scrollTop(210);
+
+            //监听文档的滚动事件
+            /*$(document).scroll(function () {
+                console.log($(this));
+                console.log($(this).scrollTop());
+            });*/
+
+            $(document).scroll(function () {
+                //console.log($(this).scrollTop());
+                var sth = $(this).scrollTop();
+                var stt = $('.box').offset().top;
+                console.log(sth);
+                console.log(stt);
+                if (sth > stt){
+                    $('.box').stop().hide(1000);
+                }
+            });
+
+        })
+    </script>
+</body>
+</html>

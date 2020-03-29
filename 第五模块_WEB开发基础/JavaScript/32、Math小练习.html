@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Math小练习</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //获取范围内的随机整数
+        function randomInt(max,min) {
+            return Math.floor(Math.random() * (max - min) + min);
+        }
+        //var nu = randomInt(100,1);
+        //console.log(nu);
+
+
+        //获取随机颜色，rgb格式(255,255,255)
+        function color() {
+            var r = randomInt(256,0), g = randomInt(256,0), b = randomInt(256,0);
+
+            //模板字符串,用反引号括起来，在tab键上方的键
+            var result = `rgb(${r},${g},${b})`;
+            console.log(result);
+            return result;
+        }
+        var rc = color();
+
+        //给网页标签添颜色
+        document.body.style.backgroundColor = rc;
+
+
+        //获取随机验证码
+        function randomcode() {
+            var code = '';
+            var codelength = 4;
+            var randomCode = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O',
+                         'P','Q','R','S','T','U','V','W','X','Y','Z'];
+            for (var i = 0;i < codelength;i++) {
+                var index = randomInt(36,0);
+                code += randomCode[index];
+            }
+            return code;
+        }
+        var co = randomcode();
+        console.log(co);
+        document.write(`<h1>${co}</h1>`);
+
+    </script>
+</body>
+</html>

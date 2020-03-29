@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax的get请求</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+    <div class="box"></div>
+
+    <script type="text/javascript" src="jQuery3.4.1.js"></script>
+    <script type="text/javascript">
+        //动态页面：在不重在整个网页的情况下。ajax通过后台加载数据，并在网页上进行显示
+        //数据驱动视图，是通过控制器来显示到视图上
+        //常用的设计模式MVC(Model View Controller),可以理解为数据，视图，控制器，数据即变量，控制器即方法和函数
+
+
+
+
+        $(function () {
+
+            $.ajax({
+                url:'http://localhost:8800',
+                type:'get',
+                success:function (data) {
+                    console.log(data);
+                    $('body').html(data);
+                },
+                error:function (err) {
+                    console.log(err);
+                }
+            });
+            
+
+            
+            $.ajax({
+                url:'http://localhost:8800/course',
+                type:'get',
+                dataType:'json',
+                success:function (data) {
+                    console.log(data);
+                },
+                error:function (err) {
+                    console.log(err);
+                }
+            })
+        })
+    </script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标单双击事件</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+    <button>按钮</button>
+
+    <script type="text/javascript" src="jQuery3.4.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+
+
+            //两次单击的时间差小于300ms表示双
+            //双击问题：双击时调用了两次单击
+            //单击
+            /*$('button').click(function () {
+                console.log('被单击了！');
+            });
+
+
+            //双击
+            $('button').dblclick(function () {
+                console.log('被双击了!');
+            });*/
+
+
+
+
+            //双击问题解决
+            var timer = null;
+            var count = 0;
+            
+            $('button').click(function () {
+                console.log(timer);
+
+                //取消第一次延时未执行的方法
+                clearTimeout(timer);
+
+                //如果是双击，要阻止两次点击事件
+                timer = setTimeout(function () {
+                    //count++;
+                    //console.log(timer);
+                    console.log('单击');
+                },300);
+
+            });
+            
+            $('button').dblclick(function () {
+                console.log(timer);
+                //取消第二次延时未执行的方法
+                clearTimeout(timer);
+                console.log('双击了');
+            })
+
+
+
+
+            /*$('button').mousedown(function () {
+                console.log('按下了');
+            });
+
+            $('button').mouseup(function () {
+                console.log('弹起来');
+            });*/
+
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>卷帘门动画</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css">
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: #ff6700;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button id="down">下拉</button>
+    <button id="up">上升</button>
+    <button id="of">开关</button>
+    <div class="box"></div>
+
+    <script type="text/javascript" src="jQuery3.4.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //下拉
+            $('#down').click(function () {
+                $('.box').slideDown(1000);
+            });
+
+            //上升
+            $('#up').click(function () {
+                $('.box').slideUp(1000);
+            });
+
+            //开关
+            $('#of').click(function () {
+                $('.box').stop().slideToggle(1000);
+            })
+
+        })
+    </script>
+</body>
+</html>

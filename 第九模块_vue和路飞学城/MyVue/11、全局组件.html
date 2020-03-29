@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全局组件</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .head{
+            width: 100%;
+            height: 70px;
+            background-color: purple;
+        }
+        .default {
+            display: inline-block;
+            line-height: 1;
+            white-space: nowrap;
+            cursor: pointer;
+            background: #fff;
+            border: 1px solid #dcdfe6;
+            color: #606266;
+            text-align: center;
+            box-sizing: border-box;
+            outline: none;
+            margin: 0;
+            transition: .1s;
+            font-weight: 500;
+            padding: 12px 20px;
+            font-size: 14px;
+            border-radius: 4px;
+        }
+        .primary {
+            color: #fff;
+            background-color: #409eff;
+            border-color: #409eff;
+        }
+        .danger {
+            color: #fff;
+            background-color: #f56c6c;
+            border-color: #f56c6c;
+        }
+        .is-circle {
+            border-radius: 50%;
+            padding: 12px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="app"></div>
+    <script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+
+        //创建公共组件
+        //有连个参数，第一个参数是公共组件的名字，第二个是参数
+
+        Vue.component('Vbtn', {
+                    //<slot>提供插槽，便于在标签中插入想要的值
+                    template:`<button class="default" :class="type"><slot></slot></button>`,
+                    props:['type']
+                });
+
+        var Vhead = {
+            template:`<div class="head">
+                        <Vbtn type="primary">登录</Vbtn>
+                        <Vbtn>注册</Vbtn>
+                        <Vbtn type="danger">注销</Vbtn>
+                        <Vbtn type="is-circle">圆角</Vbtn>
+                      </div>`,
+            data(){
+                return{
+
+                }
+            }
+        };
+        var App = {
+            template:`<div>
+                          <Vhead></Vhead>
+                      </div>`,
+            components:{
+                Vhead,
+            }
+        };
+
+        new Vue({
+            el:'#app',
+            data:{
+
+            },
+            template:`<App></App>`,
+            components:{
+                App:App,
+            }
+
+        })
+    </script>
+</body>
+</html>

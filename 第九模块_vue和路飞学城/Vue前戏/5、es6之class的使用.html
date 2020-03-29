@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>class的使用</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+
+
+<script type="text/javascript" src=""></script>
+<script type="text/javascript">
+
+    /*
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+
+    }
+
+    Person.prototype.showName = function () {
+        alert(this.name);
+    };
+
+    // 使用关键字new来创建对象
+    var p = new Person('alex', 19);
+    p.showName()*/
+
+    //es6中使用class来创建对象
+
+    class Person{
+        constructor(name, age){
+            this.name = name;
+            this.age = age;
+        }
+
+        //定义类的方法
+        showName(){
+            alert(this.name)
+        }
+    }
+    var p = new Person('刘淑媛', 20);
+    p.showName()
+
+
+    /*
+
+    global对象：
+    浏览器里面，顶层对象是window，但 Node 和 Web Worker 没有window。
+    浏览器和 Web Worker 里面，self也指向顶层对象，但是 Node 没有self。
+    Node 里面，顶层对象是global，但其他环境都不支持。
+
+    */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

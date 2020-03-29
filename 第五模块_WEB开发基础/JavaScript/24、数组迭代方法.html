@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组迭代方法</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var a = [8,2,56,3,47,20,7,6,13];
+        //filter过滤操作
+        var b = a.filter(function (item,index,array) {
+            //console.log(item);
+            //console.log(index);
+            //console.log(array);
+            return item > 12; //找出数组中大于12的元素
+        });//index和array两个参数可以不填
+        //console.log(b);
+
+        //map映射操作
+        var mapr = a.map(function (item,index,array) {
+            return item*2; //将数组中每个元素乘以2
+        });
+        //console.log(mapr);
+
+        //forEach遍历当前数组
+       a.forEach(function (item,index,array) {
+            console.log(item);
+            //console.log(index);
+        });
+    </script>
+</body>
+</html>

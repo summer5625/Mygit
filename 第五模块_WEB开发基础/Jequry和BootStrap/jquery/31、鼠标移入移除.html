@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标移入移除</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .father{
+            width: 200px;
+            height: 200px;
+            background-color: #ff6700;
+        }
+        .child{
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+        }
+
+        .shopCar{
+            position: relative;
+            width: 100px;
+            height: 40px;
+            background-color: #b3d4fc;
+            line-height: 40px;
+        }
+        .content{
+            position: absolute;
+            width: 300px;
+            height: 200px;
+            background-color: #52D20C;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <p class="child">淑媛</p>
+    </div>
+    <div class="shopCar">
+        <span>购物车</span>
+        <div class="content" style="display: none"></div>
+    </div>
+
+    <script type="text/javascript" src="jQuery3.4.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //mouseover(),mouseout()鼠标穿过被选元素和被选元素的子元素会触发
+            //问题：当鼠标从被选元素区域，进入备选元素的的子元素区域会先触发移出事件，然后在触发移入事件
+            /*$('.father').mouseover(function () {
+                console.log('移入了');
+            });
+
+            $('.father').mouseout(function () {
+                console.log('移出了');
+            });*/
+
+
+
+
+            //mouseenter(),mouseleave()鼠标只穿过被选元素会触发事件
+            /*$('.father').mouseenter(function () {
+                console.log('进入了');
+            });
+
+
+            $('.father').mouseleave(function () {
+                console.log('离开了');
+            });*/
+
+
+
+           $('.shopCar').mouseover(function () {
+                $('.content').stop().slideDown(300);
+            });
+
+            $('.shopCar').mouseout(function () {
+                console.log('111');
+                $('.content').stop().slideUp(300);
+            });
+
+
+
+           /*$('.shopCar').mouseenter(function () {
+               $('.content').slideDown(300);
+           });
+
+           $('.shopCar').mouseleave(function () {
+                console.log('111');
+                $('.content').stop().slideUp(300);
+            });
+
+            */
+
+           //合成事件，合成的是mouseenter和mouseleave
+            /*$('.shopCar').hover(function () {
+                $('.content').slideDown(300);
+            },
+            function () {
+                $('.content').stop().slideUp(300);
+            })*/
+
+        });
+
+    </script>
+</body>
+</html>

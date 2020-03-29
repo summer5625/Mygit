@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+
+    <div id="app"></div>
+
+    <script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+    <script type="text/javascript" src="./node_modules/axios/dist/axios.js"></script>
+    <script type="text/javascript">
+
+        var App = {
+            data(){
+                return{
+                    msg:''
+                }
+            },
+            template:`
+                <div>
+                    <button @click="sendAjax">发Get</button>
+                    <div v-html="msg"></div>
+                    <button @click="sendPost">发Post</button>
+                </div>
+            `,
+            methods:{
+                sendAjax(){
+                    //使用axios发送get请求
+                    axios.get('http://127.0.0.1:8800/').then(
+                        res=>{
+                            console.log(res.data);
+                            console.log(typeof res.data);
+                            this.msg = res.data;
+
+                        }
+                    ).catch(err=>{
+                        console.log(err)
+                    })
+                },
+
+                sendPost(){
+                    //发送post请求
+                    //发送数据是要对数据进行封装
+                    var params = new URLSearchParams();
+                    params.append('name', 'alex');
+                    axios.post('http://127.0.0.1:8800/create', params).then(
+                        function (res) {
+                            console.log(res);
+                        }
+                    ).catch(err=>{
+                        console.log(err);
+                    })
+                }
+            }
+        };
+
+        new Vue({
+            el:'#app',
+            data(){
+                return{
+
+                }
+            },
+            template: '<App/>',
+            components:{
+                App
+            }
+
+        })
+
+    </script>
+</body>
+</html>

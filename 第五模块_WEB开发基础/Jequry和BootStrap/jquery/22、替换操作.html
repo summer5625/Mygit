@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>替换操作</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+    <div class="box">
+        <h2 id="dd">淑媛</h2>
+        <h2>芳华</h2>
+        <h3>那么</h3>
+    </div>
+
+    <script type="text/javascript" src="jQuery3.4.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            //页面中获取的DOM对象.replaceWith(替换内容)
+            $('#dd').replaceWith('<span>love</span>');
+
+            $('<p style="color:blue">past</p>').replaceAll('h2');
+        })
+    </script>
+</body>
+</html>

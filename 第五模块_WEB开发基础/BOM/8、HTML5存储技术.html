@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5存储技术e</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+
+
+    <script type="text/javascript" src=""></script>
+    <script type="text/javascript">
+        let info = {
+                        name: 'Lee',
+                        age: 20,
+                        id: '001'
+                    };
+
+        let backlog = ['chchhc','kjhhi','ghghgh'];
+        let finishLog = ['tbvhu','hguf'];
+        //sessionStorage.setItem('key', JSON.stringify(info));
+        localStorage.setItem('key', JSON.stringify(info)); //存储数据
+        localStorage.setItem('backlog', JSON.stringify(backlog)); //存储数据
+        localStorage.setItem('finishLog', JSON.stringify(finishLog)); //存储数据
+
+        //var data1 = JSON.parse(sessionStorage.getItem('key'));
+        var data2 = JSON.parse(localStorage.getItem('key')); //读取数据
+        var data3 = JSON.parse(localStorage.getItem('backlog')); //读取数据
+        var data4 = JSON.parse(localStorage.getItem('finishLog')); //读取数据
+        //console.log(data1);
+        console.log(data2);
+        console.log(data3);
+        console.log(data3);
+        console.log(data4);
+        data3.unshift('淑女啊');
+
+        localStorage.setItem('backlog', JSON.stringify(data3));
+        var data5 = JSON.parse(localStorage.getItem('backlog')); //读取数据
+        console.log(data5);
+
+
+
+
+        // window.addEventListener('storage', function (e) {
+        //     console.log('key', e.key);
+        //     console.log('oldValue', e.oldValue);
+        //     console.log('newValue', e.newValue);
+        //     console.log('url', e.url);
+        // });
+        //
+        // sessionStorage.removeItem('key');
+        // localStorage.removeItem('key');
+        //
+        // var data3 = JSON.parse(sessionStorage.getItem('key'));
+        // var data4 = JSON.parse(localStorage.getItem('key'));
+        // console.log(data3);
+        // console.log(data4);
+
+
+         window.addEventListener('storage', function (e) {
+            console.log('key', e.key);
+            console.log('oldValue', e.oldValue);
+            console.log('newValue', e.newValue);
+            console.log('url', e.url);
+        });
+
+
+
+    </script>
+</body>
+</html>

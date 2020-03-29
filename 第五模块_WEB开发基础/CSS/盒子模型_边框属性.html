@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>盒子模型_边框属性</title>
+    <style type="text/css">
+        div{
+            width: 200px;
+            height: 200px;
+            border: 3px solid red;
+            /*按照三要素编写：边框宽度width  边框样式style 边框颜色color*/
+            /*border: 2px solid red;*/
+            /*border-width: 3px;
+            border-style: solid dotted double dashed;/*实线 点状虚线 双线 虚线*/
+            /*border-color: red forestgreen gold sienna; /*为每个边框都设置颜色*/
+            /*按照方向来编写*/
+            /*border-top-width: 3px;
+            border-top-style: double;
+            border-top-color: #52D20C;*/
+        }
+        /*设置输入框样式*/
+        input{
+            border: none;/*清除默认边框样式*/
+            outline: none;/*清除默认鼠标点击时外线样式*/
+        }
+        .put{
+            border: #808080 solid;
+            width: 200px;
+            height: 30px;
+            font-size: 20px;
+            padding-left: 10px;/*设置内容与边框距离*/
+        }
+        .put:hover{
+            border: #F0F43D solid 2px;
+        }
+
+    </style>
+</head>
+<body>
+    <div>盒子边框</div>
+    <input class="put" type="text" name="">
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件对象</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+    <button>按钮</button>
+    <input type="text" name="user">
+    <p class="con"></p>
+
+    <script type="text/javascript" src="jQuery3.4.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            //jquery中没有监听输入框输入内容的方法
+            // $('input').change(function (e) {
+            //     console.log(e.target.value);
+            // })
+
+            //用js中原生oninput事件
+            $('.con').text($('input').val());
+            $('input')[0].oninput = function (e) {
+                console.log(e.target.value);
+                $('.con').text(e.target.value);
+            };
+
+            $('button').click(function (e) {
+
+
+
+                //currentTarget当前的事件的目标对象
+                //console.log(e.currentTarget);
+
+                //事件的触发对象，一个js对象
+                console.log(e.target);
+                console.log(e.target.innerText);
+                console.log($(e.target).text());
+
+                console.log(this);
+                console.log(e.target);
+
+                console.log(this === e.target);
+                console.log(this === e.currentTarget);
+                //在用事件的时候99%都需要阻止冒泡
+                //e.stopPropagation();
+            });
+
+            $('body').click(function (e) {
+                //currentTarget当前的事件的目标对象
+                //console.log(e.currentTarget);
+                //console.log(e.target);
+
+                console.log(33);
+                console.log(this === e.target);
+                console.log(this === e.currentTarget);
+
+            });
+
+            $('html').click(function (e) {
+                //currentTarget当前的事件的目标对象
+                console.log(22);
+                //console.log(e.currentTarget);
+
+                //console.log(e.target);
+                //console.log(this);
+
+                console.log(this === e.target);
+                console.log(this === e.currentTarget);
+
+            });
+
+
+        })
+    </script>
+</body>
+</html>

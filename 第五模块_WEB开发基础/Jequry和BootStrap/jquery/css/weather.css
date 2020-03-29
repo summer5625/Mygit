@@ -1,0 +1,123 @@
+.box{
+    width: 450px;
+    border-radius:5px;
+    /*background-color: #b3d4fc;*/
+    margin-left: 550px;
+    margin-top: 200px;
+    border: 1px solid #A0A0A0;
+}
+
+hr{
+    width: 400px;
+}
+
+.weather{
+    width: 400px;
+    height: 150px;
+    margin: auto;
+}
+
+#now #title{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+}
+
+#now #title{
+    font-size: 25px;
+    color: #A0A0A0;
+}
+
+#now #title span a{
+    font-size: 15px;
+    color: #D3D3D4;
+}
+
+#now #content{
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+}
+
+#now #content #picture{
+    float: left;
+    width: 80px;
+    margin-right: 10px;
+
+}
+
+#now #content #contentText{
+    float: left;
+    margin-left: 10px;
+    width: 300px;
+}
+
+#now #content #contentText #condNum{
+    height: 50px;
+    line-height: 50px;
+    overflow: hidden;
+}
+
+#now #content #contentText #condNum #temp{
+    float: left;
+    font-size: 30px;
+    color: #4A4A4A;
+}
+
+#now #content #contentText #condNum #wind{
+    float: right;
+    font-size: 20px;
+    color: #A0A0A0;
+}
+
+#now #content #contentText #condText{
+    height: 50px;
+    line-height: 50px;
+    overflow: hidden;
+}
+
+#now #content #contentText #condText #weaText{
+    float: left;
+    font-size: 25px;
+    color: #4A4A4A;
+}
+
+#now #content #contentText #condText #air{
+    float: right;
+    font-size: 20px;
+    color: #A0A0A0;
+}
+
+.box #date{
+    overflow: hidden;
+}
+
+#date .wD{
+    float: left;
+    width: 100px;
+}
+
+#date #today{
+    margin-right: 25px;
+    text-align: center;
+}
+
+#date #tomorrow{
+    margin-right: 25px;
+    margin-left: 25px;
+    text-align: center;
+}
+
+#date #afterTomorrow{
+    margin-left: 25px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+

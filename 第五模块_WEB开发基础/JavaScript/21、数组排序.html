@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组排序</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var a = [8,2,4,75,10,3];
+        var b = [];
+        var i;
+        console.log(a);
+        for (i = 0;i < a.length;i++) {
+            var c = a[i].toString();
+            var d = c.charCodeAt();//查看ASSIC码
+            b.push(d);
+        }
+        console.log(b);
+        //var ff = a.reverse(); //将数组倒序排列（索引值倒序）
+        var dd = a.sort(); //将数组中的数字先转换成字符串，然后安装ASSIC从小到大排列
+        //console.log(ff);
+        console.log(dd);
+
+        //按照大小排序,从小到大
+        function c1(a,b) {
+            return a - b;
+        }
+        a.sort(c1);
+        console.log(a);
+
+        //按照大小排序,从大到小
+        function c2(a,b) {
+            return b - a;
+        }
+        a.sort(c2);
+        console.log(a);
+    </script>
+</body>
+</html>

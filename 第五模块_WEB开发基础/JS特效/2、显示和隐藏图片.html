@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>显示和隐藏图片</title>
+</head>
+<body>
+    <button id="but">隐藏</button><br>
+    <img src="image/a1.jpg" id="scenery" width="500px">
+
+    <script type="text/javascript">
+        var obut  = document.getElementById('but');
+        var scenery = document.getElementById('scenery');
+        //var isShow = true;
+        obut.onclick = function () {
+            if (obut.innerHTML === '隐藏') {
+                scenery.style.display = 'none';
+                obut.innerHTML = '显示';
+            }
+            else {
+                scenery.style.display = 'block';
+                obut.innerHTML = '隐藏';
+            }
+        };
+    </script>
+</body>
+</html>

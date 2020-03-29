@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单列布局</title>
+    <style type="">
+        html,body{
+            margin: 0;
+            height: 100%;
+        }
+        .head{
+            width: 100%;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            background-color: #000000;
+        }
+        .container{
+            width: 1200px;
+            margin: 0 auto;
+        }
+        .head .container{
+            height: 60px;
+            background-color: #ff6700;
+        }
+        .wrap{
+            height: 100%;
+            width: 100%;
+
+        }
+        .wrap .container{
+            height: 100%;
+            background-color: red;
+        }
+        .foot{
+            width: 100%;
+            height: 100px;
+        }
+        .foot .container{
+            height: 100%;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+<!--以小米商城为例：
+    小米商城是单列布局，分为头部，内容和脚部-->
+    <div class="head">
+        <div class="container"></div>
+    </div>
+    <div class="wrap">
+        <div class="container"></div>
+    </div>
+    <div class="foot">
+        <div class="container"></div>
+    </div>
+</body>
+</html>

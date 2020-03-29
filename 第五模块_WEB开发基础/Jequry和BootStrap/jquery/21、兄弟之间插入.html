@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>兄弟之间插入</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css"></style>
+</head>
+<body>
+    <ul>
+        <li class="box">淑媛</li>
+    </ul>
+
+    <script type="text/javascript" src="jQuery3.4.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var title = '百度';
+            $('.box').after(`<li>
+                                <a href="#">${title}</a>
+                             </li>`);
+           // $('.box').insertAfter('<li></li>');
+
+            $('.box').before('<li><a href="#">芳华</a></li>');
+           // $('.box').insertBefore('<li></li>');
+        });
+    </script>
+</body>
+</html>
